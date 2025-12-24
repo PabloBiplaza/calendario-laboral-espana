@@ -162,22 +162,40 @@ class CanariasAutonomicosScraper(BaseScraper):
                             })
         
         # Construir lista estructurada
-        # 1. Festivos de toda Canarias
-        for fest in festivos_canarias:
-            festivo = {
-                'fecha': fest['fecha'],
-                'fecha_texto': fest['fecha_texto'],
-                'descripcion': fest['descripcion'],
-                'tipo': 'autonomico',
-                'ambito': 'autonomico',
-                'ccaa': 'Canarias',
-                'islas': 'Todas',
-                'municipios_aplicables': 'Todos',
-                'year': self.year
-            }
-            festivos.append(festivo)
+        # IMPORTANTE: Filtrar festivos nacionales que ya vienen del BOE
+        # Solo queremos festivos ESPECÍFICOS de Canarias (Día de Canarias + insulares)
         
-        # 2. Festivos insulares
+        festivos_nacionales_conocidos = [
+            'año nuevo', 'epifanía', 'jueves santo', 'viernes santo',
+            'fiesta del trabajo', 'asunción', 'fiesta nacional de españa',
+            'todos los santos', 'constitución', 'inmaculada', 'natividad'
+        ]
+        
+        # 1. Festivos de toda Canarias (solo los específicos, no nacionales)
+        for fest in festivos_canarias:
+            descripcion_lower = fest['descripcion'].lower()
+            
+            # Filtrar si es nacional
+            es_nacional = any(
+                festivo_nacional in descripcion_lower 
+                for festivo_nacional in festivos_nacionales_conocidos
+            )
+            
+            if not es_nacional:
+                festivo = {
+                    'fecha': fest['fecha'],
+                    'fecha_texto': fest['fecha_texto'],
+                    'descripcion': fest['descripcion'],
+                    'tipo': 'autonomico',
+                    'ambito': 'autonomico',
+                    'ccaa': 'Canarias',
+                    'islas': 'Todas',
+                    'municipios_aplicables': 'Todos',
+                    'year': self.year
+                }
+                festivos.append(festivo)
+        
+        # 2. Festivos insulares (estos siempre son autonómicos)
         for isla, datos in festivos_insulares.items():
             islas_aplicables = isla.split('/') if '/' in isla else [isla]
             
