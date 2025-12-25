@@ -150,13 +150,36 @@ class BOEScraper(BaseScraper):
             print(f"   🎯 Método: PARSING HTML del BOE (detectados por patrones regex)")
         return festivos
 
-
-if __name__ == "__main__":
-    # Test del scraper
-    scraper = BOEScraper(year=2026)
+def main():
+    """Test del scraper"""
+    import sys
+    
+    # Permitir especificar año por argumento
+    if len(sys.argv) > 1:
+        try:
+            year = int(sys.argv[1])
+        except ValueError:
+            print("❌ Año inválido. Uso: python -m scrapers.core.boe_scraper [año]")
+            return
+    else:
+        year = 2026  # Por defecto
+    
+    print("=" * 80)
+    print(f"🧪 TEST: BOE Scraper - Festivos {year}")
+    print("=" * 80)
+    
+    scraper = BOEScraper(year=year)
     festivos = scraper.scrape()
     
     if festivos:
         scraper.print_summary()
-        scraper.save_to_json('data/nacionales_2026.json')
-        scraper.save_to_excel('data/nacionales_2026.xlsx')
+        scraper.save_to_json(f"data/nacionales_{year}.json")
+        scraper.save_to_excel(f"data/nacionales_{year}.xlsx")
+        
+        print(f"\n✅ Test completado para {year}")
+    else:
+        print(f"\n❌ No se pudieron extraer festivos para {year}")
+
+
+if __name__ == "__main__":
+    main()

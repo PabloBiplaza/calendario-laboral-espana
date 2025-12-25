@@ -73,18 +73,28 @@ class BOEAutoDiscovery:
     def _try_auto_discovery(self, year: int) -> Optional[str]:
         """
         Intenta auto-discovery usando la API del BOE
-        Best-effort, puede fallar sin romper nada
+        Busca en TODOS los días de septiembre-diciembre del año anterior
         """
         try:
-            # Buscar en octubre del año anterior
             search_year = year - 1
             
-            # Solo buscar en días específicos para no hacer 90 peticiones
-            # La Resolución suele publicarse a final de mes
-            dias_candidatos = [28, 29, 30, 31, 27, 26, 25]
+            print(f"   🔍 Buscando en API del BOE (sept-dic {search_year})...")
+            print(f"   ⏱️  Esto puede tardar ~30-60 segundos...")
             
-            for mes in [10, 11, 12]:  # Oct, Nov, Dic
-                for dia in dias_candidatos:
+            # Buscar en TODOS los días de septiembre a diciembre
+            for mes in [9, 10, 11, 12]:  # Sept, Oct, Nov, Dic
+                # Determinar días del mes
+                if mes == 2:
+                    max_day = 29 if search_year % 4 == 0 else 28
+                elif mes in [4, 6, 9, 11]:
+                    max_day = 30
+                else:
+                    max_day = 31
+                
+                print(f"   → Buscando en {search_year}/{mes:02d}...", end=" ", flush=True)
+                
+                # Buscar TODOS los días del mes (de más reciente a más antiguo)
+                for dia in range(max_day, 0, -1):
                     fecha = f"{search_year}{mes:02d}{dia:02d}"
                     api_url = f"{self.api_url}/boe/sumario/{fecha}"
                     
@@ -97,31 +107,88 @@ class BOEAutoDiscovery:
                         doc_id = self._search_in_json(data, year)
                         
                         if doc_id:
+                            print(f"✅ (día {dia})")
                             return f"{self.base_url}/diario_boe/txt.php?id={doc_id}"
                     
                     except:
                         continue
+                
+                print("❌")
+            
+            print(f"   ❌ No encontrado en sept-dic {search_year}")
+            
+            # Fallback: enero-febrero del año objetivo (publicación muy tardía)
+            print(f"   🔄 Intentando en enero-febrero {year} (publicación tardía)...")
+            
+            for mes in [1, 2]:
+                max_day = 29 if mes == 2 and year % 4 == 0 else (28 if mes == 2 else 31)
+                
+                print(f"   → Buscando en {year}/{mes:02d}...", end=" ", flush=True)
+                
+                for dia in range(max_day, 0, -1):
+                    fecha = f"{year}{mes:02d}{dia:02d}"
+                    api_url = f"{self.api_url}/boe/sumario/{fecha}"
+                    
+                    try:
+                        response = requests.get(api_url, timeout=5, headers={'Accept': 'application/json'})
+                        if response.status_code != 200:
+                            continue
+                        
+                        data = response.json()
+                        doc_id = self._search_in_json(data, year)
+                        
+                        if doc_id:
+                            print(f"✅ (día {dia})")
+                            return f"{self.base_url}/diario_boe/txt.php?id={doc_id}"
+                    
+                    except:
+                        continue
+                
+                print("❌")
             
             return None
             
-        except:
+        except Exception as e:
+            print(f"   ⚠️  Error en auto-discovery: {e}")
             return None
     
     def _search_in_json(self, data: dict, year: int) -> Optional[str]:
-        """Busca el documento en el JSON del sumario"""
-        # Convertir todo el JSON a string y buscar
-        json_str = json.dumps(data, ensure_ascii=False).lower()
-        
-        # Buscar el patrón
-        if f'fiestas laborales' in json_str and str(year) in json_str:
-            # Intentar extraer el ID
+        """
+        Busca el documento en el JSON del sumario
+        Enfoque simple: busca en el JSON completo como string
+        """
+        try:
+            # Convertir todo el JSON a string lowercase
+            json_str = json.dumps(data, ensure_ascii=False).lower()
+            
+            # Buscar "fiestas laborales" + año
+            if 'fiestas laborales' not in json_str or str(year) not in json_str:
+                return None
+            
+            # Encontrar todas las ocurrencias de IDs BOE
             import re
-            pattern = r'boe-a-\d{4}-\d{5}'
+            pattern = r'"identificador"\s*:\s*"(boe-a-\d{4}-\d{5})"'
             matches = re.findall(pattern, json_str)
-            if matches:
-                return matches[0].upper()
-        
-        return None
+            
+            # Para cada ID encontrado, verificar si su contexto habla de festivos
+            for boe_id in matches:
+                # Buscar el contexto alrededor de este ID (±500 chars)
+                idx = json_str.find(f'"{boe_id}"')
+                if idx == -1:
+                    continue
+                
+                context = json_str[max(0, idx-500):min(len(json_str), idx+500)]
+                
+                # Verificar que en ese contexto está "fiestas laborales" + año
+                if 'fiestas laborales' in context and str(year) in context:
+                    # Verificar que sea resolución/relación
+                    if 'resolución' in context or 'relación' in context:
+                        return boe_id.upper()
+            
+            return None
+            
+        except Exception as e:
+            return None
     
     def validate_url(self, url: str, year: int) -> bool:
         """Valida que una URL contiene la Resolución de festivos"""
