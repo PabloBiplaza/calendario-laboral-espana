@@ -1,73 +1,119 @@
 """
-BOE Discovery - Sistema híbrido mantenible
-Prioriza URLs conocidas, con auto-discovery como fallback opcional
+BOE Auto-Discovery usando la API oficial de datos abiertos
+Sistema de cache automático para URLs descubiertas
 """
 
 import requests
 from typing import Optional
 import json
+import os
+import re
 
 
 class BOEAutoDiscovery:
     """
     Sistema de descubrimiento de URLs del BOE
-    Enfoque pragmático: URLs conocidas + auto-discovery opcional
+    Guarda automáticamente URLs descubiertas en cache JSON
     """
     
-    # URLs conocidas (actualizar manualmente cada año)
+    # URLs conocidas hardcoded (base de datos oficial)
     KNOWN_URLS = {
         2026: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-21667",
         2025: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-21234",
-        # Añadir nuevos años aquí cuando se publiquen
+        2024: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2023-22014",
+        # Las URLs descubiertas dinámicamente se guardan en config/boe_urls_cache.json
     }
+    
+    CACHE_FILE = "config/boe_urls_cache.json"
     
     def __init__(self):
         self.base_url = "https://www.boe.es"
         self.api_url = f"{self.base_url}/datosabiertos/api"
+        self._load_cache()
     
-    def get_url(self, year: int, try_auto_discovery: bool = False) -> str:
+    def _load_cache(self):
+        """Carga URLs descubiertas previamente desde el cache JSON"""
+        if os.path.exists(self.CACHE_FILE):
+            try:
+                with open(self.CACHE_FILE, 'r', encoding='utf-8') as f:
+                    self.cached_urls = json.load(f)
+                print(f"📦 Cache cargado: {len(self.cached_urls)} URLs descubiertas previamente")
+            except:
+                self.cached_urls = {}
+        else:
+            self.cached_urls = {}
+    
+    def _save_to_cache(self, year: int, url: str):
+        """Guarda una URL recién descubierta en el cache"""
+        try:
+            # Actualizar cache en memoria
+            self.cached_urls[str(year)] = url
+            
+            # Asegurar que existe el directorio
+            os.makedirs(os.path.dirname(self.CACHE_FILE), exist_ok=True)
+            
+            # Guardar a disco
+            with open(self.CACHE_FILE, 'w', encoding='utf-8') as f:
+                json.dump(self.cached_urls, f, ensure_ascii=False, indent=2)
+            
+            print(f"💾 URL guardada en cache: {year} → {url}")
+            print(f"💡 Próximas ejecuciones usarán el cache (instantáneo)")
+            
+        except Exception as e:
+            print(f"⚠️  No se pudo guardar en cache: {e}")
+    
+    def get_url(self, year: int, try_auto_discovery: bool = True) -> str:
         """
         Obtiene la URL de la Resolución de festivos.
         
-        Args:
-            year: Año del calendario
-            try_auto_discovery: Intentar auto-discovery si no está en KNOWN_URLS
-            
-        Returns:
-            URL válida
-            
-        Raises:
-            ValueError: Si no se encuentra URL
+        Orden de búsqueda:
+        1. KNOWN_URLS (hardcoded, oficial)
+        2. Cache JSON (URLs descubiertas previamente)
+        3. Auto-discovery (API del BOE)
         """
-        # 1. Primero, intentar URLs conocidas
+        year_str = str(year)
+        
+        # 1. Primero, intentar KNOWN_URLS (oficial)
         if year in self.KNOWN_URLS:
             url = self.KNOWN_URLS[year]
-            print(f"✅ URL conocida para {year}: {url}")
+            print(f"✅ URL oficial (KNOWN_URLS) para {year}: {url}")
             
-            # Validar que sigue siendo válida
             if self.validate_url(url, year):
                 return url
             else:
-                print(f"⚠️  URL conocida no válida, buscando alternativa...")
+                print(f"⚠️  URL oficial no válida, buscando alternativa...")
         
-        # 2. Si no está en conocidas y se permite, intentar auto-discovery
+        # 2. Segundo, intentar cache de URLs descubiertas
+        if year_str in self.cached_urls:
+            url = self.cached_urls[year_str]
+            print(f"📦 URL en cache (descubierta previamente) para {year}: {url}")
+            
+            if self.validate_url(url, year):
+                return url
+            else:
+                print(f"⚠️  URL en cache no válida, re-descubriendo...")
+        
+        # 3. Tercero, intentar auto-discovery
         if try_auto_discovery:
-            print(f"🔍 Intentando auto-discovery para {year}...")
+            print(f"🔍 Auto-discovery para {year} (no está en cache)...")
             url = self._try_auto_discovery(year)
+            
             if url and self.validate_url(url, year):
                 print(f"✅ URL encontrada por auto-discovery: {url}")
-                print(f"💡 Tip: Añádela a KNOWN_URLS en boe_discovery.py")
+                
+                # Guardar en cache para futuras ejecuciones
+                self._save_to_cache(year, url)
+                
                 return url
         
-        # 3. Si todo falla, dar instrucciones
+        # 4. Si todo falla, dar instrucciones
         raise ValueError(
             f"\n❌ No se encontró URL para {year}.\n\n"
             f"Para añadirla manualmente:\n"
             f"1. Busca en https://www.boe.es 'fiestas laborales {year}'\n"
-            f"2. Encuentra la Resolución (suele publicarse en octubre-noviembre del año {year-1})\n"
-            f"3. Copia el ID del documento (ej: BOE-A-{year-1}-XXXXX)\n"
-            f"4. Añade a scrapers/discovery/boe_discovery.py:\n"
-            f"   {year}: 'https://www.boe.es/diario_boe/txt.php?id=BOE-A-{year-1}-XXXXX'\n"
+            f"2. Encuentra la Resolución (suele publicarse en oct-nov {year-1})\n"
+            f"3. Añade a {self.CACHE_FILE}:\n"
+            f'   "{year}": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-{year-1}-XXXXX"\n'
         )
     
     def _try_auto_discovery(self, year: int) -> Optional[str]:
@@ -166,7 +212,6 @@ class BOEAutoDiscovery:
                 return None
             
             # Encontrar todas las ocurrencias de IDs BOE
-            import re
             pattern = r'"identificador"\s*:\s*"(boe-a-\d{4}-\d{5})"'
             matches = re.findall(pattern, json_str)
             
@@ -187,7 +232,7 @@ class BOEAutoDiscovery:
             
             return None
             
-        except Exception as e:
+        except Exception:
             return None
     
     def validate_url(self, url: str, year: int) -> bool:
@@ -205,37 +250,16 @@ class BOEAutoDiscovery:
             
         except:
             return False
-    
-    @classmethod
-    def add_known_url(cls, year: int, url: str):
-        """Añade una URL conocida (para uso programático)"""
-        cls.KNOWN_URLS[year] = url
-        print(f"✅ Añadida URL para {year}")
 
 
 def main():
-    """Test del discovery"""
+    """Test del auto-discovery con cache"""
     discovery = BOEAutoDiscovery()
     
-    # Probar con 2026 (está en KNOWN_URLS)
-    print("="*80)
-    print("TEST 1: Año con URL conocida (2026)")
-    print("="*80)
-    try:
-        url = discovery.get_url(2026)
-        print(f"\n✅ Éxito: {url}\n")
-    except ValueError as e:
-        print(f"\n❌ Error: {e}\n")
-    
-    # Probar con 2027 (no está en KNOWN_URLS)
-    print("="*80)
-    print("TEST 2: Año sin URL conocida (2027)")
-    print("="*80)
-    try:
-        url = discovery.get_url(2027, try_auto_discovery=False)
-        print(f"\n✅ Éxito: {url}\n")
-    except ValueError as e:
-        print(f"\n❌ Esperado: {e}\n")
+    # Probar con 2026
+    url_2026 = discovery.get_url(2026)
+    print(f"\n{'='*80}")
+    print(f"📄 URL final para 2026: {url_2026}")
 
 
 if __name__ == "__main__":
