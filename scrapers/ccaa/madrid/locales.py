@@ -133,7 +133,11 @@ class MadridLocalesScraper(BaseScraper):
             
             # Si se especificó un municipio, filtrar
             if self.municipio:
-                if self._normalizar_municipio(self.municipio).lower() != nombre_municipio.lower():
+                # Normalizar ambos para comparar (sin espacios, sin tildes, minúsculas)
+                municipio_busqueda = self._normalizar_municipio(self.municipio).replace(' ', '').lower()
+                municipio_encontrado = nombre_municipio.replace(' ', '').lower()
+                
+                if municipio_busqueda != municipio_encontrado:
                     continue
             
             # Extraer las fechas
