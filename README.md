@@ -1,59 +1,36 @@
 # 📅 Calendario Laboral España
 
-**Sistema automatizado de extracción y gestión de festivos laborales de España desde fuentes oficiales (BOE, boletines autonómicos).**
+Sistema automatizado para extraer festivos laborales oficiales en España desde fuentes gubernamentales (BOE, BOCM, BOC Canarias).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+## 🎯 Características
 
----
+### ✅ Implementado
 
-## 🎯 Problema que resuelve
+- **BOE (Festivos Nacionales)**: Auto-discovery para cualquier año desde 2012
+- **Canarias**: Sistema completo con auto-discovery BOC
+  - Festivos autonómicos con filtrado por isla
+  - Festivos locales (88 municipios)
+  - Gestión automática de sustituciones
+  - Años disponibles: 2025, 2026
+- **Madrid**: Parser completo BOCM
+  - Festivos autonómicos
+  - Festivos locales (181 municipios)
+  - Años disponibles: 2026
+- **Scraper Unificado**: Un comando para BOE + CCAA + locales
+- **Eliminación de duplicados**: Prioridad local > autonómico > nacional
+- **Múltiples formatos**: JSON y Excel
 
-Las empresas, asesorías y desarrolladores necesitan conocer los festivos laborales aplicables a cada municipio de España para:
-- **Gestión de nóminas** → Cálculo correcto de días laborables
-- **Planificación empresarial** → Calendarios de trabajo por centro
-- **Aplicaciones de RRHH** → Integración automatizada de festivos
-- **Asesorías laborales** → Generación de calendarios para múltiples clientes
+### ⏳ Pendiente
 
-**El problema:** Los festivos están dispersos en múltiples publicaciones oficiales (BOE, BOC, BOJA, etc.) y cambian cada año.
-
-**La solución:** Este proyecto extrae, estructura y unifica automáticamente todos los festivos desde las fuentes oficiales.
-
----
-
-## ✨ Características
-
-### 🔍 Extracción Automatizada
-- ✅ **BOE** → Festivos nacionales (9 festivos comunes a toda España)
-- ✅ **Boletines Autonómicos** → Festivos de Comunidades Autónomas e insulares
-- ✅ **Órdenes Municipales** → Festivos locales (2 por cada municipio)
-- ✅ **Parsing inteligente** → HTML, tablas y texto estructurado
-- ✅ **Sin hardcoding** → Todo extraído de publicaciones oficiales
-
-### 🏗️ Arquitectura Escalable
-- **BaseScraper abstracto** → Framework reutilizable para cualquier CCAA
-- **Configuración YAML** → URLs y metadatos centralizados
-- **Orquestador** → Ejecuta múltiples scrapers y combina resultados
-- **Validación de datos** → Fechas, estructura y coherencia
-- **Sistema de cache** → Evita re-scraping innecesario
-
-### 📊 Actualmente Implementado
-- 🇪🇸 **España (Nacional)** → 9 festivos
-- 🏝️ **Canarias** → 88 municipios, 8 festivos autonómicos/insulares, 176 festivos locales
-
-### 🚀 Listo para Escalar
-La arquitectura permite añadir las **16 CCAA restantes** fácilmente:
-- Andalucía (786 municipios)
-- Madrid (179 municipios)
-- Cataluña (947 municipios)
-- ... y el resto
-
----
+- Auto-discovery para Madrid (BOCM tiene anti-scraping)
+- 17 comunidades autónomas restantes
+- Generalización de lógica de sustituciones
 
 ## 🚀 Instalación
+
 ```bash
 # Clonar repositorio
-git clone https://github.com/TU_USUARIO/calendario-laboral-espana.git
+git clone https://github.com/tu-usuario/calendario-laboral-espana.git
 cd calendario-laboral-espana
 
 # Crear entorno virtual
@@ -64,239 +41,232 @@ source venv/bin/activate  # En Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
----
-
 ## 📖 Uso
 
-### 1. Consultar festivos de un municipio
+### Comando Unificado (Recomendado)
+
+Extrae festivos nacionales + autonómicos + locales en un solo comando:
+
 ```bash
-python -m scrapers.unificador "San Cristóbal de La Laguna"
+# Canarias - Arrecife 2025
+python scrape_municipio.py "Arrecife" canarias 2025
+
+# Madrid - Alcalá de Henares 2026
+python scrape_municipio.py "Alcalá de Henares" madrid 2026
 ```
 
-**Output:**
-```
-📅 CALENDARIO LABORAL 2026
-================================================================================
-📍 Municipio: SAN CRISTÓBAL DE LA LAGUNA
-📍 Provincia: Santa Cruz de Tenerife
-📍 Comunidad Autónoma: Canarias
---------------------------------------------------------------------------------
-📊 RESUMEN:
-   • Festivos nacionales: 9
-   • Festivos autonómicos/insulares: 2
-   • Festivos locales: 2
-   • TOTAL: 13 días festivos
---------------------------------------------------------------------------------
-📆 LISTADO DE FESTIVOS:
+**Salida:**
+- `data/canarias_arrecife_completo_2025.json`
+- `data/canarias_arrecife_completo_2025.xlsx`
 
-   🇪🇸 2026-01-01 (Jueves   ) - Año Nuevo
-      └─ Tipo: Nacional
-   🇪🇸 2026-01-06 (Martes   ) - Epifanía del Señor
-      └─ Tipo: Nacional
-   🏝️ 2026-02-02 (Lunes    ) - Festividad de la Virgen de la Candelaria
-      └─ Tipo: Autonómico/Insular
-   🏠 2026-02-17 (Martes   ) - Martes de Carnaval
-      └─ Tipo: Local
-   ...
-```
+### Scrapers Individuales
 
-### 2. Modo interactivo
 ```bash
-python -m scrapers.unificador
+# Solo festivos nacionales
+python -m scrapers.core.boe_scraper 2025
+
+# Solo autonómicos de Canarias
+python -m scrapers.ccaa.canarias.autonomicos 2025
+
+# Solo locales de Canarias para un municipio
+python -m scrapers.ccaa.canarias.locales "Santa Cruz de Tenerife" 2025
+
+# Solo autonómicos de Madrid
+python -m scrapers.ccaa.madrid.autonomicos 2026
+
+# Solo locales de Madrid para un municipio
+python -m scrapers.ccaa.madrid.locales "Madrid" 2026
 ```
-
-Menú con opciones para:
-- Consultar municipios
-- Listar todos los municipios
-- Exportar a Excel (individual o masivo)
-- Refrescar datos
-
-### 3. Ejecutar scrapers manualmente
-```bash
-# Scraper BOE (nacionales)
-python -m scrapers.core.boe_scraper
-
-# Scraper Canarias autonómicos
-python -m scrapers.ccaa.canarias.autonomicos
-
-# Scraper Canarias locales
-python -m scrapers.ccaa.canarias.locales
-
-# Orquestador (ejecuta todos)
-python -m scrapers.orchestrator
-```
-
-### 4. Exportar a Excel
-```python
-from scrapers.unificador import CalendarioLaboral
-
-calendario = CalendarioLaboral(year=2026, ccaa='canarias')
-calendario.cargar_datos()
-
-# Exportar un municipio
-calendario.exportar_excel('SAN CRISTÓBAL DE LA LAGUNA')
-
-# Exportar todos los municipios
-calendario.exportar_todos_municipios()
-```
-
----
 
 ## 🏗️ Arquitectura
+
 ```
-scrapers/
-├── core/
-│   ├── base_scraper.py          # Clase abstracta base
-│   └── boe_scraper.py           # Festivos nacionales
-├── ccaa/
-│   └── canarias/
-│       ├── autonomicos.py       # Festivos autonómicos/insulares
-│       └── locales.py           # Festivos locales por municipio
-├── orchestrator.py              # Orquestador de scrapers
-└── unificador.py                # CLI para usuarios
-
-config/
-└── ccaa.yaml                    # URLs y configuración por CCAA
-
-data/
-├── nacionales_2026.json         # Festivos nacionales
-├── canarias_autonomicos_2026.json
-├── canarias_locales_2026.json
-└── combined/
-    └── canarias_2026_completo.json  # Todos combinados
-```
-
----
-
-## 🔧 Para Desarrolladores
-
-### Añadir una nueva CCAA
-
-1. **Actualizar configuración** (`config/ccaa.yaml`):
-```yaml
-andalucia:
-  nombre_completo: "Andalucía"
-  boletin_oficial:
-    nombre: "BOJA"
-    url_base: "https://www.juntadeandalucia.es/boja"
-  publicaciones:
-    "2026":
-      autonomicos:
-        url: "..."
-      locales:
-        url: "..."
+calendario-laboral-espana/
+│
+├── scrapers/
+│   ├── core/
+│   │   ├── base_scraper.py          # Clase base común
+│   │   └── boe_scraper.py           # Festivos nacionales
+│   │
+│   ├── ccaa/
+│   │   ├── canarias/
+│   │   │   ├── autonomicos.py       # Festivos autonómicos Canarias
+│   │   │   └── locales.py           # Festivos locales Canarias
+│   │   └── madrid/
+│   │       ├── autonomicos.py       # Festivos autonómicos Madrid
+│   │       └── locales.py           # Festivos locales Madrid
+│   │
+│   └── discovery/
+│       └── ccaa/
+│           ├── canarias_discovery.py # Auto-discovery BOC
+│           └── madrid_discovery.py   # Auto-discovery BOCM (WIP)
+│
+├── config/
+│   ├── boe_urls_cache.json          # Cache URLs BOE
+│   ├── canarias_urls_cache.json     # Cache URLs BOC
+│   └── madrid_urls_cache.json       # Cache URLs BOCM
+│
+├── data/                             # Salidas JSON/Excel
+├── scrape_municipio.py              # Scraper unificado
+└── requirements.txt
 ```
 
-2. **Crear scrapers** (heredan de `BaseScraper`):
+## 🔍 Auto-Discovery
+
+### Canarias (BOC)
+
+El sistema busca automáticamente las publicaciones oficiales:
+
+- **Autonómicos**: Busca en BOC 50-250 del año anterior
+- **Locales**: Busca en BOC 130-280 del año anterior
+- **Cache**: URLs descubiertas se guardan automáticamente
+- **Conversión**: PDF → HTML automática
+
+```bash
+# Primera ejecución: auto-discovery (1-2 minutos)
+python scrape_municipio.py "Arrecife" canarias 2027
+
+# Siguientes ejecuciones: usa cache (instantáneo)
+python scrape_municipio.py "Arrecife" canarias 2027
+```
+
+### BOE (Nacionales)
+
+Auto-discovery vía API del BOE:
+
 ```python
-# scrapers/ccaa/andalucia/autonomicos.py
-from scrapers.core.base_scraper import BaseScraper
-
-class AndaluciaAutonomicosScraper(BaseScraper):
-    def get_source_url(self) -> str:
-        # Obtener URL desde config
-        pass
-    
-    def parse_festivos(self, content: str) -> List[Dict]:
-        # Parsear boletín oficial
-        pass
+# Busca automáticamente la resolución oficial
+python -m scrapers.core.boe_scraper 2027
 ```
 
-3. **Integrar en orquestador** → Listo ✅
+## 📊 Formato de Salida
 
----
+### JSON
 
-## 📊 Datos Generados
-
-### Estructura de un festivo
 ```json
 {
-  "fecha": "2026-05-30",
-  "fecha_texto": "30 de mayo",
-  "descripcion": "Día de Canarias",
-  "tipo": "autonomico",
-  "ambito": "autonomico",
+  "municipio": "Arrecife",
   "ccaa": "Canarias",
-  "islas": "Todas",
-  "year": 2026
+  "year": 2025,
+  "total_festivos": 14,
+  "festivos": [
+    {
+      "fecha": "2025-01-01",
+      "descripcion": "Año Nuevo",
+      "tipo": "nacional",
+      "ambito": "nacional",
+      "sustituible": false
+    },
+    ...
+  ]
 }
 ```
 
-### Metadata incluida
+### Excel
 
-- **Fuente oficial** → URL del BOE/BOC/etc
-- **Fecha de scraping** → Trazabilidad
-- **Tipo y ámbito** → Nacional/autonómico/local
-- **Sustituible** → Indica si la CCAA puede sustituirlo
+Tabla con columnas:
+- Fecha
+- Descripción
+- Tipo (nacional/autonómico/local)
+- Ámbito
+- Sustituible
 
----
+## 🎨 Características Especiales
 
-## 🗺️ Roadmap
+### Canarias: Filtrado por Isla
 
-### v1.0 (Actual)
-- ✅ Framework base escalable
-- ✅ Scraping de BOE (nacionales)
-- ✅ Scraping de Canarias completo (autonómicos + locales)
-- ✅ CLI y exportación Excel
-- ✅ Sistema de cache
+Cada municipio de Canarias tiene:
+- 1 festivo regional (Día de Canarias - 30 mayo)
+- 1 festivo insular (específico de cada isla)
 
-### v1.1 (Próximo)
-- [ ] Andalucía (786 municipios)
-- [ ] Madrid (179 municipios)
-- [ ] Cataluña (947 municipios)
+```bash
+# Tenerife: Virgen de la Candelaria (2 febrero)
+python scrape_municipio.py "Santa Cruz de Tenerife" canarias 2025
 
-### v2.0 (Futuro)
-- [ ] Base de datos PostgreSQL/Supabase
-- [ ] API REST con FastAPI
-- [ ] Web app para consultas públicas
-- [ ] GitHub Actions (scraping automático anual)
-- [ ] Webhooks para notificar cambios
+# Gran Canaria: Virgen del Pino (8 septiembre)
+python scrape_municipio.py "Las Palmas de Gran Canaria" canarias 2025
 
-### v3.0 (Visión)
-- [ ] 17 CCAA completas (8,131 municipios)
-- [ ] Datos históricos (años anteriores)
-- [ ] Integraciones: Excel Add-in, Google Sheets, PowerBI
-- [ ] Modelo de negocio (tier gratuito + premium)
+# Lanzarote: Virgen de los Volcanes (15 septiembre)
+python scrape_municipio.py "Arrecife" canarias 2025
+```
 
----
+### Gestión de Sustituciones
+
+El sistema maneja automáticamente festivos sustituidos:
+
+```python
+# Ejemplo: Canarias 2025
+# 12 octubre (domingo) → sustituido por 30 mayo
+# El sistema elimina el 12 octubre automáticamente
+```
+
+### Eliminación de Duplicados
+
+Cuando un festivo aparece en varias fuentes, se mantiene el de mayor prioridad:
+
+**Prioridad**: Local > Autonómico > Nacional
+
+Ejemplo:
+- 1 enero aparece en BOE (nacional) y BOCM (autonómico)
+- Se mantiene como "autonómico" (prioridad mayor)
+
+## 🛠️ Desarrollo
+
+### Añadir Nueva CCAA
+
+Ver [CONTRIBUTING.md](docs/CONTRIBUTING.md) para guía detallada.
+
+### Estructura de Clases
+
+```python
+from scrapers.core.base_scraper import BaseScraper
+
+class NuevaCCAAScraper(BaseScraper):
+    def get_source_url(self) -> str:
+        # Lógica para obtener URL
+        pass
+    
+    def parse_festivos(self, content: str) -> List[Dict]:
+        # Lógica para parsear festivos
+        pass
+```
+
+### Testing
+
+```bash
+# Test individual
+python -m scrapers.ccaa.canarias.locales "Arrecife" 2025
+
+# Test completo
+python scrape_municipio.py "Arrecife" canarias 2025
+```
+
+## 📝 Cache
+
+El sistema usa cache de 3 niveles:
+
+1. **KNOWN_URLS**: URLs hardcoded para años conocidos
+2. **Cache**: URLs descubiertas previamente
+3. **Auto-discovery**: Búsqueda automática (lento)
+
+Archivos de cache:
+- `config/boe_urls_cache.json`
+- `config/canarias_urls_cache.json`
+- `config/madrid_urls_cache.json`
 
 ## 🤝 Contribuir
 
-¡Las contribuciones son bienvenidas!
-
-**Especialmente necesitamos:**
-- Scrapers para las 16 CCAA restantes
-- Mejoras en parsing de boletines oficiales
-- Tests unitarios y de integración
-- Documentación
-
-**Cómo contribuir:**
-1. Fork del repositorio
-2. Crea una rama (`git checkout -b feature/nueva-ccaa`)
-3. Commit tus cambios (`git commit -m 'feat: añadir Andalucía'`)
-4. Push a la rama (`git push origin feature/nueva-ccaa`)
-5. Abre un Pull Request
-
----
+Ver [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 ## 📄 Licencia
 
-MIT License - ver archivo [LICENSE](LICENSE)
+MIT License - ver [LICENSE](LICENSE)
 
----
+## ✨ Créditos
 
-## 🙏 Agradecimientos
+Desarrollado por Pablo Biplaza
 
-- **BOE** → Boletín Oficial del Estado
-- **Gobierno de Canarias** → Boletín Oficial de Canarias
-- Comunidad Python de España
-
----
-
-## ⚖️ Disclaimer
-
-Este proyecto extrae información de fuentes públicas oficiales. Los datos se proporcionan "tal cual" sin garantías. Para uso oficial, consulta siempre las publicaciones originales en los boletines oficiales correspondientes.
-
----
-
-**⭐ Si este proyecto te resulta útil, dale una estrella en GitHub**
+Fuentes oficiales:
+- BOE: https://www.boe.es
+- BOC Canarias: https://www.gobiernodecanarias.org/boc
+- BOCM Madrid: https://www.bocm.es
