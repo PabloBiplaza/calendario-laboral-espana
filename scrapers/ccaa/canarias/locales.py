@@ -88,8 +88,8 @@ class CanariasLocalesScraper(BaseScraper):
             return self.KNOWN_URLS[self.year]
         
         # Nivel 2: Cache
-        if self.year in self.cache.get('locales', {}):
-            url = self.cache['locales'][self.year]
+        if str(self.year) in self.cache.get('locales', {}):
+            url = self.cache['locales'][str(self.year)]
             print(f"📦 URL en cache (descubierta previamente) para {self.year}: {url}")
             return url
         

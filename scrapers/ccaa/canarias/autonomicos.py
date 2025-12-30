@@ -133,8 +133,8 @@ class CanariasAutonomicosScraper(BaseScraper):
             return self.KNOWN_URLS[self.year]
         
         # Nivel 2: Cache
-        if self.year in self.cache.get('autonomicos', {}):
-            url = self.cache['autonomicos'][self.year]
+        if str(self.year) in self.cache.get('autonomicos', {}):
+            url = self.cache['autonomicos'][str(self.year)]
             print(f"📦 URL en cache (descubierta previamente) para {self.year}: {url}")
             return url
         
