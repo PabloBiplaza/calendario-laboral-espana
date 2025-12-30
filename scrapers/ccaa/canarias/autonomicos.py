@@ -164,10 +164,35 @@ class CanariasAutonomicosScraper(BaseScraper):
         )
     
     def get_isla_municipio(self, municipio: str) -> str:
-        """Devuelve la isla a la que pertenece un municipio"""
+        """
+        Devuelve la isla a la que pertenece un municipio
+        Usa normalización flexible para matching
+        """
+        import unicodedata
+        
+        def normalizar(texto):
+            """Normaliza texto: mayúsculas, sin tildes, sin espacios extra"""
+            # Quitar tildes
+            texto = unicodedata.normalize('NFKD', texto)
+            texto = texto.encode('ASCII', 'ignore').decode('ASCII')
+            # Mayúsculas y limpiar espacios
+            return texto.upper().strip()
+        
+        municipio_norm = normalizar(municipio)
+        
+        # Buscar en el diccionario
         for isla, municipios in self.municipios_islas.items():
-            if municipio in municipios:
-                return isla
+            for mun in municipios:
+                mun_norm = normalizar(mun)
+                
+                # Coincidencia exacta
+                if municipio_norm == mun_norm:
+                    return isla
+                
+                # Coincidencia parcial (contiene)
+                if municipio_norm in mun_norm or mun_norm in municipio_norm:
+                    return isla
+        
         return None
     
     def parse_festivos(self, content: str) -> List[Dict]:
@@ -300,20 +325,27 @@ def main():
     """Test del scraper"""
     import sys
     
+    # Leer argumentos
     if len(sys.argv) > 1:
         try:
             year = int(sys.argv[1])
         except ValueError:
-            print("❌ Año inválido. Uso: python -m scrapers.ccaa.canarias.autonomicos [año]")
+            print("❌ Año inválido. Uso: python -m scrapers.ccaa.canarias.autonomicos [año] [municipio]")
             return
     else:
         year = 2025  # Por defecto
     
+    # Leer municipio si se proporciona
+    municipio = sys.argv[2] if len(sys.argv) > 2 else None
+    
     print("=" * 80)
     print(f"🧪 TEST: Canarias Autonómicos Scraper - Festivos {year}")
+    if municipio:
+        print(f"    Municipio: {municipio}")
     print("=" * 80)
     
-    scraper = CanariasAutonomicosScraper(year=year)
+    # Crear scraper con municipio
+    scraper = CanariasAutonomicosScraper(year=year, municipio=municipio)
     festivos = scraper.scrape()
     
     if festivos:

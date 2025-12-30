@@ -35,7 +35,7 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
     try:
         from scrapers.core.boe_scraper import BOEScraper
         
-        scraper_boe = BOEScraper(year=year)
+        scraper_boe = BOEScraper(year=year, ccaa=ccaa)
         festivos_nacionales = scraper_boe.scrape()
         
         if festivos_nacionales:

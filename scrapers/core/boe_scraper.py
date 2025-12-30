@@ -44,7 +44,15 @@ class BOEScraper(BaseScraper):
         """
         print("🔍 Parseando festivos...")
         
-        # ESTRATEGIA 1: Patrones conocidos (más confiable)
+        # ESTRATEGIA 0: Tabla CCAA (MÁS PRECISO - para años con traslados)
+        if self.year >= 2026:  # Para años futuros usar tabla
+            print(f"   🔍 Intentando parsear tabla CCAA para {self.year}...")
+            festivos_tabla_ccaa = self.parse_tabla_ccaa(content, self.filter_ccaa)
+            if festivos_tabla_ccaa and len(festivos_tabla_ccaa) >= 9:
+                print(f"   ✅ Método: Tabla CCAA ({len(festivos_tabla_ccaa)} festivos)")
+                return festivos_tabla_ccaa
+        
+        # ESTRATEGIA 1: Patrones conocidos (más confiable para años antiguos)
         festivos_conocidos = self._parse_patrones_conocidos(content)
         if festivos_conocidos and len(festivos_conocidos) >= 9:
             print(f"   ✅ Método: Patrones conocidos ({len(festivos_conocidos)} festivos)")
@@ -318,6 +326,161 @@ class BOEScraper(BaseScraper):
         
         return None
 
+    def parse_tabla_ccaa(self, content: str, ccaa_filtro: Optional[str] = None) -> List[Dict]:
+        print(f"   🐛 DEBUG: ccaa_filtro = '{ccaa_filtro}'")
+        """
+        Parsea la tabla completa del BOE con todas las CCAA.
+        
+        Símbolos en tabla:
+        - * (con guión abajo): Fiesta Nacional no sustituible
+        - ** (con guiones abajo): Fiesta Nacional sin sustitución
+        - *** (con guiones abajo): Fiesta de Comunidad Autónoma
+        - (vacío): No aplica
+        
+        Args:
+            content: HTML del BOE
+            ccaa_filtro: Si se especifica, solo devuelve festivos de esa CCAA
+        
+        Returns:
+            Lista de festivos con CCAA aplicables
+        """
+        from bs4 import BeautifulSoup
+        import re
+        
+        soup = BeautifulSoup(content, 'html.parser')
+        table = soup.find('table')
+        
+        if not table:
+            print("   ⚠️  No se encontró tabla en el BOE")
+            return []
+        
+        # PASO 1: Extraer headers (CCAA)
+        thead = table.find('thead')
+        header_row = thead.find_all('tr')[1]  # Segunda fila tiene nombres CCAA
+        headers = []
+        
+        for th in header_row.find_all('th'):
+            ccaa_nombre = th.get_text(strip=True)
+            headers.append(ccaa_nombre)
+        
+        # Mapeo nombre BOE → código interno
+        CCAA_MAP = {
+            'Andalucía': 'andalucia',
+            'Aragón': 'aragon',
+            'Asturias': 'asturias',
+            'Illes Balears': 'baleares',
+            'Canarias (1)': 'canarias',
+            'Cantabria': 'cantabria',
+            'Castilla y León': 'castilla_leon',
+            'Castilla-La Mancha': 'castilla_la_mancha',
+            'Cataluña': 'cataluna',
+            'Comunitat Valenciana': 'valencia',
+            'Extremadura': 'extremadura',
+            'Galicia': 'galicia',
+            'Madrid': 'madrid',
+            'Murcia': 'murcia',
+            'Navarra': 'navarra',
+            'País Vasco': 'pais_vasco',
+            'La Rioja': 'rioja',
+            'Ceuta': 'ceuta',
+            'Melilla': 'melilla'
+        }
+        
+        headers_normalized = [CCAA_MAP.get(h, h.lower()) for h in headers]
+        
+        print(f"   📊 Tabla con {len(headers)} CCAA detectadas")
+        
+        # PASO 2: Parsear filas de festivos
+        tbody = table.find('tbody')
+        rows = tbody.find_all('tr')
+        
+        festivos = []
+        mes_actual = None
+        
+        for row in rows:
+            cells = row.find_all(['th', 'td'])
+            
+            if not cells:
+                continue
+            
+            fecha_cell = cells[0].get_text(strip=True)
+            
+            # Detectar header de mes
+            if len(cells) == 20 and not any(cells[i].get_text(strip=True) for i in range(1, 20)):
+                mes_actual = fecha_cell
+                continue
+            
+            # Parsear festivo
+            match = re.match(r'(\d+)\s+(.+?)\.?$', fecha_cell)
+            if not match:
+                continue
+            
+            dia = int(match.group(1))
+            descripcion = match.group(2).strip()
+            
+            # Construir fecha
+            try:
+                mes_num = self._mes_a_numero(mes_actual)
+                fecha = f"{self.year:04d}-{mes_num:02d}-{dia:02d}"
+            except:
+                continue
+            
+            # PASO 3: Ver qué CCAA aplican
+            ccaa_aplicables = []
+            tipo_festivo = 'nacional'  # Por defecto
+            
+            for i, ccaa in enumerate(headers_normalized):
+                if i + 1 >= len(cells):
+                    break
+                
+                # Obtener contenido de la celda
+                celda = cells[i + 1].get_text(strip=True)
+                
+                # Si la celda tiene CUALQUIER contenido (*, **, ***, guiones, etc.)
+                # significa que el festivo APLICA a esa CCAA
+                if celda:  # No vacía = aplica
+                    ccaa_aplicables.append(ccaa)
+                    
+                    # Detectar tipo según marca
+                    if '***' in celda:
+                        tipo_festivo = 'autonomico'  # Festivo de CCAA
+            
+            # PASO 4: Filtrar por CCAA si se especificó
+            if ccaa_filtro:
+                if ccaa_filtro.lower() not in ccaa_aplicables:
+                    continue  # Este festivo no aplica a la CCAA solicitada
+            
+            # Crear festivo
+            festivo = {
+                'fecha': fecha,
+                'fecha_texto': f"{dia} de {mes_actual.lower()}",
+                'descripcion': descripcion,
+                'tipo': tipo_festivo,
+                'ambito': 'nacional',
+                'ccaa_aplicables': ccaa_aplicables,
+                'sustituible': False,
+                'year': self.year
+            }
+            
+            festivos.append(festivo)
+        
+        print(f"   ✅ Extraídos {len(festivos)} festivos de la tabla")
+        
+        if ccaa_filtro:
+            print(f"   🎯 Filtrados para {ccaa_filtro}: {len(festivos)} festivos")
+        
+        return festivos
+
+
+    def _mes_a_numero(self, mes_nombre: str) -> int:
+        """Convierte nombre de mes a número"""
+        meses = {
+            'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
+            'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
+            'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
+        }
+        return meses.get(mes_nombre.lower(), 1)
+    
     def parse_festivos_autonomicos(self, content: str, ccaa: str) -> List[Dict]:
         """
         Extrae festivos autonómicos de una CCAA específica del BOE
@@ -477,34 +640,16 @@ class BOEScraper(BaseScraper):
         # 3. Parsear festivos NACIONALES
         festivos = self.parse_festivos(content)
         
-        # 4. Si se especificó CCAA, añadir festivos AUTONÓMICOS
+        # 4. Si se especificó CCAA, añadir festivos AUTONÓMICOS del BOE
+        # SOLO si la CCAA no tiene scraper específico
         if self.filter_ccaa and self.filter_ccaa.lower() != 'nacional':
-            festivos_auto = self.parse_festivos_autonomicos(content, self.filter_ccaa)
-            
-            # Filtrar festivos insulares por municipio (Canarias)
-            if self.filter_municipio and self.filter_ccaa.lower() == 'canarias':
-                from scrapers.ccaa.canarias.autonomicos import CanariasAutonomicosScraper
-                temp_scraper = CanariasAutonomicosScraper(year=self.year)
-                isla_municipio = temp_scraper.get_isla_municipio(self.filter_municipio.upper())
-                
-                if isla_municipio:
-                    print(f"   🏝️  Filtrando festivos insulares para: {isla_municipio}")
-                    festivos_auto_filtrados = []
-                    
-                    for fest in festivos_auto:
-                        # Mantener festivos de toda Canarias
-                        if fest.get('ambito') == 'autonomico':
-                            festivos_auto_filtrados.append(fest)
-                        # Filtrar insulares
-                        elif fest.get('ambito') == 'insular':
-                            isla_fest = fest.get('isla', '')
-                            if isla_municipio in isla_fest or isla_fest == isla_municipio:
-                                festivos_auto_filtrados.append(fest)
-                    
-                    festivos_auto = festivos_auto_filtrados
-            
-            # Combinar festivos nacionales + autonómicos
-            festivos.extend(festivos_auto)
+    
+            # CCAA con scrapers específicos del BOC (no usar BOE para autonómicos)
+            CCAA_CON_SCRAPER_PROPIO = ['canarias', 'madrid']
+    
+            if self.filter_ccaa.lower() not in CCAA_CON_SCRAPER_PROPIO:
+                festivos_auto = self.parse_festivos_autonomicos(content, self.filter_ccaa)
+                festivos.extend(festivos_auto)
         
         # 5. Validar festivos
         festivos_validos = []
@@ -540,7 +685,7 @@ def main():
     print(f"🧪 TEST: BOE Scraper - Festivos {year}")
     print("=" * 80)
     
-    scraper = BOEScraper(year=year)
+    scraper_boe = BOEScraper(year=year, ccaa=ccaa)
     festivos = scraper.scrape()
     
     if festivos:

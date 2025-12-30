@@ -130,6 +130,12 @@ class CanariasLocalesScraper(BaseScraper):
         import html as html_lib
         import unicodedata
         
+        def normalizar_para_comparar(texto):
+            """Normaliza texto para comparación flexible"""
+            texto = unicodedata.normalize('NFKD', texto)
+            texto = texto.encode('ASCII', 'ignore').decode('ASCII')
+            return texto.upper().strip().replace(' ', '')
+        
         content = html_lib.unescape(content)
         soup = BeautifulSoup(content, 'lxml')
         texto = soup.get_text()
@@ -152,8 +158,22 @@ class CanariasLocalesScraper(BaseScraper):
             if linea and linea[-1] == '.' and linea[:-1].replace(' ', '').isalpha() and linea[0].isupper():
                 # Guardar festivos del municipio anterior (con filtro)
                 if municipio_actual and festivos_municipio:
-                    # Aplicar filtro de municipio si existe
-                    if self.municipio is None or self._normalizar_municipio(municipio_actual) == self._normalizar_municipio(self.municipio):
+                    # Aplicar filtro de municipio si existe (con normalización flexible)
+                    debe_incluir = False
+                    
+                    if self.municipio is None:
+                        debe_incluir = True
+                    else:
+                        mun_buscado = normalizar_para_comparar(self.municipio)
+                        mun_encontrado = normalizar_para_comparar(municipio_actual)
+                        
+                        # Coincidencia exacta o parcial
+                        if mun_buscado == mun_encontrado:
+                            debe_incluir = True
+                        elif mun_buscado in mun_encontrado or mun_encontrado in mun_buscado:
+                            debe_incluir = True
+                    
+                    if debe_incluir:
                         for fest in festivos_municipio:
                             festivos.append(fest)
                 
@@ -197,7 +217,22 @@ class CanariasLocalesScraper(BaseScraper):
         
         # Guardar festivos del último municipio (con filtro)
         if municipio_actual and festivos_municipio:
-            if self.municipio is None or self._normalizar_municipio(municipio_actual) == self._normalizar_municipio(self.municipio):
+            # Aplicar filtro de municipio si existe (con normalización flexible)
+            debe_incluir = False
+            
+            if self.municipio is None:
+                debe_incluir = True
+            else:
+                mun_buscado = normalizar_para_comparar(self.municipio)
+                mun_encontrado = normalizar_para_comparar(municipio_actual)
+                
+                # Coincidencia exacta o parcial
+                if mun_buscado == mun_encontrado:
+                    debe_incluir = True
+                elif mun_buscado in mun_encontrado or mun_encontrado in mun_buscado:
+                    debe_incluir = True
+            
+            if debe_incluir:
                 for fest in festivos_municipio:
                     festivos.append(fest)
         
