@@ -131,9 +131,19 @@ class CanariasLocalesScraper(BaseScraper):
         import unicodedata
         
         def normalizar_para_comparar(texto):
-            """Normaliza texto para comparación flexible"""
+            """Normaliza texto para comparación flexible, corrigiendo encoding corrupto del BOC"""
+            import unicodedata
+            
+            # PRIMERO: Corregir encoding corrupto HTML (ANTES de normalizar)
+            # El BOC convierte Ú→Ã que luego se normaliza como O
+            texto = texto.replace('ÃRSULA', 'URSULA')
+            texto = texto.replace('Ãrsula', 'Ursula')
+            
+            # SEGUNDO: Normalizar Unicode (quitar tildes)
             texto = unicodedata.normalize('NFKD', texto)
             texto = texto.encode('ASCII', 'ignore').decode('ASCII')
+            
+            # TERCERO: Limpiar espacios y mayúsculas
             return texto.upper().strip().replace(' ', '')
         
         content = html_lib.unescape(content)
@@ -154,33 +164,37 @@ class CanariasLocalesScraper(BaseScraper):
             if not linea:
                 continue
             
-            # Detectar municipio: empieza con mayúscula, solo letras/espacios, termina en punto
-            if linea and linea[-1] == '.' and linea[:-1].replace(' ', '').isalpha() and linea[0].isupper():
-                # Guardar festivos del municipio anterior (con filtro)
-                if municipio_actual and festivos_municipio:
-                    # Aplicar filtro de municipio si existe (con normalización flexible)
-                    debe_incluir = False
-                    
-                    if self.municipio is None:
-                        debe_incluir = True
-                    else:
-                        mun_buscado = normalizar_para_comparar(self.municipio)
-                        mun_encontrado = normalizar_para_comparar(municipio_actual)
+            # Detectar municipio: termina en punto, mayúsculas, principalmente letras
+            if linea and linea[-1] == '.' and linea[0].isupper():
+                nombre = linea.rstrip('.')
+                # Verificar que sea principalmente letras (permitir tildes, espacios)
+                letras = sum(c.isalpha() or c in 'ÁÉÍÓÚÑ' for c in nombre)
+                if letras >= len(nombre) * 0.8:  # Al menos 80% letras
+                    # Guardar festivos del municipio anterior (con filtro)
+                    if municipio_actual and festivos_municipio:
+                        # Aplicar filtro de municipio si existe (con normalización flexible)
+                        debe_incluir = False
                         
-                        # Coincidencia exacta o parcial
-                        if mun_buscado == mun_encontrado:
+                        if self.municipio is None:
                             debe_incluir = True
-                        elif mun_buscado in mun_encontrado or mun_encontrado in mun_buscado:
-                            debe_incluir = True
+                        else:
+                            mun_buscado = normalizar_para_comparar(self.municipio)
+                            mun_encontrado = normalizar_para_comparar(municipio_actual)
+                            
+                            # Coincidencia exacta o parcial
+                            if mun_buscado == mun_encontrado:
+                                debe_incluir = True
+                            elif mun_buscado in mun_encontrado or mun_encontrado in mun_buscado:
+                                debe_incluir = True
+                        
+                        if debe_incluir:
+                            for fest in festivos_municipio:
+                                festivos.append(fest)
                     
-                    if debe_incluir:
-                        for fest in festivos_municipio:
-                            festivos.append(fest)
-                
-                # Nuevo municipio
-                municipio_actual = linea.rstrip('.').strip()
-                festivos_municipio = []
-                continue
+                    # Nuevo municipio
+                    municipio_actual = nombre
+                    festivos_municipio = []
+                    continue
             
             # Detectar festivo (formato: "DD mes: Descripción" o "DD de mes: Descripción")
             if municipio_actual:

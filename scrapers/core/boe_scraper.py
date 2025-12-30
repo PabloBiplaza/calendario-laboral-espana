@@ -327,7 +327,6 @@ class BOEScraper(BaseScraper):
         return None
 
     def parse_tabla_ccaa(self, content: str, ccaa_filtro: Optional[str] = None) -> List[Dict]:
-        print(f"   🐛 DEBUG: ccaa_filtro = '{ccaa_filtro}'")
         """
         Parsea la tabla completa del BOE con todas las CCAA.
         
