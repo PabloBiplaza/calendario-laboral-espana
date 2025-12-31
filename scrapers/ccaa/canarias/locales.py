@@ -216,6 +216,11 @@ class CanariasLocalesScraper(BaseScraper):
                         if not fecha_existe:
                             provincia = self._detectar_provincia(municipio_actual)
                             
+                            # Limpiar encoding corrupto del BOC
+                            descripcion = descripcion.replace('Ãsimo', 'ísimo')
+                            descripcion = descripcion.replace('Ãrsula', 'Úrsula') 
+                            descripcion = descripcion.replace('Ã', 'í')
+
                             festivo = {
                                 'municipio': municipio_actual,
                                 'fecha': fecha_info['fecha'],
