@@ -11,6 +11,7 @@ import json
 import os
 import html
 from scrapers.discovery.ccaa.canarias_discovery import auto_discover_canarias
+from typing import Optional
 
 class CanariasAutonomicosScraper(BaseScraper):
     """Scraper para festivos autonómicos de Canarias"""
