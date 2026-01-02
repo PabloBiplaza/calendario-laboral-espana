@@ -137,12 +137,14 @@ class CanariasLocalesScraper(BaseScraper):
         
         def normalizar_para_comparar(texto):
             """Normaliza texto corrigiendo encoding corrupto del BOC"""
-            # SECOND: Normalize Unicode (remove accents)
+            import unicodedata
+            
+            # Normalize Unicode (remove accents)
             texto = unicodedata.normalize('NFKD', texto)
             texto = texto.encode('ASCII', 'ignore').decode('ASCII')
             
-            # THIRD: Clean spaces and uppercase
-            return texto.upper().strip().replace(' ', '')
+            # Clean spaces and uppercase (NO mover artículos)
+            return texto.upper().strip().replace(' ', '').replace(',', '')
         
         soup = BeautifulSoup(content, 'lxml')
         festivos = []
