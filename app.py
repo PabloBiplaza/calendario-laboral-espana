@@ -277,30 +277,54 @@ def main():
                 
                 html = generator.generate_html()
                 
+                # Agregar script para auto-print
+                html_con_print = html.replace('</body>', '''
+                    <script>
+                        window.onload = function() {
+                            setTimeout(function() {
+                                window.print();
+                            }, 500);
+                        };
+                    </script>
+                    </body>
+                ''')
+                
+                # Botón para generar PDF (color corporativo)
+                st.markdown("""
+                    <style>
+                    div.stDownloadButton > button {
+                        background-color: #F1AB6C !important;
+                        color: white !important;
+                        border: none !important;
+                        padding: 12px 24px !important;
+                        font-weight: bold !important;
+                        font-size: 16px !important;
+                    }
+                    div.stDownloadButton > button:hover {
+                        background-color: #e09a5a !important;
+                    }
+                    </style>
+                """, unsafe_allow_html=True)
+                
+                col1, col2, col3 = st.columns([1, 2, 1])
+                
+                with col2:
+                    st.download_button(
+                        label="📄 Generar PDF para imprimir",
+                        data=html_con_print,
+                        file_name=f"calendario_{ccaa}_{municipio.lower().replace(' ', '_')}_{year}.html",
+                        mime="text/html",
+                        use_container_width=True
+                    )
+                    
+                    st.info("💡 El archivo se descargará. Al abrirlo, tu navegador mostrará automáticamente el diálogo para guardar como PDF.", icon="ℹ️")
+                
                 # Tabs para visualizar
                 tab1, tab2 = st.tabs(["📅 Preview", "📊 Datos"])
                 
                 with tab1:
                     # Mostrar preview del calendario
                     st.components.v1.html(html, height=1600, scrolling=True)
-                    
-                    # Botones de descarga
-                    col1, col2 = st.columns(2)
-                    
-                    with col1:
-                        st.download_button(
-                            label="📥 Descargar HTML",
-                            data=html,
-                            file_name=f"calendario_{ccaa}_{municipio.lower().replace(' ', '_')}_{year}.html",
-                            mime="text/html",
-                            use_container_width=True
-                        )
-                    
-                    with col2:
-                        st.markdown(
-                            "🖨️ **Imprimir:** Abre el HTML descargado y usa Ctrl+P (⌘+P en Mac)",
-                            help="El navegador te permitirá guardar como PDF"
-                        )
                 
                 with tab2:
                     # Mostrar tabla de festivos
