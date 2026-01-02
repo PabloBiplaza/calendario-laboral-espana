@@ -197,7 +197,7 @@ class MadridLocalesScraper(BaseScraper):
     def _extraer_fechas(self, texto: str) -> List[tuple]:
         """
         Extrae fechas de un texto.
-        Formatos: "3defebreroy15demayo" o "3 de febrero y 15 de mayo"
+        Formatos: "3 de febrero y 15 de mayo" o "14 y 17 de agosto"
         """
         fechas = []
         
@@ -207,13 +207,27 @@ class MadridLocalesScraper(BaseScraper):
             'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
         }
         
-        # Normalizar texto: añadir espacios antes de "de"
-        texto_normalizado = re.sub(r'(\d+)de', r'\1 de ', texto.lower())
-        texto_normalizado = re.sub(r'y(\d+)', r'y \1', texto_normalizado)
+        # Normalizar texto: añadir espacios
+        texto_normalizado = texto.lower()
+        texto_normalizado = re.sub(r'(\d+)de', r'\1 de ', texto_normalizado)  # "14de" → "14 de "
+        texto_normalizado = re.sub(r'(\d+)y', r'\1 y ', texto_normalizado)    # "14y" → "14 y " ← ESTA ES LA NUEVA LÍNEA CLAVE
+        texto_normalizado = re.sub(r'y(\d+)', r'y \1', texto_normalizado)      # "y17" → "y 17"
         
-        # Patrón: "3 de febrero y 15 de mayo" (ahora normalizado)
+        # PASO 1: Expandir formato "14 y 17 de agosto" → "14 de agosto y 17 de agosto"
+        # Patrón: captura "DD y DD de mes"
+        patron_expandir = r'(\d{1,2})\s+y\s+(\d{1,2})\s+de\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)'
+        
+        def expandir_fechas(match):
+            dia1 = match.group(1)
+            dia2 = match.group(2)
+            mes = match.group(3)
+            return f"{dia1} de {mes} y {dia2} de {mes}"
+        
+        texto_expandido = re.sub(patron_expandir, expandir_fechas, texto_normalizado)
+        
+        # PASO 2: Extraer todas las fechas con el patrón normal
         patron = r'(\d{1,2})\s+de\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)'
-        matches = re.finditer(patron, texto_normalizado)
+        matches = re.finditer(patron, texto_expandido)
         
         for match in matches:
             dia = int(match.group(1))
