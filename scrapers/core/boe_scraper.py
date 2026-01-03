@@ -447,19 +447,33 @@ class BOEScraper(BaseScraper):
                 if ccaa_filtro.lower() not in ccaa_aplicables:
                     continue  # Este festivo no aplica a la CCAA solicitada
             
-            # Crear festivo
-            festivo = {
-                'fecha': fecha,
-                'fecha_texto': f"{dia} de {mes_actual.lower()}",
-                'descripcion': descripcion,
-                'tipo': tipo_festivo,
-                'ambito': 'nacional',
-                'ccaa_aplicables': ccaa_aplicables,
-                'sustituible': False,
-                'year': self.year
-            }
-            
-            festivos.append(festivo)
+            # Crear festivo(s)
+            if tipo_festivo == 'nacional':
+                # Nacional: crear un solo festivo para todas las CCAA
+                festivo = {
+                    'fecha': fecha,
+                    'fecha_texto': f"{dia} de {mes_actual.lower()}",
+                    'descripcion': descripcion,
+                    'tipo': tipo_festivo,
+                    'ambito': 'nacional',
+                    'sustituible': False,
+                    'year': self.year
+                }
+                festivos.append(festivo)
+            else:
+                # Autonómico: crear un festivo POR CADA CCAA aplicable
+                for ccaa_codigo in ccaa_aplicables:
+                    festivo = {
+                        'fecha': fecha,
+                        'fecha_texto': f"{dia} de {mes_actual.lower()}",
+                        'descripcion': descripcion,
+                        'tipo': tipo_festivo,
+                        'ambito': ccaa_codigo,  # ← CCAA específica
+                        'ccaa': ccaa_codigo,     # ← CAMPO ccaa
+                        'sustituible': False,
+                        'year': self.year
+                    }
+                    festivos.append(festivo)
         
         print(f"   ✅ Extraídos {len(festivos)} festivos de la tabla")
         
