@@ -23,11 +23,25 @@ class AndaluciaLocalesScraper(BaseScraper):
     
     def get_source_url(self) -> str:
         """Devuelve la URL del BOJA para el año especificado"""
+        from scrapers.discovery.ccaa.andalucia_discovery import get_cached_url, auto_discover_andalucia, save_to_cache
+        
+        # 1. Intentar desde KNOWN_URLS
         if self.year in self.KNOWN_URLS:
             return self.KNOWN_URLS[self.year]
         
-        # Si no tenemos URL conocida, lanzar error
-        raise ValueError(f"No hay URL conocida para Andalucía locales {self.year}")
+        # 2. Intentar desde caché
+        url = get_cached_url(self.year)
+        if url:
+            return url
+        
+        # 3. Auto-discovery
+        url = auto_discover_andalucia(self.year)
+        if url:
+            save_to_cache(self.year, url)
+            return url
+        
+        # 4. Error si no se encuentra
+        raise ValueError(f"No se pudo encontrar URL del BOJA para Andalucía locales {self.year}")
 
     def parse_festivos(self, content: str) -> List[Dict]:
         """
