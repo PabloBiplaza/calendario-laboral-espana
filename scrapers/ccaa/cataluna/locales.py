@@ -94,21 +94,41 @@ class CatalunaLocalesScraper(BaseScraper):
                 return []
     
     def download_content(self, url: str) -> str:
-        """Descarga el XML del DOGC (con SSL verify=False por problemas del servidor)"""
+        """Descarga el XML del DOGC (intentando múltiples métodos por problemas SSL)"""
         print(f"📥 Descargando XML: {url}")
         
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
-        }
+        # Método 1: curl (suele funcionar mejor con SSL problemático)
+        import subprocess
         
-        r = requests.get(url, timeout=30, verify=False, headers=headers)
+        try:
+            result = subprocess.run(
+                ['curl', '-k', '-L', url],  # -k ignora SSL, -L sigue redirects
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
+            if result.returncode == 0 and len(result.stdout) > 1000:
+                print(f"✅ XML descargado con curl ({len(result.stdout)} caracteres)")
+                return result.stdout
+        except Exception as e:
+            print(f"⚠️  curl falló: {e}")
         
-        if r.status_code != 200:
-            raise Exception(f"Error descargando XML: {r.status_code}")
+        # Método 2: requests con SSL verify=False
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+            }
+            
+            r = requests.get(url, timeout=30, verify=False, headers=headers)
+            
+            if r.status_code == 200:
+                print(f"✅ XML descargado con requests ({len(r.text)} caracteres)")
+                return r.text
+        except Exception as e:
+            print(f"⚠️  requests falló: {e}")
         
-        print(f"✅ XML descargado ({len(r.text)} caracteres)")
-        
-        return r.text
+        raise Exception(f"No se pudo descargar el XML con ningún método")
     
     def parse_festivos(self, content: str) -> List[Dict]:
         """
