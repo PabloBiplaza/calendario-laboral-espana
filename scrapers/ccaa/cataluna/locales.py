@@ -20,17 +20,11 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 class CatalunaLocalesScraper(BaseScraper):
     """Scraper para festivos locales de Cataluña"""
     
-    # Cada año necesita documentId y versionId
-    KNOWN_URLS = {
-        2026: {
-            'documentId': '1032232',
-            'versionId': '2125486',
-        },
-        # Añadir más años según se publiquen
-    }
+    CACHE_FILE = "config/cataluna_urls_cache.json"
     
     def __init__(self, year: int, municipio: Optional[str] = None):
         super().__init__(year=year, ccaa='cataluna', tipo='locales')
+        self._load_cache()
         
         # Si se especifica municipio, hacer fuzzy matching UNA VEZ contra la lista de municipios
         if municipio:
@@ -58,15 +52,31 @@ class CatalunaLocalesScraper(BaseScraper):
         else:
             self.municipio = None
     
+    def _load_cache(self):
+        """Carga URLs en caché"""
+        import json
+        import os
+        
+        self.cached_data = {}
+        
+        if os.path.exists(self.CACHE_FILE):
+            with open(self.CACHE_FILE, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
+                # Filtrar las instrucciones
+                self.cached_data = {k: v for k, v in cache.items() if not k.startswith('_')}
+    
     def get_source_url(self) -> str:
         """Construye la URL del XML del DOGC para el año especificado"""
-        if self.year not in self.KNOWN_URLS:
+        year_str = str(self.year)
+        
+        if year_str not in self.cached_data:
             raise ValueError(
                 f"No hay datos disponibles para Cataluña {self.year}.\n"
-                f"Años disponibles: {list(self.KNOWN_URLS.keys())}"
+                f"Años disponibles: {list(self.cached_data.keys())}\n"
+                f"Para añadir un nuevo año, consulta las instrucciones en {self.CACHE_FILE}"
             )
         
-        doc_info = self.KNOWN_URLS[self.year]
+        doc_info = self.cached_data[year_str]
         document_id = doc_info['documentId']
         version_id = doc_info['versionId']
         
