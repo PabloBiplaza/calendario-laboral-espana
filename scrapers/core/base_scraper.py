@@ -253,14 +253,14 @@ class BaseScraper(ABC):
         Fallback: Patrones conocidos específicos
         Solo se usa si los otros métodos fallan
         """
+        from scrapers.utils.pascua import calcular_jueves_santo, calcular_viernes_santo
+        
         festivos = []
         
         # Lista de festivos nacionales conocidos (siempre son estos)
         festivos_conocidos = [
             (1, 'enero', 'Año Nuevo', False),
             (6, 'enero', 'Epifanía del Señor', True),
-            (None, None, 'Jueves Santo', True),  # Fecha variable
-            (None, None, 'Viernes Santo', False),  # Fecha variable
             (1, 'mayo', 'Fiesta del Trabajo', False),
             (15, 'agosto', 'Asunción de la Virgen', True),
             (12, 'octubre', 'Fiesta Nacional de España', False),
@@ -270,47 +270,59 @@ class BaseScraper(ABC):
             (25, 'diciembre', 'Natividad del Señor', False),
         ]
         
-        # Buscar cada uno en el contenido
+        # Añadir festivos fijos
         for dia, mes_texto, descripcion, sustituible in festivos_conocidos:
-            if dia and mes_texto:
-                # Fecha fija
-                meses = {
-                    'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
-                    'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
-                    'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
-                }
-                mes = meses[mes_texto]
-                fecha_iso = f"{self.year}-{mes:02d}-{dia:02d}"
-                fecha_texto = f"{dia} de {mes_texto}"
-                
-                festivos.append({
-                    'fecha': fecha_iso,
-                    'fecha_texto': fecha_texto,
-                    'descripcion': descripcion,
-                    'tipo': 'nacional',
-                    'ambito': 'nacional',
-                    'sustituible': sustituible,
-                    'year': self.year
-                })
-            else:
-                # Fecha variable (Semana Santa) - buscar en el contenido
-                if descripcion.lower() in content.lower():
-                    # Intentar extraer la fecha del contexto
-                    idx = content.lower().find(descripcion.lower())
-                    contexto = content[max(0, idx-100):min(len(content), idx+100)]
-                    
-                    fecha_match = self._extraer_fecha_de_texto(contexto)
-                    if fecha_match:
-                        fecha_iso, fecha_texto = fecha_match
-                        festivos.append({
-                            'fecha': fecha_iso,
-                            'fecha_texto': fecha_texto,
-                            'descripcion': descripcion,
-                            'tipo': 'nacional',
-                            'ambito': 'nacional',
-                            'sustituible': sustituible if descripcion == 'Jueves Santo' else False,
-                            'year': self.year
-                        })
+            meses = {
+                'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
+                'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
+                'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
+            }
+            mes = meses[mes_texto]
+            fecha_iso = f"{self.year}-{mes:02d}-{dia:02d}"
+            fecha_texto = f"{dia} de {mes_texto}"
+            
+            festivos.append({
+                'fecha': fecha_iso,
+                'fecha_texto': fecha_texto,
+                'descripcion': descripcion,
+                'tipo': 'nacional',
+                'ambito': 'nacional',
+                'sustituible': sustituible,
+                'year': self.year
+            })
+        
+        # Añadir Semana Santa (calculada matemáticamente)
+        try:
+            jueves_santo = calcular_jueves_santo(self.year)
+            viernes_santo = calcular_viernes_santo(self.year)
+            
+            meses_es = {
+                1: 'enero', 2: 'febrero', 3: 'marzo', 4: 'abril',
+                5: 'mayo', 6: 'junio', 7: 'julio', 8: 'agosto',
+                9: 'septiembre', 10: 'octubre', 11: 'noviembre', 12: 'diciembre'
+            }
+            
+            festivos.append({
+                'fecha': jueves_santo.isoformat(),
+                'fecha_texto': f"{jueves_santo.day} de {meses_es[jueves_santo.month]}",
+                'descripcion': 'Jueves Santo',
+                'tipo': 'nacional',
+                'ambito': 'nacional',
+                'sustituible': True,
+                'year': self.year
+            })
+            
+            festivos.append({
+                'fecha': viernes_santo.isoformat(),
+                'fecha_texto': f"{viernes_santo.day} de {meses_es[viernes_santo.month]}",
+                'descripcion': 'Viernes Santo',
+                'tipo': 'nacional',
+                'ambito': 'nacional',
+                'sustituible': False,
+                'year': self.year
+            })
+        except Exception as e:
+            print(f"⚠️  Error calculando Semana Santa: {e}")
         
         return festivos
     
