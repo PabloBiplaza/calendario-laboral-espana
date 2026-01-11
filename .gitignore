@@ -52,4 +52,4 @@ _old_scrapers/
 
 # Cache
 *.cache
-.pytest_cache/
+.pytest_cache/*.bak
