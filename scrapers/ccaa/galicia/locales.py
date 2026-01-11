@@ -57,6 +57,26 @@ class GaliciaLocalesScraper(BaseScraper):
         else:
             self.cached_urls = {}
     
+    def _save_to_cache(self, year_str: str, url: str):
+        """Guarda URL en el cache"""
+        import os
+        import json
+        
+        # Cargar cache actual
+        cache = {}
+        if os.path.exists(self.CACHE_FILE):
+            with open(self.CACHE_FILE, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
+        
+        # Añadir nueva URL
+        cache[year_str] = url
+        
+        # Guardar
+        with open(self.CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+        
+        print(f"💾 URL guardada en cache: {self.CACHE_FILE}")
+    
     def get_source_url(self) -> str:
         """Devuelve la URL del DOG"""
         year_str = str(self.year)
@@ -75,15 +95,11 @@ class GaliciaLocalesScraper(BaseScraper):
         
         if url:
             print(f"✅ URL encontrada via discovery: {url}")
+            
+            # Guardar en cache
+            self._save_to_cache(year_str, url)
+            
             return url
-        
-        raise ValueError(
-            f"No se encontró URL para Galicia {self.year}.\n"
-            f"Por favor:\n"
-            f"1. Busca manualmente en: https://www.xunta.gal/dog\n"
-            f"2. Busca 'fiestas locales {self.year}'\n"
-            f"3. Añade la URL a {self.CACHE_FILE}"
-        )
     
     def parse_festivos(self, content: str) -> List[Dict]:
         """Parsea festivos desde el HTML del DOG"""

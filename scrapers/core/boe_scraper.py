@@ -45,7 +45,7 @@ class BOEScraper(BaseScraper):
         print("🔍 Parseando festivos...")
         
         # ESTRATEGIA 0: Tabla CCAA (MÁS PRECISO - para años con traslados)
-        if self.year >= 2026:  # Para años futuros usar tabla
+        if self.year >= 2024:  # Para años futuros usar tabla
             print(f"   🔍 Intentando parsear tabla CCAA para {self.year}...")
             festivos_tabla_ccaa = self.parse_tabla_ccaa(content, self.filter_ccaa)
             if festivos_tabla_ccaa and len(festivos_tabla_ccaa) >= 9:
@@ -515,6 +515,7 @@ class BOEScraper(BaseScraper):
             'valencia': 'Comunitat Valenciana',
             'cataluna': 'Comunidad Autónoma de Cataluña',
             'andalucia': 'Comunidad Autónoma de Andalucía',
+            'galicia': 'Comunidad Autónoma de Galicia',
             # Añadir más según se necesiten
         }
         
