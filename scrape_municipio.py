@@ -115,7 +115,7 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
         
         if scraper_local:
             festivos_locales = scraper_local.scrape()
-            
+
             if festivos_locales:
                 festivos_todos.extend(festivos_locales)
                 print(f"   ✅ {len(festivos_locales)} festivos locales extraídos")
