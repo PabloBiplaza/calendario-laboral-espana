@@ -16,3 +16,19 @@
 - Detectar múltiples matches con score alto (>80)
 - Mostrar lista de opciones al usuario
 - Requerir desambiguación
+
+## Nombres compuestos en País Vasco
+
+Algunos municipios del País Vasco tienen nombres compuestos (ej: Vitoria-Gasteiz, Ayala-Aiara).
+
+**Problema:** El fuzzy matching no encuentra estos municipios con nombres parciales.
+
+**Solución:** Usar el nombre completo:
+- ❌ "vitoria" → No encuentra
+- ✅ "vitoria-gasteiz" → Funciona
+
+**Ejemplos:**
+- Vitoria-Gasteiz
+- Donostia-San Sebastián (si aplica)
+- Ayala-Aiara
+

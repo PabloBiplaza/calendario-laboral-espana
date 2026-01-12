@@ -516,6 +516,7 @@ class BOEScraper(BaseScraper):
             'cataluna': 'Comunidad Autónoma de Cataluña',
             'andalucia': 'Comunidad Autónoma de Andalucía',
             'galicia': 'Comunidad Autónoma de Galicia',
+            'pais_vasco': 'País Vasco',
             # Añadir más según se necesiten
         }
         
