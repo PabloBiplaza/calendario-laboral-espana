@@ -10,11 +10,11 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🎯 Características
 
-✅ **6 Comunidades Autónomas** completas (Canarias, Madrid, Andalucía, Valencia, Baleares, Cataluña)  
-✅ **2,572+ municipios** soportados con festivos exactos  
+✅ **8 Comunidades Autónomas** completas (Canarias, Madrid, Andalucía, Valencia, Baleares, Cataluña, Galicia, País Vasco)  
+✅ **3,136+ municipios** soportados con festivos exactos  
 ✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)  
-✅ **Auto-discovery** automático de URLs de boletines oficiales (80% CCAA)  
-✅ **Parsing inteligente** de HTML, PDF, XML y YAML  
+✅ **Auto-discovery** automático de URLs de boletines oficiales (75% CCAA)  
+✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON  
 ✅ **Generación de PDF** para imprimir con branding personalizable  
 ✅ **Deploy en Streamlit Cloud** - acceso público y gratuito  
 
@@ -30,9 +30,11 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **Valencia** | 540+ | 3 provincias | DOGV | ✅ | PDF |
 | **Baleares** | 67 | 4 islas | CAIB | ❌ (URLs predecibles) | HTML |
 | **Cataluña** | 950+ | 42 comarcas | DOGC | ❌ | XML (Akoma Ntoso) |
-| **TOTAL** | **2,572+** | **60+** | - | **80%** | - |
+| **Galicia** | 313 | 4 provincias | DOG | ✅ (RDF) | HTML |
+| **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
+| **TOTAL** | **3,136+** | **63+** | - | **75%** | - |
 
-**Progreso:** 6/17 CCAA (35% de España)
+**Progreso:** 8/17 CCAA (39% de España)
 
 ---
 
@@ -42,7 +44,7 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 Accede directamente a la aplicación desplegada:
 
-👉 **[calendario-laboral-espana.streamlit.app](https://calendario-laboral-espana-yornkkgnnzizqn4omxfhr5.streamlit.app)**
+👉 **[calendario-laboral-espana.streamlit.app](https://calendario-laboral-espana-yornkkgn4omxfhr5.streamlit.app)**
 
 1. Selecciona tu comunidad autónoma
 2. Selecciona tu municipio
@@ -91,19 +93,25 @@ scrapers/
 │   │   └── locales.py        # DOGV - PDF multiidioma
 │   ├── baleares/
 │   │   └── locales.py        # CAIB - HTML tablas por islas
-│   └── cataluna/
-│       └── locales.py        # DOGC - XML Akoma Ntoso (curl)
+│   ├── cataluna/
+│   │   └── locales.py        # DOGC - XML Akoma Ntoso (curl)
+│   ├── galicia/
+│   │   └── locales.py        # DOG - HTML parsing robusto
+│   └── pais_vasco/
+│       └── locales.py        # OpenData - JSON estructurado
 └── discovery/
     └── ccaa/
-        ├── canarias_discovery.py   # Auto-discovery BOC
-        ├── madrid_discovery.py     # Auto-discovery BOCM
-        ├── andalucia_discovery.py  # Auto-discovery BOJA
-        └── valencia_discovery.py   # Auto-discovery DOGV
+        ├── canarias_discovery.py    # Auto-discovery BOC
+        ├── madrid_discovery.py      # Auto-discovery BOCM
+        ├── andalucia_discovery.py   # Auto-discovery BOJA
+        ├── valencia_discovery.py    # Auto-discovery DOGV
+        ├── galicia_discovery.py     # Auto-discovery DOG (RDF catalog)
+        └── pais_vasco_discovery.py  # Auto-discovery OpenData
 ```
 
 ### Auto-discovery Inteligente
 
-Los scrapers de Canarias, Madrid, Andalucía y Valencia incluyen **auto-discovery** que:
+Los scrapers incluyen **auto-discovery** que:
 
 1. 🔍 Busca automáticamente en páginas oficiales
 2. 📋 Extrae signaturas y enlaces
@@ -111,14 +119,20 @@ Los scrapers de Canarias, Madrid, Andalucía y Valencia incluyen **auto-discover
 4. 💾 Cachea URLs descubiertas
 5. 🔄 Actualiza automáticamente cada año
 
+**Casos especiales:**
+- **Galicia:** Usa catálogo RDF de datos abiertos de Xunta
+- **País Vasco:** URLs predecibles en OpenData Euskadi desde 2017
+
 ### Parsing Robusto
 
 - **HTML:** BeautifulSoup con normalización de caracteres (ñ, ü, tildes, artículos catalanes)
 - **PDF:** pypdf con extracción de texto y validación de estructura
 - **XML:** ElementTree con HTML escapado (Akoma Ntoso estándar)
 - **YAML:** Safe loading con manejo de encoding UTF-8
+- **JSON:** Datos estructurados de OpenData (País Vasco)
 - **Formatos complejos:** Regex adaptativo para "14y17deagosto", "27 y 28 de agosto"
-- **Tablas HTML:** Extracción estructurada por islas/provincias/comarcas
+- **Múltiples fechas:** "27 de julio, 7 de diciembre" → 2 festivos separados
+- **Tablas HTML:** Extracción estructurada por islas/provincias/comarcas/territorios
 - **SSL problemático:** Fallback a curl para servidores con certificados antiguos
 
 ---
@@ -130,33 +144,33 @@ Los scrapers de Canarias, Madrid, Andalucía y Valencia incluyen **auto-discover
 Calendario generado: 14 festivos
 
 ┌─────────────────────────────────────────┐
-│  CALENDARIO LABORAL 2026 - BARCELONA    │
-│  Cataluña - Barcelonès                  │
+│  CALENDARIO LABORAL 2026 - BILBAO       │
+│  País Vasco - Bizkaia                   │
 └─────────────────────────────────────────┘
 
 📅 FESTIVOS:
    2026-01-01 - [NACIONAL   ] Año Nuevo
    2026-01-06 - [NACIONAL   ] Epifanía del Señor
+   2026-03-19 - [AUTONOMICO ] San José
+   2026-04-02 - [AUTONOMICO ] Jueves Santo
    2026-04-03 - [NACIONAL   ] Viernes Santo
    2026-04-06 - [AUTONOMICO ] Lunes de Pascua
    2026-05-01 - [NACIONAL   ] Fiesta del Trabajo
-   2026-05-25 - [LOCAL      ] Festivo local de Barcelona
-   2026-06-24 - [AUTONOMICO ] San Juan
+   2026-07-25 - [AUTONOMICO ] Santiago Apóstol
+   2026-07-31 - [LOCAL      ] San Ignacio de Loyola
    2026-08-15 - [NACIONAL   ] Asunción de la Virgen
-   2026-09-11 - [AUTONOMICO ] Fiesta Nacional de Cataluña
-   2026-09-24 - [LOCAL      ] Festivo local de Barcelona
+   2026-08-21 - [LOCAL      ] Viernes de la Semana Grande
    2026-10-12 - [NACIONAL   ] Fiesta Nacional de España
    2026-12-08 - [NACIONAL   ] Inmaculada Concepción
    2026-12-25 - [NACIONAL   ] Natividad del Señor
-   2026-12-26 - [AUTONOMICO ] San Esteban
 ```
 
 ### JSON Output
 ```json
 {
-  "municipio": "Barcelona",
-  "ccaa": "cataluna",
-  "comarca": "Barcelonès",
+  "municipio": "Bilbao",
+  "ccaa": "pais_vasco",
+  "territorio": "Bizkaia",
   "year": 2026,
   "festivos": [
     {
@@ -165,11 +179,16 @@ Calendario generado: 14 festivos
       "tipo": "nacional"
     },
     {
-      "fecha": "2026-05-25",
-      "descripcion": "Festivo local de Barcelona",
+      "fecha": "2026-07-31",
+      "descripcion": "San Ignacio de Loyola",
       "tipo": "local",
-      "municipio": "Barcelona",
-      "comarca": "Barcelonès"
+      "territorio": "Bizkaia"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Viernes de la Semana Grande",
+      "tipo": "local",
+      "municipio": "Bilbao"
     }
   ]
 }
@@ -181,12 +200,15 @@ Calendario generado: 14 festivos
 
 ### Próximas CCAA (En orden de prioridad)
 
-- [ ] **País Vasco** (251 municipios) - BOPV
-- [ ] **Galicia** (313 municipios) - DOG
+- [ ] **Cantabria** (102 municipios) - BOC
+- [ ] **Asturias** (78 municipios) - BOPA
 - [ ] **Castilla y León** (2,248 municipios) - BOCYL
 - [ ] **Aragón** (731 municipios) - BOA
 - [ ] **Murcia** (45 municipios) - BORM
-- [ ] Resto de España...
+- [ ] **Castilla-La Mancha** (~900 municipios) - DOCM
+- [ ] **Extremadura** (388 municipios) - DOE
+- [ ] **La Rioja** (174 municipios) - BOR
+- [ ] **Navarra** (272 municipios) - BON
 
 ### Features Planificadas
 
@@ -223,6 +245,8 @@ Las contribuciones son bienvenidas. Para añadir una nueva CCAA:
 - **Valencia:** [DOGV](https://dogv.gva.es/) - Diari Oficial de la Generalitat Valenciana
 - **Baleares:** [CAIB](https://www.caib.es/sites/calendarilaboral/) - Govern de les Illes Balears
 - **Cataluña:** [DOGC](https://dogc.gencat.cat/) - Diari Oficial de la Generalitat de Catalunya
+- **Galicia:** [DOG](https://www.xunta.gal/dog) - Diario Oficial de Galicia
+- **País Vasco:** [OpenData Euskadi](https://opendata.euskadi.eus/) - Datos Abiertos del Gobierno Vasco
 
 ---
 
@@ -253,8 +277,7 @@ Desarrollado con ❤️ para facilitar la gestión de calendarios laborales en E
 
 ## ⭐ Stats
 
-![Municipios](https://img.shields.io/badge/Municipios-2572+-blue)
-![CCAA](https://img.shields.io/badge/CCAA-6%2F17-green)
-![Coverage](https://img.shields.io/badge/Cobertura-35%25-yellow)
+![Municipios](https://img.shields.io/badge/Municipios-3136+-blue)
+![CCAA](https://img.shields.io/badge/CCAA-8%2F17-green)
+![Coverage](https://img.shields.io/badge/Cobertura-39%25-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
