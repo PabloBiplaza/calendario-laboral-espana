@@ -10,12 +10,12 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🎯 Características
 
-✅ **8 Comunidades Autónomas** completas (Canarias, Madrid, Andalucía, Valencia, Baleares, Cataluña, Galicia, País Vasco)  
-✅ **3,136+ municipios** soportados con festivos exactos  
-✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)  
-✅ **Auto-discovery** automático de URLs de boletines oficiales (75% CCAA)  
-✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON  
-✅ **Generación de PDF** para imprimir con branding personalizable  
+✅ **9 Comunidades Autónomas** (8 completas + 1 en progreso)
+✅ **3,214+ municipios** soportados con festivos exactos
+✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)
+✅ **Auto-discovery** automático de URLs de boletines oficiales (78% CCAA)
+✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON
+✅ **Generación de PDF** para imprimir con branding personalizable
 ✅ **Deploy en Streamlit Cloud** - acceso público y gratuito  
 
 ---
@@ -32,9 +32,12 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **Cataluña** | 950+ | 42 comarcas | DOGC | ❌ | XML (Akoma Ntoso) |
 | **Galicia** | 313 | 4 provincias | DOG | ✅ (RDF) | HTML |
 | **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
-| **TOTAL** | **3,136+** | **63+** | - | **75%** | - |
+| **Asturias** 🚧 | 78 | 1 provincia | BOPA/OpenData | ⚠️ (SSL issues) | CSV/PDF |
+| **TOTAL** | **3,214+** | **64+** | - | **78%** | - |
 
-**Progreso:** 8/17 CCAA (39% de España)
+**Progreso:** 9/17 CCAA (41% de España)
+
+🚧 **Asturias en progreso**: Festivos nacionales y autonómicos funcionan. Festivos locales pendientes por problemas SSL en servidor OpenData.
 
 ---
 
@@ -200,8 +203,8 @@ Calendario generado: 14 festivos
 
 ### Próximas CCAA (En orden de prioridad)
 
+- [🚧] **Asturias** (78 municipios) - BOPA/OpenData (En progreso - SSL issues)
 - [ ] **Cantabria** (102 municipios) - BOC
-- [ ] **Asturias** (78 municipios) - BOPA
 - [ ] **Castilla y León** (2,248 municipios) - BOCYL
 - [ ] **Aragón** (731 municipios) - BOA
 - [ ] **Murcia** (45 municipios) - BORM
@@ -247,6 +250,7 @@ Las contribuciones son bienvenidas. Para añadir una nueva CCAA:
 - **Cataluña:** [DOGC](https://dogc.gencat.cat/) - Diari Oficial de la Generalitat de Catalunya
 - **Galicia:** [DOG](https://www.xunta.gal/dog) - Diario Oficial de Galicia
 - **País Vasco:** [OpenData Euskadi](https://opendata.euskadi.eus/) - Datos Abiertos del Gobierno Vasco
+- **Asturias:** [BOPA](https://miprincipado.asturias.es/bopa) - Boletín Oficial del Principado de Asturias
 
 ---
 
@@ -277,7 +281,7 @@ Desarrollado con ❤️ para facilitar la gestión de calendarios laborales en E
 
 ## ⭐ Stats
 
-![Municipios](https://img.shields.io/badge/Municipios-3136+-blue)
-![CCAA](https://img.shields.io/badge/CCAA-8%2F17-green)
-![Coverage](https://img.shields.io/badge/Cobertura-39%25-yellow)
+![Municipios](https://img.shields.io/badge/Municipios-3214+-blue)
+![CCAA](https://img.shields.io/badge/CCAA-9%2F17-green)
+![Coverage](https://img.shields.io/badge/Cobertura-41%25-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
