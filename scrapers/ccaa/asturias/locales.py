@@ -113,7 +113,10 @@ class AsturiasLocalesScraper(BaseScraper):
         )
 
     def parse_festivos(self, content: str) -> List[Dict]:
-        """Parsea festivos desde CSV o JSON de OpenData Asturias"""
+        """Parsea festivos desde CSV, JSON o PDF de Asturias"""
+
+        if not content:
+            return []
 
         print("🔍 Parseando festivos locales de Asturias...")
 
@@ -138,7 +141,7 @@ class AsturiasLocalesScraper(BaseScraper):
             return 'csv'
 
     def _parse_json(self, content: str) -> List[Dict]:
-        """Parsea festivos desde JSON"""
+        """Parsea festivos desde JSON (incluye datos del PDF ya parseados)"""
         try:
             datos = json.loads(content)
         except:
@@ -153,10 +156,17 @@ class AsturiasLocalesScraper(BaseScraper):
         for item in datos:
             # Estructura esperada del JSON de Asturias
             # {
-            #   "Año": "2026",
+            #   "Año": "2026" (opcional),
             #   "Municipio": "Oviedo",
             #   "Fecha": "2026-09-21",
             #   "Descripción": "San Mateo"
+            # }
+            # O del PDF parser:
+            # {
+            #   "fecha": "2026-09-21",
+            #   "descripcion": "San Mateo",
+            #   "fecha_texto": "21 de septiembre",
+            #   "municipio": "OVIEDO"
             # }
 
             municipio_item = item.get('Municipio', item.get('municipio', ''))
@@ -164,19 +174,26 @@ class AsturiasLocalesScraper(BaseScraper):
             descripcion = item.get('Descripción', item.get('Descripcion', item.get('descripcion', 'Festivo local')))
             year_item = item.get('Año', item.get('año', item.get('year', '')))
 
+            # Si viene del PDF, no tiene año separado
+            if not year_item and fecha:
+                try:
+                    year_item = int(fecha.split('-')[0])
+                except:
+                    year_item = self.year
+
             # Filtrar por año
-            if str(year_item) != str(self.year):
+            if year_item and str(year_item) != str(self.year):
                 continue
 
             # Filtrar por municipio si se especificó
-            if self.municipio:
+            if self.municipio and municipio_item:
                 from utils.normalizer import MunicipioNormalizer
                 if not MunicipioNormalizer.are_equivalent(self.municipio, municipio_item, threshold=85):
                     continue
 
             festivos.append({
                 'fecha': fecha,
-                'fecha_texto': fecha,
+                'fecha_texto': item.get('fecha_texto', fecha),
                 'descripcion': descripcion,
                 'tipo': 'local',
                 'ambito': 'local',
@@ -237,7 +254,12 @@ class AsturiasLocalesScraper(BaseScraper):
         return festivos
 
     def fetch_content(self, url: str) -> str:
-        """Descarga el CSV/JSON desde OpenData Asturias"""
+        """Descarga el CSV/JSON/PDF desde las fuentes de Asturias"""
+
+        # Si es un PDF, usar parser especial
+        if url.endswith('.pdf'):
+            return self._fetch_pdf(url)
+
         try:
             print(f"📥 Descargando: {url}")
 
@@ -251,4 +273,58 @@ class AsturiasLocalesScraper(BaseScraper):
 
         except Exception as e:
             print(f"❌ Error descargando {url}: {e}")
+            return ""
+
+    def _fetch_pdf(self, url: str) -> str:
+        """Descarga y parsea PDF del BOPA"""
+        import tempfile
+        import os
+
+        try:
+            print(f"📥 Descargando PDF: {url}")
+
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+
+            print(f"✅ PDF descargado ({len(response.content)} bytes)")
+
+            # Guardar temporalmente el PDF
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                tmp_file.write(response.content)
+                tmp_path = tmp_file.name
+
+            try:
+                # Usar el parser de PDF
+                from .pdf_parser import BOPAPDFParser
+
+                parser = BOPAPDFParser(tmp_path, self.year)
+
+                if self.municipio:
+                    festivos = parser.get_festivos_municipio(self.municipio)
+                    print(f"   ✅ Festivos locales extraídos del PDF: {len(festivos)}")
+
+                    # Devolver en formato que parse_festivos espera
+                    # Como el PDF ya parsea, devolver JSON string
+                    return json.dumps(festivos)
+                else:
+                    # Sin municipio, devolver todos
+                    festivos_todos = parser.parse()
+                    festivos_lista = []
+                    for mun, fests in festivos_todos.items():
+                        for f in fests:
+                            f['municipio'] = mun
+                            festivos_lista.append(f)
+
+                    print(f"   ✅ Festivos locales extraídos del PDF: {len(festivos_lista)}")
+                    return json.dumps(festivos_lista)
+
+            finally:
+                # Limpiar archivo temporal
+                if os.path.exists(tmp_path):
+                    os.unlink(tmp_path)
+
+        except Exception as e:
+            print(f"❌ Error procesando PDF {url}: {e}")
+            import traceback
+            traceback.print_exc()
             return ""

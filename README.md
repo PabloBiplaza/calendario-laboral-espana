@@ -10,10 +10,10 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🎯 Características
 
-✅ **9 Comunidades Autónomas** (8 completas + 1 en progreso)
+✅ **9 Comunidades Autónomas** completas
 ✅ **3,214+ municipios** soportados con festivos exactos
 ✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)
-✅ **Auto-discovery** automático de URLs de boletines oficiales (78% CCAA)
+✅ **Auto-discovery** automático de URLs de boletines oficiales (89% CCAA)
 ✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON
 ✅ **Generación de PDF** para imprimir con branding personalizable
 ✅ **Deploy en Streamlit Cloud** - acceso público y gratuito  
@@ -32,12 +32,10 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **Cataluña** | 950+ | 42 comarcas | DOGC | ❌ | XML (Akoma Ntoso) |
 | **Galicia** | 313 | 4 provincias | DOG | ✅ (RDF) | HTML |
 | **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
-| **Asturias** 🚧 | 78 | 1 provincia | BOPA/OpenData | ⚠️ (SSL issues) | CSV/PDF |
-| **TOTAL** | **3,214+** | **64+** | - | **78%** | - |
+| **Asturias** | 78 | 1 provincia | BOPA | ✅ | PDF |
+| **TOTAL** | **3,214+** | **64+** | - | **89%** | - |
 
-**Progreso:** 9/17 CCAA (41% de España)
-
-🚧 **Asturias en progreso**: Festivos nacionales y autonómicos funcionan. Festivos locales pendientes por problemas SSL en servidor OpenData.
+**Progreso:** 9/17 CCAA (53% de España)
 
 ---
 
@@ -203,7 +201,7 @@ Calendario generado: 14 festivos
 
 ### Próximas CCAA (En orden de prioridad)
 
-- [🚧] **Asturias** (78 municipios) - BOPA/OpenData (En progreso - SSL issues)
+- [✅] **Asturias** (78 municipios) - BOPA (Completado)
 - [ ] **Cantabria** (102 municipios) - BOC
 - [ ] **Castilla y León** (2,248 municipios) - BOCYL
 - [ ] **Aragón** (731 municipios) - BOA
@@ -283,5 +281,5 @@ Desarrollado con ❤️ para facilitar la gestión de calendarios laborales en E
 
 ![Municipios](https://img.shields.io/badge/Municipios-3214+-blue)
 ![CCAA](https://img.shields.io/badge/CCAA-9%2F17-green)
-![Coverage](https://img.shields.io/badge/Cobertura-41%25-yellow)
+![Coverage](https://img.shields.io/badge/Cobertura-53%25-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
