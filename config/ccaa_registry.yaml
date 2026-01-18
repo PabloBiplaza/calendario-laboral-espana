@@ -1,0 +1,197 @@
+# Registro Centralizado de Comunidades Autónomas
+# Este archivo unifica toda la configuración de URLs, municipios y metadatos
+# El código viejo (que lee JSONs individuales) sigue funcionando mientras migramos
+
+ccaa:
+  canarias:
+    name: "Canarias"
+    municipios_count: 88
+    provincias:
+      - "Las Palmas"
+      - "Santa Cruz de Tenerife"
+    boletin: "BOC"
+    boletin_url: "https://www.gobiernodecanarias.org/boc/"
+    formato: "yaml"
+    auto_discovery: true
+    discovery_method: "boe_rdf"  # Usa RDF del BOC
+    urls:
+      locales:
+        2026: "https://www.gobiernodecanarias.org/boc/2025/165/3029.html"
+        2025: "https://www.gobiernodecanarias.org/boc/2024/146/2736.html"
+        2024: "https://www.gobiernodecanarias.org/boc/2023/162/2882.html"
+      autonomicos:
+        2026: "https://sede.gobcan.es/boc/boc-a-2025-162-4294.pdf"
+        2025: "https://sede.gobcan.es/boc/boc-a-2024-145-3970.pdf"
+    municipios_file: "config/canarias_municipios_islas.json"
+
+  madrid:
+    name: "Madrid"
+    municipios_count: 181
+    provincias:
+      - "Madrid"
+    boletin: "BOCM"
+    boletin_url: "https://www.bocm.es/"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "bocm_search"
+    urls:
+      locales:
+        2026: "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/11/01/BOCM-20251101-21.PDF"
+      autonomicos:
+        2026: "https://www.bocm.es/boletin/CM_Orden_BOCM/2025/09/25/BOCM-20250925-16.PDF"
+    municipios_file: "config/madrid_municipios.json"
+
+  andalucia:
+    name: "Andalucía"
+    municipios_count: 746
+    provincias:
+      - "Almería"
+      - "Cádiz"
+      - "Córdoba"
+      - "Granada"
+      - "Huelva"
+      - "Jaén"
+      - "Málaga"
+      - "Sevilla"
+    boletin: "BOJA"
+    boletin_url: "https://www.juntadeandalucia.es/boja"
+    formato: "html"
+    auto_discovery: true
+    discovery_method: "boja_sequential"
+    urls:
+      locales:
+        2026: "https://www.juntadeandalucia.es/boja/2025/170/BOJA25-170-00004-13906-01_00299976.pdf"
+    municipios_file: "config/andalucia_municipios.json"
+
+  valencia:
+    name: "Comunitat Valenciana"
+    municipios_count: 542
+    provincias:
+      - "Alicante"
+      - "Castellón"
+      - "Valencia"
+    boletin: "DOGV"
+    boletin_url: "https://dogv.gva.es/"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "dogv_search"
+    urls:
+      locales:
+        2026: "https://dogv.gva.es/datos/2025/09/02/pdf/2025_8583.pdf"
+    municipios_file: "config/valencia_municipios.json"
+
+  baleares:
+    name: "Illes Balears"
+    municipios_count: 67
+    provincias:
+      - "Mallorca"
+      - "Menorca"
+      - "Eivissa"
+      - "Formentera"
+    boletin: "BOIB"
+    boletin_url: "https://www.caib.es/eboibfront/"
+    formato: "html"
+    auto_discovery: false
+    discovery_method: "predictable_urls"
+    urls:
+      locales:
+        2026: "https://www.caib.es/eboibfront/pdf/ca/2025/95/1138346"
+    municipios_file: "config/baleares_municipios.json"
+
+  cataluna:
+    name: "Catalunya"
+    municipios_count: 950
+    provincias:
+      - "Barcelona"
+      - "Girona"
+      - "Lleida"
+      - "Tarragona"
+    comarcas_count: 42
+    boletin: "DOGC"
+    boletin_url: "https://dogc.gencat.cat/"
+    formato: "xml"
+    formato_especifico: "akoma_ntoso"
+    auto_discovery: false
+    discovery_method: "manual"  # URLs muy específicas
+    urls:
+      locales:
+        2026: "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=969039"
+    municipios_file: "config/cataluna_municipios.json"
+
+  galicia:
+    name: "Galicia"
+    municipios_count: 313
+    provincias:
+      - "A Coruña"
+      - "Lugo"
+      - "Ourense"
+      - "Pontevedra"
+    boletin: "DOG"
+    boletin_url: "https://www.xunta.gal/dog"
+    formato: "html"
+    auto_discovery: true
+    discovery_method: "rdf_metadata"
+    urls:
+      locales:
+        2026: "https://www.xunta.gal/dog/Publicados/2025/20250904/AnuncioG0003-030925-0001_es.html"
+        2025: "https://www.xunta.gal/dog/Publicados/2024/20240906/AnuncioG0003-290824-0002_es.html"
+    municipios_file: "config/galicia_municipios.json"
+
+  pais_vasco:
+    name: "Euskadi / País Vasco"
+    municipios_count: 251
+    provincias:
+      - "Araba"
+      - "Bizkaia"
+      - "Gipuzkoa"
+    boletin: "BOPV"
+    boletin_url: "https://www.euskadi.eus/bopv2/"
+    formato: "json"
+    formato_especifico: "opendata_api"
+    auto_discovery: true
+    discovery_method: "opendata_euskadi"
+    urls:
+      locales:
+        2026: "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/calendario_laboral_2026/es_def/adjuntos/calendario_laboral_2026.json"
+        2025: "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/calendario_laboral_2025/es_def/adjuntos/calendario_laboral_2025.json"
+    municipios_file: "config/pais_vasco_municipios.json"
+
+  asturias:
+    name: "Principado de Asturias"
+    municipios_count: 78
+    provincias:
+      - "Asturias"
+    boletin: "BOPA"
+    boletin_url: "https://sede.asturias.es/bopa"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "bopa_direct"
+    urls:
+      locales:
+        2026: "https://miprincipado.asturias.es/bopa/2025/06/16/2025-04744.pdf"
+        2025: "https://miprincipado.asturias.es/bopa/2024/05/30/2024-04382.pdf"
+    municipios_file: "config/asturias_municipios.json"
+
+  cantabria:
+    name: "Cantabria"
+    municipios_count: 102
+    provincias:
+      - "Cantabria"
+    boletin: "BOC"
+    boletin_url: "https://boc.cantabria.es/"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "boc_search"
+    urls:
+      locales:
+        2026: "https://boc.cantabria.es/boces/verAnuncioAction.do?idAnuBlob=428192"
+    municipios_file: "config/cantabria_municipios.json"
+
+# Metadatos globales
+metadata:
+  total_ccaa: 10
+  total_municipios: 3318  # Total teórico (88+181+746+542+67+950+313+251+78+102)
+  municipios_en_json: 250  # Solo Asturias y Cantabria tienen JSONs completos
+  auto_discovery_percentage: 80
+  ultima_actualizacion: "2026-01-18"
+  version: "1.0.0"
