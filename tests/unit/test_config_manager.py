@@ -109,8 +109,8 @@ class TestCCAaRegistry:
         """Verifica que lista solo CCAA con auto-discovery"""
         ccaa_with_discovery = registry.list_ccaa_with_discovery()
 
-        # Según el YAML, hay 8 CCAA con auto_discovery=true
-        assert len(ccaa_with_discovery) == 8
+        # Según el YAML, hay 9 CCAA con auto_discovery=true
+        assert len(ccaa_with_discovery) == 9
 
         # Verificar que Cataluña NO está (auto_discovery=false)
         assert 'cataluna' not in ccaa_with_discovery
