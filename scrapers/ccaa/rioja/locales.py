@@ -23,8 +23,9 @@ class RiojaLocalesScraper(BaseScraper):
     Los festivos se publican en el BOR (Boletín Oficial de La Rioja).
     """
 
-    def __init__(self, year: int = 2026):
+    def __init__(self, year: int = 2026, municipio: str = None):
         super().__init__(year, ccaa='rioja', tipo='locales')
+        self.municipio = municipio
         self.municipios = self._load_municipios()
 
     def _load_municipios(self) -> Dict[str, str]:
@@ -67,19 +68,20 @@ class RiojaLocalesScraper(BaseScraper):
         parser = BORPDFParser(pdf_path, self.year)
         return parser.parse()
 
-    def scrape(self) -> Dict[str, List[Dict]]:
+    def scrape(self):
         """
         Extrae festivos locales de La Rioja del BOR.
 
         Returns:
-            Dict con {municipio: [festivos]}
+            Si self.municipio está definido: List[Dict] de festivos del municipio
+            Si no: Dict[str, List[Dict]] con {municipio: [festivos]}
         """
         # Obtener URL del BOR
         url = registry.get_url('rioja', self.year, 'locales')
 
         if not url:
             print(f"No hay URL configurada para La Rioja {self.year}")
-            return {}
+            return [] if self.municipio else {}
 
         print(f"Scraping festivos locales de La Rioja {self.year}")
         print(f"URL: {url}")
@@ -101,7 +103,7 @@ class RiojaLocalesScraper(BaseScraper):
 
             if not pdf_match:
                 print("No se encontró enlace al PDF en la página")
-                return {}
+                return [] if self.municipio else {}
 
             pdf_url = pdf_match.group(0) if isinstance(pdf_match.group(0), str) else pdf_match.group(1)
             print(f"URL del PDF: {pdf_url}")
@@ -116,20 +118,53 @@ class RiojaLocalesScraper(BaseScraper):
                 tmp_path = tmp_file.name
 
             # Parsear el PDF
-            festivos = self.parse_festivos(tmp_path)
+            festivos_todos = self.parse_festivos(tmp_path)
 
             # Limpiar archivo temporal
             Path(tmp_path).unlink()
 
-            print(f"Extraídos festivos de {len(festivos)} municipios")
-            return festivos
+            # Si se especificó un municipio, filtrar y retornar solo sus festivos
+            if self.municipio:
+                print(f"🎯 Filtrando por municipio: {self.municipio}")
+                festivos_municipio = self.get_festivos_municipio_from_dict(festivos_todos, self.municipio)
+
+                # Añadir tipo 'local' a cada festivo
+                for festivo in festivos_municipio:
+                    festivo['tipo'] = 'local'
+                    festivo['ambito'] = 'local'
+                    festivo['year'] = self.year
+
+                print(f"✅ Festivos locales extraídos: {len(festivos_municipio)}")
+                return festivos_municipio
+            else:
+                print(f"Extraídos festivos de {len(festivos_todos)} municipios")
+                return festivos_todos
 
         except requests.RequestException as e:
             print(f"Error descargando el BOR: {e}")
-            return {}
+            return [] if self.municipio else {}
         except Exception as e:
             print(f"Error parseando el BOR: {e}")
-            return {}
+            return [] if self.municipio else {}
+
+    def get_festivos_municipio_from_dict(self, festivos_dict: Dict[str, List[Dict]], municipio: str) -> List[Dict]:
+        """
+        Busca festivos de un municipio en un diccionario.
+
+        Args:
+            festivos_dict: Dict con {municipio: [festivos]}
+            municipio: Nombre del municipio
+
+        Returns:
+            Lista de festivos del municipio
+        """
+        municipio_upper = municipio.upper()
+
+        for key, festivos in festivos_dict.items():
+            if key.upper() == municipio_upper:
+                return festivos
+
+        return []
 
     def get_festivos_municipio(self, municipio: str) -> List[Dict]:
         """
