@@ -189,7 +189,7 @@ ccaa:
 
   rioja:
     name: "La Rioja"
-    municipios_count: 174
+    municipios_count: 164  # Municipios con festivos locales en el BOR
     provincias:
       - "La Rioja"
     boletin: "BOR"
@@ -199,7 +199,7 @@ ccaa:
     discovery_method: "manual"  # Por ahora URLs manuales
     urls:
       locales:
-        2026: "https://web.larioja.org/bor-portada/boranuncio?n=anu-572137"  # BOR nº 159, 19/08/2025
+        2026: "https://web.larioja.org/bor-portada/boranuncio?n=anu-571537"  # BOR nº 159, 19/08/2025 - Calendario laboral de fiestas locales 2026
     municipios_file: "config/rioja_municipios.json"
 
 # Metadatos globales

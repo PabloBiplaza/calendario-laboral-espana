@@ -7,9 +7,12 @@ Extrae festivos del BOR (Boletín Oficial de La Rioja).
 from typing import List, Dict
 import json
 from pathlib import Path
+import tempfile
+import requests
 
 from scrapers.core.base_scraper import BaseScraper
 from config.config_manager import registry
+from scrapers.ccaa.rioja.pdf_parser import BORPDFParser
 
 
 class RiojaLocalesScraper(BaseScraper):
@@ -34,13 +37,13 @@ class RiojaLocalesScraper(BaseScraper):
         municipios_file = registry.get_municipios_file('rioja')
 
         if not municipios_file:
-            self.logger.warning("No se encontró archivo de municipios para La Rioja")
+            print("No se encontró archivo de municipios para La Rioja")
             return {}
 
         municipios_path = Path(municipios_file)
 
         if not municipios_path.exists():
-            self.logger.warning(f"Archivo de municipios no existe: {municipios_path}")
+            print(f"Archivo de municipios no existe: {municipios_path}")
             return {}
 
         with open(municipios_path, 'r', encoding='utf-8') as f:
@@ -51,23 +54,18 @@ class RiojaLocalesScraper(BaseScraper):
         url = registry.get_url('rioja', self.year, 'locales')
         return url or ""
 
-    def parse_festivos(self, content: str) -> Dict[str, List[Dict]]:
+    def parse_festivos(self, pdf_path: str) -> Dict[str, List[Dict]]:
         """
-        Parsea el contenido del BOR (PDF o HTML).
+        Parsea el contenido del BOR PDF.
 
         Args:
-            content: Contenido del BOR
+            pdf_path: Ruta al archivo PDF
 
         Returns:
             Dict con {municipio: [festivos]}
-
-        Note:
-            Por implementar cuando se analice el formato del BOR
         """
-        raise NotImplementedError(
-            "El parseo del BOR de La Rioja está pendiente. "
-            "Necesita análisis del formato del boletín."
-        )
+        parser = BORPDFParser(pdf_path, self.year)
+        return parser.parse()
 
     def scrape(self) -> Dict[str, List[Dict]]:
         """
@@ -75,33 +73,63 @@ class RiojaLocalesScraper(BaseScraper):
 
         Returns:
             Dict con {municipio: [festivos]}
-
-        Raises:
-            NotImplementedError: Este scraper está en desarrollo.
-                Necesita la URL correcta del BOR y análisis del formato.
         """
         # Obtener URL del BOR
         url = registry.get_url('rioja', self.year, 'locales')
 
         if not url:
-            self.logger.error(f"No hay URL configurada para La Rioja {self.year}")
+            print(f"No hay URL configurada para La Rioja {self.year}")
             return {}
 
-        self.logger.info(f"Scraping festivos locales de La Rioja {self.year}")
-        self.logger.info(f"URL: {url}")
+        print(f"Scraping festivos locales de La Rioja {self.year}")
+        print(f"URL: {url}")
 
-        # TODO: Implementar parseo del BOR
-        # El BOR publica en PDF, necesitamos:
-        # 1. Descargar el PDF
-        # 2. Analizar el formato (tabla con municipios y festivos)
-        # 3. Parsear usando pdfplumber o similar
-        # 4. Normalizar nombres de municipios
+        # Descargar el PDF
+        try:
+            # Primero obtener la página HTML para extraer el enlace al PDF
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+            html_content = response.text
 
-        raise NotImplementedError(
-            "El scraper de La Rioja está en desarrollo. "
-            "Necesita análisis del formato del BOR nº 159/2025. "
-            "Por favor, descarga manualmente el PDF y analiza su estructura."
-        )
+            # Extraer la URL del PDF del HTML
+            import re
+            pdf_match = re.search(r'https://ias1\.larioja\.org/boletin/[^"\']+\.pdf[^"\']*', html_content, re.IGNORECASE)
+
+            if not pdf_match:
+                # Buscar el patrón alternativo (Servlet)
+                pdf_match = re.search(r'(https://ias1\.larioja\.org/boletin/Bor_Boletin_visor_Servlet\?[^"\']+)', html_content)
+
+            if not pdf_match:
+                print("No se encontró enlace al PDF en la página")
+                return {}
+
+            pdf_url = pdf_match.group(0) if isinstance(pdf_match.group(0), str) else pdf_match.group(1)
+            print(f"URL del PDF: {pdf_url}")
+
+            # Descargar el PDF
+            pdf_response = requests.get(pdf_url, timeout=30)
+            pdf_response.raise_for_status()
+
+            # Guardar temporalmente
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                tmp_file.write(pdf_response.content)
+                tmp_path = tmp_file.name
+
+            # Parsear el PDF
+            festivos = self.parse_festivos(tmp_path)
+
+            # Limpiar archivo temporal
+            Path(tmp_path).unlink()
+
+            print(f"Extraídos festivos de {len(festivos)} municipios")
+            return festivos
+
+        except requests.RequestException as e:
+            print(f"Error descargando el BOR: {e}")
+            return {}
+        except Exception as e:
+            print(f"Error parseando el BOR: {e}")
+            return {}
 
     def get_festivos_municipio(self, municipio: str) -> List[Dict]:
         """

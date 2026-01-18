@@ -10,8 +10,8 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🎯 Características
 
-✅ **10 Comunidades Autónomas** completas
-✅ **3,316+ municipios** soportados con festivos exactos
+✅ **11 Comunidades Autónomas** completas
+✅ **3,480+ municipios** soportados con festivos exactos
 ✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)
 ✅ **Auto-discovery** automático de URLs de boletines oficiales (90% CCAA)
 ✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON
@@ -34,9 +34,10 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
 | **Asturias** | 78 | 1 provincia | BOPA | ✅ | PDF |
 | **Cantabria** | 102 | 1 provincia | BOC | ✅ | PDF |
-| **TOTAL** | **3,316+** | **65+** | - | **90%** | - |
+| **La Rioja** | 164 | 1 provincia | BOR | ❌ | PDF |
+| **TOTAL** | **3,480+** | **66+** | - | **82%** | - |
 
-**Progreso:** 10/17 CCAA (59% de España)
+**Progreso:** 11/17 CCAA (65% de España)
 
 ---
 
@@ -105,6 +106,8 @@ scrapers/
 │   │   └── locales.py        # BOPA - PDF parsing
 │   ├── cantabria/
 │   │   └── locales.py        # BOC - PDF parsing
+│   ├── rioja/
+│   │   └── locales.py        # BOR - PDF parsing
 │   └── pais_vasco/
 │       └── locales.py        # OpenData - JSON estructurado
 └── discovery/
@@ -209,13 +212,13 @@ Calendario generado: 14 festivos
 ### Próximas CCAA (En orden de prioridad)
 
 - [✅] **Asturias** (78 municipios) - BOPA (Completado)
-- [ ] **Cantabria** (102 municipios) - BOC
+- [✅] **Cantabria** (102 municipios) - BOC (Completado)
+- [✅] **La Rioja** (164 municipios) - BOR (Completado)
 - [ ] **Castilla y León** (2,248 municipios) - BOCYL
 - [ ] **Aragón** (731 municipios) - BOA
 - [ ] **Murcia** (45 municipios) - BORM
 - [ ] **Castilla-La Mancha** (~900 municipios) - DOCM
 - [ ] **Extremadura** (388 municipios) - DOE
-- [ ] **La Rioja** (174 municipios) - BOR
 - [ ] **Navarra** (272 municipios) - BON
 
 ### Features Planificadas
@@ -256,6 +259,8 @@ Las contribuciones son bienvenidas. Para añadir una nueva CCAA:
 - **Galicia:** [DOG](https://www.xunta.gal/dog) - Diario Oficial de Galicia
 - **País Vasco:** [OpenData Euskadi](https://opendata.euskadi.eus/) - Datos Abiertos del Gobierno Vasco
 - **Asturias:** [BOPA](https://miprincipado.asturias.es/bopa) - Boletín Oficial del Principado de Asturias
+- **Cantabria:** [BOC](https://boc.cantabria.es/) - Boletín Oficial de Cantabria
+- **La Rioja:** [BOR](https://web.larioja.org/bor-portada) - Boletín Oficial de La Rioja
 
 ---
 
@@ -286,7 +291,7 @@ Desarrollado con ❤️ para facilitar la gestión de calendarios laborales en E
 
 ## ⭐ Stats
 
-![Municipios](https://img.shields.io/badge/Municipios-3214+-blue)
-![CCAA](https://img.shields.io/badge/CCAA-9%2F17-green)
-![Coverage](https://img.shields.io/badge/Cobertura-53%25-yellow)
+![Municipios](https://img.shields.io/badge/Municipios-3480+-blue)
+![CCAA](https://img.shields.io/badge/CCAA-11%2F17-green)
+![Coverage](https://img.shields.io/badge/Cobertura-65%25-yellow)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
