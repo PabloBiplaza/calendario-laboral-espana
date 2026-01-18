@@ -1,44 +1,34 @@
 """
 Parser específico para PDFs del BOC (Boletín Oficial de Cantabria)
+Refactorizado para usar BasePDFParser
 """
 
 import re
-from typing import List, Dict
-import pdfplumber
+from typing import List, Dict, Optional
+from scrapers.parsers.base_pdf_parser import BasePDFParser
 
 
-class BOCPDFParser:
+class BOCPDFParser(BasePDFParser):
     """Parser para extraer festivos locales del PDF del BOC"""
 
-    MESES = {
-        'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
-        'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
-        'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
-    }
-
-    def __init__(self, pdf_path: str, year: int):
-        self.pdf_path = pdf_path
-        self.year = year
-
-    def parse(self) -> Dict[str, List[Dict]]:
+    def _get_pages_to_extract(self, pdf) -> List:
         """
-        Extrae festivos del PDF del BOC.
+        Cantabria: omitir página 1 que contiene festivos nacionales.
 
         Returns:
-            Dict con municipio como clave y lista de festivos como valor
+            Páginas 2 en adelante
         """
-
-        with pdfplumber.open(self.pdf_path) as pdf:
-            # Extraer todo el texto (saltando página 1 que tiene festivos nacionales)
-            all_text = ''
-            for page in pdf.pages[1:]:  # Página 2 en adelante
-                all_text += page.extract_text() + '\n'
-
-        return self._parse_text(all_text)
+        return pdf.pages[1:]  # Saltar primera página
 
     def _parse_text(self, text: str) -> Dict[str, List[Dict]]:
-        """Parsea el texto del PDF"""
+        """
+        Parsea el texto del PDF del BOC.
 
+        Formato BOC (Cantabria):
+        - Tabla con "FESTIVIDAD DÍA MES"
+        - Ejemplo: "SAN ISIDRO LABRADOR 15 MAYO"
+        - Luego el municipio en línea siguiente: "SANTANDER"
+        """
         lines = text.split('\n')
 
         # Buscar el inicio de la lista de festivos locales
@@ -59,8 +49,10 @@ class BOCPDFParser:
                 continue
 
             # Ignorar líneas administrativas/cabeceras repetidas
-            if any(x in line.lower() for x in ['boletín oficial', 'boc núm', 'pág.',
-                                                  'ayuntamiento festividad día mes', 'cve-']):
+            if self._debe_ignorar_linea(line, [
+                'boletín oficial', 'boc núm', 'pág.',
+                'ayuntamiento festividad día mes', 'cve-'
+            ]):
                 i += 1
                 continue
 
@@ -73,13 +65,13 @@ class BOCPDFParser:
                 dia = int(festivo_match.group(2))
                 mes_nombre = festivo_match.group(3).lower()
 
-                if mes_nombre in self.MESES and 1 <= dia <= 31:
-                    # Guardar este festivo temporalmente
-                    festivo = {
-                        'fecha': f'{self.year}-{self.MESES[mes_nombre]:02d}-{dia:02d}',
-                        'descripcion': descripcion if descripcion != '-' else 'Festivo local',
-                        'fecha_texto': f'{dia} de {mes_nombre}'
-                    }
+                if self._es_fecha_valida(dia, mes_nombre):
+                    # Crear festivo
+                    festivo = self._crear_festivo(
+                        dia,
+                        self.MESES[mes_nombre],
+                        descripcion if descripcion != '-' else 'Festivo local'
+                    )
 
                     # Mirar la siguiente línea - debería ser el municipio
                     i += 1
@@ -107,28 +99,25 @@ class BOCPDFParser:
                                 if i < len(lines):
                                     next_festivo_line = lines[i].strip()
 
-                                    festivo_match2 = re.match(r'^(.+?)\s+(\d{1,2})\s+([A-ZÑÁÉÍÓÚ]+)$',
-                                                             next_festivo_line, re.IGNORECASE)
+                                    festivo_match2 = re.match(
+                                        r'^(.+?)\s+(\d{1,2})\s+([A-ZÑÁÉÍÓÚ]+)$',
+                                        next_festivo_line,
+                                        re.IGNORECASE
+                                    )
 
                                     if festivo_match2:
                                         descripcion2 = festivo_match2.group(1).strip()
                                         dia2 = int(festivo_match2.group(2))
                                         mes_nombre2 = festivo_match2.group(3).lower()
 
-                                        if mes_nombre2 in self.MESES and 1 <= dia2 <= 31:
-                                            festivo2 = {
-                                                'fecha': f'{self.year}-{self.MESES[mes_nombre2]:02d}-{dia2:02d}',
-                                                'descripcion': descripcion2 if descripcion2 != '-' else 'Festivo local',
-                                                'fecha_texto': f'{dia2} de {mes_nombre2}'
-                                            }
+                                        if self._es_fecha_valida(dia2, mes_nombre2):
+                                            festivo2 = self._crear_festivo(
+                                                dia2,
+                                                self.MESES[mes_nombre2],
+                                                descripcion2 if descripcion2 != '-' else 'Festivo local'
+                                            )
                                             festivos_por_municipio[municipio_norm].append(festivo2)
                                             i += 1
-                                        else:
-                                            # No es un festivo válido, retroceder
-                                            pass
-                                    else:
-                                        # La siguiente línea no es un festivo, retroceder
-                                        pass
                             else:
                                 # La siguiente línea no era un municipio válido
                                 # Podría ser que el festivo y municipio estén en la misma línea (casos raros)
@@ -141,15 +130,14 @@ class BOCPDFParser:
 
         return festivos_por_municipio
 
-    def _normalizar_municipio(self, nombre: str) -> str:
+    def _normalizar_municipio(self, nombre: str) -> Optional[str]:
         """
-        Normaliza el nombre del municipio.
+        Normaliza el nombre del municipio para Cantabria.
 
         Ejemplos:
             "ASTILLERO, EL" -> "ASTILLERO, EL"
             "castro urdiales" -> "CASTRO URDIALES"
         """
-
         # Ignorar líneas muy cortas
         if len(nombre) < 3:
             return None
@@ -167,49 +155,15 @@ class BOCPDFParser:
             'exaltación', 'natividad', 'labrador'
         ]
 
-        nombre_lower = nombre.lower()
-
-        # Verificar palabras ignoradas
-        for palabra in palabras_ignorar:
-            if palabra in nombre_lower:
-                return None
+        if self._debe_ignorar_linea(nombre, palabras_ignorar):
+            return None
 
         # Ignorar si es muy largo (más de 30 caracteres probablemente es descripción)
         if len(nombre) > 30:
             return None
 
         # Normalizar a mayúsculas
-        nombre_norm = nombre.upper()
-
-        return nombre_norm
-
-    def get_festivos_municipio(self, municipio: str) -> List[Dict]:
-        """
-        Obtiene los festivos de un municipio específico.
-
-        Args:
-            municipio: Nombre del municipio (case-insensitive)
-
-        Returns:
-            Lista de festivos del municipio
-        """
-
-        festivos_todos = self.parse()
-
-        # Buscar el municipio (case-insensitive, fuzzy)
-        municipio_upper = municipio.upper()
-
-        # Primero buscar match exacto
-        for key, festivos in festivos_todos.items():
-            if key == municipio_upper:
-                return festivos
-
-        # Luego buscar match parcial
-        for key, festivos in festivos_todos.items():
-            if municipio_upper in key or key in municipio_upper:
-                return festivos
-
-        return []
+        return nombre.upper()
 
 
 if __name__ == "__main__":

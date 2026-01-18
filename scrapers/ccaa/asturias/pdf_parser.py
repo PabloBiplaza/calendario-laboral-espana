@@ -1,44 +1,24 @@
 """
 Parser específico para PDFs del BOPA (Boletín Oficial del Principado de Asturias)
+Refactorizado para usar BasePDFParser
 """
 
 import re
-from typing import List, Dict
-import pdfplumber
+from typing import List, Dict, Optional
+from scrapers.parsers.base_pdf_parser import BasePDFParser
 
 
-class BOPAPDFParser:
+class BOPAPDFParser(BasePDFParser):
     """Parser para extraer festivos locales del PDF del BOPA"""
 
-    MESES = {
-        'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
-        'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
-        'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
-    }
-
-    def __init__(self, pdf_path: str, year: int):
-        self.pdf_path = pdf_path
-        self.year = year
-
-    def parse(self) -> Dict[str, List[Dict]]:
-        """
-        Extrae festivos del PDF del BOPA.
-
-        Returns:
-            Dict con municipio como clave y lista de festivos como valor
-        """
-
-        with pdfplumber.open(self.pdf_path) as pdf:
-            # Extraer todo el texto
-            all_text = ''
-            for page in pdf.pages:
-                all_text += page.extract_text() + '\n'
-
-        return self._parse_text(all_text)
-
     def _parse_text(self, text: str) -> Dict[str, List[Dict]]:
-        """Parsea el texto del PDF"""
+        """
+        Parsea el texto del PDF del BOPA.
 
+        Formato BOPA:
+        - Fecha: "15 de mayo San Isidro"
+        - Luego el municipio en la siguiente línea: "OVIEDO"
+        """
         lines = text.split('\n')
 
         # Buscar el inicio de la lista de festivos
@@ -59,8 +39,10 @@ class BOPAPDFParser:
                 continue
 
             # Ignorar líneas administrativas
-            if any(x in line.lower() for x in ['boletín', 'https://', 'consejería', 'resolución',
-                                                  'principado', 'bopa', 'en oviedo, a', 'núm.']):
+            if self._debe_ignorar_linea(line, [
+                'boletín', 'https://', 'consejería', 'resolución',
+                'principado', 'bopa', 'en oviedo, a', 'núm.'
+            ]):
                 i += 1
                 continue
 
@@ -73,13 +55,11 @@ class BOPAPDFParser:
                 mes_nombre = fecha_match.group(2).lower()
                 descripcion = fecha_match.group(3).strip()
 
-                if mes_nombre in self.MESES and 1 <= dia <= 31:
-                    # Guardar esta fecha
-                    festivo_previo = {
-                        'fecha': f'{self.year}-{self.MESES[mes_nombre]:02d}-{dia:02d}',
-                        'descripcion': descripcion,
-                        'fecha_texto': f'{dia} de {mes_nombre}'
-                    }
+                if self._es_fecha_valida(dia, mes_nombre):
+                    # Crear festivo
+                    festivo_previo = self._crear_festivo(
+                        dia, self.MESES[mes_nombre], descripcion
+                    )
 
                     # Mirar la siguiente línea - debería ser el municipio
                     i += 1
@@ -102,20 +82,22 @@ class BOPAPDFParser:
                                     i += 1
                                     continue
 
-                                # ¿Es una fecha?
-                                fecha_match2 = re.match(r'^(\d{1,2})\s+de\s+(\w+)\s+(.+)', line2, re.IGNORECASE)
+                                # ¿Es otra fecha?
+                                fecha_match2 = re.match(
+                                    r'^(\d{1,2})\s+de\s+(\w+)\s+(.+)',
+                                    line2,
+                                    re.IGNORECASE
+                                )
 
                                 if fecha_match2:
                                     dia2 = int(fecha_match2.group(1))
                                     mes_nombre2 = fecha_match2.group(2).lower()
                                     descripcion2 = fecha_match2.group(3).strip()
 
-                                    if mes_nombre2 in self.MESES and 1 <= dia2 <= 31:
-                                        festivo2 = {
-                                            'fecha': f'{self.year}-{self.MESES[mes_nombre2]:02d}-{dia2:02d}',
-                                            'descripcion': descripcion2,
-                                            'fecha_texto': f'{dia2} de {mes_nombre2}'
-                                        }
+                                    if self._es_fecha_valida(dia2, mes_nombre2):
+                                        festivo2 = self._crear_festivo(
+                                            dia2, self.MESES[mes_nombre2], descripcion2
+                                        )
                                         festivos_por_municipio[municipio_norm].append(festivo2)
                                         i += 1
                                     else:
@@ -146,19 +128,21 @@ class BOPAPDFParser:
                             i += 1
                             continue
 
-                        fecha_match2 = re.match(r'^(\d{1,2})\s+de\s+(\w+)\s+(.+)', line2, re.IGNORECASE)
+                        fecha_match2 = re.match(
+                            r'^(\d{1,2})\s+de\s+(\w+)\s+(.+)',
+                            line2,
+                            re.IGNORECASE
+                        )
 
                         if fecha_match2:
                             dia2 = int(fecha_match2.group(1))
                             mes_nombre2 = fecha_match2.group(2).lower()
                             descripcion2 = fecha_match2.group(3).strip()
 
-                            if mes_nombre2 in self.MESES and 1 <= dia2 <= 31:
-                                festivo2 = {
-                                    'fecha': f'{self.year}-{self.MESES[mes_nombre2]:02d}-{dia2:02d}',
-                                    'descripcion': descripcion2,
-                                    'fecha_texto': f'{dia2} de {mes_nombre2}'
-                                }
+                            if self._es_fecha_valida(dia2, mes_nombre2):
+                                festivo2 = self._crear_festivo(
+                                    dia2, self.MESES[mes_nombre2], descripcion2
+                                )
                                 festivos_por_municipio[municipio_norm].append(festivo2)
                                 i += 1
                             else:
@@ -171,16 +155,15 @@ class BOPAPDFParser:
 
         return festivos_por_municipio
 
-    def _normalizar_municipio(self, nombre: str) -> str:
+    def _normalizar_municipio(self, nombre: str) -> Optional[str]:
         """
-        Normaliza el nombre del municipio.
+        Normaliza el nombre del municipio para Asturias.
 
         Ejemplos:
             "oviedo" -> "OVIEDO"
             "avilÉs" -> "AVILÉS"
             "CaBrales" -> "CABRALES"
         """
-
         # Ignorar líneas muy cortas
         if len(nombre) < 3:
             return None
@@ -197,47 +180,15 @@ class BOPAPDFParser:
             'boletín', 'oficial', 'https', 'bopa', 'núm'
         ]
 
-        nombre_lower = nombre.lower()
-
-        # Verificar palabras completas, no solo substring
-        for palabra in palabras_ignorar:
-            if palabra in nombre_lower:
-                return None
+        if self._debe_ignorar_linea(nombre, palabras_ignorar):
+            return None
 
         # Ignorar si contiene más de 4 palabras (probablemente es una descripción)
         if len(nombre.split()) > 4:
             return None
 
-        # Normalizar a mayúsculas
-        nombre_norm = nombre.upper()
-
-        # Reemplazar caracteres especiales
-        nombre_norm = nombre_norm.replace('É', 'É').replace('Á', 'Á').replace('Í', 'Í')
-        nombre_norm = nombre_norm.replace('Ó', 'Ó').replace('Ú', 'Ú').replace('Ñ', 'Ñ')
-
-        return nombre_norm
-
-    def get_festivos_municipio(self, municipio: str) -> List[Dict]:
-        """
-        Obtiene los festivos de un municipio específico.
-
-        Args:
-            municipio: Nombre del municipio (case-insensitive)
-
-        Returns:
-            Lista de festivos del municipio
-        """
-
-        festivos_todos = self.parse()
-
-        # Buscar el municipio (case-insensitive)
-        municipio_upper = municipio.upper()
-
-        for key, festivos in festivos_todos.items():
-            if key.upper() == municipio_upper or municipio_upper in key.upper():
-                return festivos
-
-        return []
+        # Normalizar a mayúsculas (mantiene tildes correctamente)
+        return nombre.upper()
 
 
 if __name__ == "__main__":
