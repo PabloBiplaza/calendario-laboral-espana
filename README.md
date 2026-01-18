@@ -10,10 +10,10 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🎯 Características
 
-✅ **9 Comunidades Autónomas** completas
-✅ **3,214+ municipios** soportados con festivos exactos
+✅ **10 Comunidades Autónomas** completas
+✅ **3,316+ municipios** soportados con festivos exactos
 ✅ **14 festivos precisos** por municipio (8 nacionales + 4-6 autonómicos + 2 locales)
-✅ **Auto-discovery** automático de URLs de boletines oficiales (89% CCAA)
+✅ **Auto-discovery** automático de URLs de boletines oficiales (90% CCAA)
 ✅ **Parsing inteligente** de HTML, PDF, XML, YAML y JSON
 ✅ **Generación de PDF** para imprimir con branding personalizable
 ✅ **Deploy en Streamlit Cloud** - acceso público y gratuito  
@@ -33,9 +33,10 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **Galicia** | 313 | 4 provincias | DOG | ✅ (RDF) | HTML |
 | **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
 | **Asturias** | 78 | 1 provincia | BOPA | ✅ | PDF |
-| **TOTAL** | **3,214+** | **64+** | - | **89%** | - |
+| **Cantabria** | 102 | 1 provincia | BOC | ✅ | PDF |
+| **TOTAL** | **3,316+** | **65+** | - | **90%** | - |
 
-**Progreso:** 9/17 CCAA (53% de España)
+**Progreso:** 10/17 CCAA (59% de España)
 
 ---
 
@@ -98,6 +99,12 @@ scrapers/
 │   │   └── locales.py        # DOGC - XML Akoma Ntoso (curl)
 │   ├── galicia/
 │   │   └── locales.py        # DOG - HTML parsing robusto
+│   ├── pais_vasco/
+│   │   └── locales.py        # OpenData Euskadi - JSON API
+│   ├── asturias/
+│   │   └── locales.py        # BOPA - PDF parsing
+│   ├── cantabria/
+│   │   └── locales.py        # BOC - PDF parsing
 │   └── pais_vasco/
 │       └── locales.py        # OpenData - JSON estructurado
 └── discovery/
