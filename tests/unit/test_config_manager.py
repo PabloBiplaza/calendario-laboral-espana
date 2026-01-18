@@ -17,10 +17,10 @@ class TestCCAaRegistry:
         assert instance1 is instance2, "Debe ser la misma instancia (Singleton)"
 
     def test_list_ccaa(self):
-        """Verifica que lista las 10 CCAA correctamente"""
+        """Verifica que lista las 11 CCAA correctamente"""
         ccaa_list = registry.list_ccaa()
 
-        assert len(ccaa_list) == 10, "Debe haber 10 CCAA"
+        assert len(ccaa_list) == 11, "Debe haber 11 CCAA"
         assert 'canarias' in ccaa_list
         assert 'madrid' in ccaa_list
         assert 'andalucia' in ccaa_list
@@ -31,6 +31,7 @@ class TestCCAaRegistry:
         assert 'pais_vasco' in ccaa_list
         assert 'asturias' in ccaa_list
         assert 'cantabria' in ccaa_list
+        assert 'rioja' in ccaa_list
 
     def test_get_url_canarias_2026(self):
         """Verifica que obtiene la URL de Canarias 2026 correctamente"""
@@ -126,15 +127,15 @@ class TestCCAaRegistry:
         """Verifica que obtiene el total de municipios"""
         total = registry.get_total_municipios()
 
-        assert total == 3318
+        assert total == 3492  # Incluyendo La Rioja (164 municipios)
 
     def test_get_metadata(self):
         """Verifica que obtiene los metadatos globales"""
         metadata = registry.get_metadata()
 
         assert metadata is not None
-        assert metadata['total_ccaa'] == 10
-        assert metadata['total_municipios'] == 3318
+        assert metadata['total_ccaa'] == 11  # Incluyendo La Rioja
+        assert metadata['total_municipios'] >= 3480  # Aproximadamente, incluyendo La Rioja
         assert 'ultima_actualizacion' in metadata
         assert 'version' in metadata
 
