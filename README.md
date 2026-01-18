@@ -34,7 +34,7 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 | **País Vasco** | 251 | 3 territorios | OpenData Euskadi | ✅ (URLs predecibles) | JSON |
 | **Asturias** | 78 | 1 provincia | BOPA | ✅ | PDF |
 | **Cantabria** | 102 | 1 provincia | BOC | ✅ | PDF |
-| **La Rioja** | 164 | 1 provincia | BOR | ❌ | PDF |
+| **La Rioja** | 164 | 1 provincia | BOR | ✅ | PDF |
 | **TOTAL** | **3,480+** | **66+** | - | **82%** | - |
 
 **Progreso:** 11/17 CCAA (65% de España)
