@@ -98,6 +98,7 @@ class CCAaValidator:
             ('pais_vasco', 'PaisVascoLocalesScraper'),
             ('asturias', 'AsturiasLocalesScraper'),
             ('cantabria', 'CantabriaLocalesScraper'),
+            ('rioja', 'RiojaLocalesScraper'),
         ]
 
         for ccaa_code, scraper_class in ccaa_scrapers:
