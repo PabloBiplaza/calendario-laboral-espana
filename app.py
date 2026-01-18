@@ -59,10 +59,14 @@ def cargar_municipios(ccaa: str):
             # Si es lista directa
             elif isinstance(data, list):
                 return sorted(data)
-            
+
             # Si es dict con clave "municipios"
             elif isinstance(data, dict) and 'municipios' in data:
                 return sorted(data['municipios'])
+
+            # Si es dict simple {NORMALIZADO: display} (Asturias, Cantabria, Rioja)
+            elif isinstance(data, dict) and all(isinstance(v, str) for v in data.values()):
+                return sorted(data.values())
     
     # Fallback si no existe archivo
     fallbacks = {
