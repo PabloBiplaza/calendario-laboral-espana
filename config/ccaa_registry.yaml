@@ -202,11 +202,26 @@ ccaa:
         2026: "https://web.larioja.org/bor-portada/boranuncio?n=anu-571537"  # BOR nº 159, 19/08/2025 - Calendario laboral de fiestas locales 2026
     municipios_file: "config/rioja_municipios.json"
 
+  murcia:
+    name: "Región de Murcia"
+    municipios_count: 45
+    provincias:
+      - "Murcia"
+    boletin: "BORM"
+    boletin_url: "https://www.borm.es/"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "borm_search"
+    urls:
+      locales:
+        2026: "https://www.borm.es/services/anuncio/ano/2025/numero/3546/pdf?id=837607"  # BORM nº 163, 17/07/2025 - Calendario de fiestas laborales 2026
+    municipios_file: "config/murcia_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 11
-  total_municipios: 3492  # Total teórico (88+181+746+542+67+950+313+251+78+102+174)
-  municipios_en_json: 250  # Solo Asturias y Cantabria tienen JSONs completos
-  auto_discovery_percentage: 82  # 9 de 11 CCAA
-  ultima_actualizacion: "2026-01-18"
-  version: "1.0.1"
+  total_ccaa: 12
+  total_municipios: 3537  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45)
+  municipios_en_json: 295  # Asturias, Cantabria, La Rioja y Murcia tienen JSONs completos
+  auto_discovery_percentage: 83  # 10 de 12 CCAA
+  ultima_actualizacion: "2026-01-19"
+  version: "1.0.2"
