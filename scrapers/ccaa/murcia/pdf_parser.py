@@ -51,9 +51,10 @@ class BORMPDFParser(BasePDFParser):
             # Patrón para líneas de la tabla:
             # Número MUNICIPIO DiaSemana Dia Mes DiaSemana Dia Mes
             # Ejemplo: "1 ABANILLA Lunes 4 Mayo Lunes 14 Septiembre"
+            # Algunos municipios tienen un punto después del nombre: "41 TOTANA. Miércoles..."
             # El municipio puede tener varias palabras, por eso capturamos todo lo que no son días de la semana
             match = re.match(
-                r'^(\d+)\s+([A-ZÁÉÍÓÚÑ\s,\-]+?)\s+(Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|Domingo)\s+(\d{1,2})\s+([A-Za-zñáéíóú]+)\s+(Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|Domingo)\s+(\d{1,2})\s+([A-Za-zñáéíóú]+)',
+                r'^(\d+)\s+([A-ZÁÉÍÓÚÑ\s,\-]+?)\.?\s+(Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|Domingo)\s+(\d{1,2})\s+([A-Za-zñáéíóú]+)\s+(Lunes|Martes|Miércoles|Jueves|Viernes|Sábado|Domingo)\s+(\d{1,2})\s+([A-Za-zñáéíóú]+)',
                 line,
                 re.IGNORECASE
             )
