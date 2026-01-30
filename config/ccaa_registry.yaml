@@ -217,11 +217,31 @@ ccaa:
         2026: "https://www.borm.es/services/anuncio/ano/2025/numero/3546/pdf?id=837607"  # BORM nº 163, 17/07/2025 - Calendario de fiestas laborales 2026
     municipios_file: "config/murcia_municipios.json"
 
+  navarra:
+    name: "Comunidad Foral de Navarra"
+    municipios_count: 694
+    provincias:
+      - "Navarra"
+    boletin: "BON"
+    boletin_url: "https://bon.navarra.es/"
+    formato: "html"
+    formato_especifico: "html_table"
+    auto_discovery: true
+    discovery_method: "bon_search"
+    particularidades:
+      - "1 festivo local por municipio (no 2 como otras CCAA)"
+      - "94.4% fechas fijas, 5.6% fechas relativas/calculadas"
+      - "Fechas relativas: ordinales, litúrgicas, santoral"
+    urls:
+      locales:
+        2026: "https://bon.navarra.es/es/anuncio/-/texto/2025/241/12"  # BON nº 241, 02/12/2025 - Calendario de fiestas locales 2026
+    municipios_file: "config/navarra_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 12
-  total_municipios: 3537  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45)
-  municipios_en_json: 295  # Asturias, Cantabria, La Rioja y Murcia tienen JSONs completos
-  auto_discovery_percentage: 83  # 10 de 12 CCAA
-  ultima_actualizacion: "2026-01-19"
-  version: "1.0.2"
+  total_ccaa: 13
+  total_municipios: 4231  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694)
+  municipios_en_json: 989  # Asturias, Cantabria, La Rioja, Murcia y Navarra tienen JSONs completos
+  auto_discovery_percentage: 85  # 11 de 13 CCAA
+  ultima_actualizacion: "2026-01-30"
+  version: "1.0.3"

@@ -17,10 +17,10 @@ class TestCCAaRegistry:
         assert instance1 is instance2, "Debe ser la misma instancia (Singleton)"
 
     def test_list_ccaa(self):
-        """Verifica que lista las 12 CCAA correctamente"""
+        """Verifica que lista las 13 CCAA correctamente"""
         ccaa_list = registry.list_ccaa()
 
-        assert len(ccaa_list) == 12, "Debe haber 12 CCAA"
+        assert len(ccaa_list) == 13, "Debe haber 13 CCAA"
         assert 'canarias' in ccaa_list
         assert 'madrid' in ccaa_list
         assert 'andalucia' in ccaa_list
@@ -33,6 +33,7 @@ class TestCCAaRegistry:
         assert 'cantabria' in ccaa_list
         assert 'rioja' in ccaa_list
         assert 'murcia' in ccaa_list
+        assert 'navarra' in ccaa_list
 
     def test_get_url_canarias_2026(self):
         """Verifica que obtiene la URL de Canarias 2026 correctamente"""
@@ -101,6 +102,32 @@ class TestCCAaRegistry:
         assert 'borm.es' in url
         assert url.startswith('http')
 
+    def test_get_ccaa_info_navarra(self):
+        """Verifica que obtiene la información de Navarra"""
+        info = registry.get_ccaa_info('navarra')
+
+        assert info is not None
+        assert info['name'] == 'Comunidad Foral de Navarra'
+        assert info['municipios_count'] == 694
+        assert info['boletin'] == 'BON'
+        assert 'Navarra' in info['provincias']
+        assert info['formato'] == 'html'
+        assert info['formato_especifico'] == 'html_table'
+
+    def test_get_url_navarra_2026(self):
+        """Verifica que obtiene la URL de Navarra 2026 correctamente"""
+        url = registry.get_url('navarra', 2026, 'locales')
+
+        assert url is not None
+        assert 'bon.navarra.es' in url
+        assert url.startswith('http')
+
+    def test_get_ccaa_by_provincia_navarra(self):
+        """Verifica que encuentra la CCAA por provincia (Navarra)"""
+        ccaa = registry.get_ccaa_by_provincia('Navarra')
+
+        assert ccaa == 'navarra'
+
     def test_get_municipios_file(self):
         """Verifica que obtiene el path al archivo de municipios"""
         path = registry.get_municipios_file('asturias')
@@ -128,8 +155,8 @@ class TestCCAaRegistry:
         """Verifica que lista solo CCAA con auto-discovery"""
         ccaa_with_discovery = registry.list_ccaa_with_discovery()
 
-        # Según el YAML, hay 10 CCAA con auto_discovery=true
-        assert len(ccaa_with_discovery) == 10
+        # Según el YAML, hay 11 CCAA con auto_discovery=true
+        assert len(ccaa_with_discovery) == 11
 
         # Verificar que Cataluña NO está (auto_discovery=false)
         assert 'cataluna' not in ccaa_with_discovery
@@ -142,20 +169,21 @@ class TestCCAaRegistry:
         assert 'madrid' in ccaa_with_discovery
         assert 'galicia' in ccaa_with_discovery
         assert 'murcia' in ccaa_with_discovery
+        assert 'navarra' in ccaa_with_discovery
 
     def test_get_total_municipios(self):
         """Verifica que obtiene el total de municipios"""
         total = registry.get_total_municipios()
 
-        assert total == 3537  # Incluyendo La Rioja (164) y Murcia (45)
+        assert total == 4231  # Incluyendo La Rioja (164), Murcia (45) y Navarra (694)
 
     def test_get_metadata(self):
         """Verifica que obtiene los metadatos globales"""
         metadata = registry.get_metadata()
 
         assert metadata is not None
-        assert metadata['total_ccaa'] == 12  # Incluyendo La Rioja y Murcia
-        assert metadata['total_municipios'] >= 3530  # Aproximadamente, incluyendo La Rioja y Murcia
+        assert metadata['total_ccaa'] == 13  # Incluyendo La Rioja, Murcia y Navarra
+        assert metadata['total_municipios'] >= 4230  # Aproximadamente, incluyendo La Rioja, Murcia y Navarra
         assert 'ultima_actualizacion' in metadata
         assert 'version' in metadata
 
