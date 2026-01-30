@@ -65,6 +65,9 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
         elif ccaa.lower() == 'canarias':
             from scrapers.ccaa.canarias.autonomicos import CanariasAutonomicosScraper
             scraper_auto = CanariasAutonomicosScraper(year=year, municipio=municipio)
+        elif ccaa.lower() == 'navarra':
+            from scrapers.ccaa.navarra.autonomicos import NavarraAutonomicosScraper
+            scraper_auto = NavarraAutonomicosScraper(year=year, municipio=municipio)
         else:
             print(f"   ❌ CCAA '{ccaa}' no soportada todavía")
             scraper_auto = None
@@ -272,7 +275,7 @@ def main():
         sys.exit(1)
     
     # Validar CCAA
-    ccaa_soportadas = ['madrid', 'canarias', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia']
+    ccaa_soportadas = ['madrid', 'canarias', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia', 'navarra']
     if ccaa.lower() not in ccaa_soportadas:
         print(f"❌ CCAA '{ccaa}' no soportada")
         print(f"   CCAA disponibles: {', '.join(ccaa_soportadas)}")
