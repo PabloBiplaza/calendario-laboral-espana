@@ -230,18 +230,26 @@ class NavarraLocalesScraper(BaseScraper):
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
             }
+            print(f"📥 Descargando desde: {url}")
             response = requests.get(url, timeout=30, headers=headers)
             response.raise_for_status()
+            print(f"✅ Descarga exitosa: {len(response.text)} caracteres")
 
             # Parsear el HTML
             festivos_todos = self.parse_festivos_html(response.text)
+            print(f"📊 Municipios parseados del HTML: {len(festivos_todos)}")
 
             # Si se especificó un municipio, filtrar y retornar solo sus festivos
             if self.municipio:
                 print(f"🎯 Filtrando por municipio: {self.municipio}")
                 festivos_municipio = self.get_festivos_municipio_from_dict(festivos_todos, self.municipio)
 
-                print(f"✅ Festivos locales extraídos: {len(festivos_municipio)}")
+                if festivos_municipio:
+                    print(f"✅ Festivos locales extraídos: {len(festivos_municipio)}")
+                else:
+                    print(f"⚠️  NO se encontraron festivos para '{self.municipio}'")
+                    print(f"   Municipios disponibles (muestra): {list(festivos_todos.keys())[:5]}")
+
                 return festivos_municipio
             else:
                 # Contar festivos fijos vs calculados
@@ -254,10 +262,14 @@ class NavarraLocalesScraper(BaseScraper):
                 return festivos_todos
 
         except requests.RequestException as e:
-            print(f"Error descargando el BON: {e}")
+            print(f"❌ Error descargando el BON: {e}")
+            print(f"   URL intentada: {url}")
+            import traceback
+            traceback.print_exc()
             return [] if self.municipio else {}
         except Exception as e:
-            print(f"Error parseando el BON: {e}")
+            print(f"❌ Error parseando el BON: {e}")
+            print(f"   Municipio buscado: {self.municipio}")
             import traceback
             traceback.print_exc()
             return [] if self.municipio else {}
