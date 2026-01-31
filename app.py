@@ -90,33 +90,11 @@ def ejecutar_scraper(municipio: str, ccaa: str, year: int) -> dict:
     """Ejecuta el scraper y devuelve los datos SIN guardar archivos"""
 
     try:
-        # DEBUG: Mostrar parámetros
-        st.write(f"🔍 DEBUG - Parámetros recibidos:")
-        st.write(f"  - Municipio: '{municipio}'")
-        st.write(f"  - CCAA: '{ccaa}'")
-        st.write(f"  - Año: {year}")
-
         # Importar función de scraping
         from scrape_municipio import scrape_festivos_completos
 
         # Ejecutar scraping (devuelve dict con festivos)
         data = scrape_festivos_completos(municipio, ccaa, year)
-
-        # DEBUG: Mostrar resumen de datos
-        st.write(f"📊 DEBUG - Datos retornados:")
-        st.write(f"  - Total festivos: {len(data.get('festivos', []))}")
-        if 'festivos' in data:
-            tipos = {}
-            for f in data['festivos']:
-                tipo = f.get('tipo', 'desconocido')
-                tipos[tipo] = tipos.get(tipo, 0) + 1
-            st.write(f"  - Por tipo: {tipos}")
-
-            # Mostrar festivos locales
-            locales = [f for f in data['festivos'] if f.get('tipo') == 'local']
-            st.write(f"  - Festivos locales: {len(locales)}")
-            for local in locales:
-                st.write(f"    • {local.get('fecha')} - {local.get('descripcion')}")
 
         # NO guardar archivos - solo devolver datos en memoria
         return data

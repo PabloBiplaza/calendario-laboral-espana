@@ -207,9 +207,57 @@ class NavarraLocalesScraper(BaseScraper):
         # Normalizar a mayúsculas
         return nombre.upper()
 
+    def _load_cache(self) -> Dict[str, Dict]:
+        """
+        Carga el cache de festivos locales pre-generado.
+
+        El BON puede no ser accesible desde servidores cloud (Streamlit Cloud),
+        así que mantenemos un cache estático como fallback.
+
+        Returns:
+            Dict con {MUNICIPIO: {fecha, descripcion, ...}} o {} si no hay cache
+        """
+        cache_path = Path(__file__).parent.parent.parent.parent / 'config' / f'navarra_festivos_locales_{self.year}.json'
+
+        if not cache_path.exists():
+            return {}
+
+        try:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"⚠️  Error cargando cache de Navarra: {e}")
+            return {}
+
+    def _festivo_from_cache(self, cache_entry: Dict) -> Dict:
+        """
+        Construye un dict de festivo a partir de una entrada del cache.
+
+        Args:
+            cache_entry: Dict con {fecha, descripcion, fecha_original, calculada, ...}
+
+        Returns:
+            Dict con formato estándar de festivo
+        """
+        festivo = {
+            'fecha': cache_entry['fecha'],
+            'descripcion': cache_entry.get('descripcion', 'Fiesta local'),
+            'fecha_original': cache_entry.get('fecha_original', ''),
+            'calculada': cache_entry.get('calculada', False),
+            'tipo': 'local',
+            'ambito': 'local',
+            'year': self.year
+        }
+        if cache_entry.get('metodo_calculo'):
+            festivo['metodo_calculo'] = cache_entry['metodo_calculo']
+        return festivo
+
     def scrape(self):
         """
         Extrae festivos locales de Navarra del BON.
+
+        Intenta descargar del BON en vivo. Si falla (ej: IP bloqueada en
+        Streamlit Cloud), usa cache pre-generado como fallback.
 
         Returns:
             Si self.municipio está definido: List[Dict] de festivos del municipio
@@ -220,7 +268,7 @@ class NavarraLocalesScraper(BaseScraper):
 
         if not url:
             print(f"No hay URL configurada para Navarra {self.year}")
-            return [] if self.municipio else {}
+            return self._fallback_from_cache()
 
         print(f"Scraping festivos locales de Navarra {self.year}")
         print(f"URL: {url}")
@@ -238,6 +286,13 @@ class NavarraLocalesScraper(BaseScraper):
             # Parsear el HTML
             festivos_todos = self.parse_festivos_html(response.text)
             print(f"📊 Municipios parseados del HTML: {len(festivos_todos)}")
+
+            # Si el parsing no devolvió resultados (ej: página de error con HTTP 200),
+            # usar cache como fallback
+            if not festivos_todos:
+                print(f"⚠️  El BON devolvió HTML pero sin tabla de festivos")
+                print(f"   Intentando fallback desde cache...")
+                return self._fallback_from_cache()
 
             # Si se especificó un municipio, filtrar y retornar solo sus festivos
             if self.municipio:
@@ -262,17 +317,50 @@ class NavarraLocalesScraper(BaseScraper):
                 return festivos_todos
 
         except requests.RequestException as e:
-            print(f"❌ Error descargando el BON: {e}")
+            print(f"⚠️  Error descargando el BON: {e}")
             print(f"   URL intentada: {url}")
-            import traceback
-            traceback.print_exc()
-            return [] if self.municipio else {}
+            print(f"   Intentando fallback desde cache...")
+            return self._fallback_from_cache()
         except Exception as e:
-            print(f"❌ Error parseando el BON: {e}")
+            print(f"⚠️  Error parseando el BON: {e}")
             print(f"   Municipio buscado: {self.municipio}")
-            import traceback
-            traceback.print_exc()
+            print(f"   Intentando fallback desde cache...")
+            return self._fallback_from_cache()
+
+    def _fallback_from_cache(self):
+        """
+        Fallback: devuelve festivos desde el cache pre-generado.
+
+        Returns:
+            Si self.municipio: List[Dict] de festivos del municipio
+            Si no: Dict[str, List[Dict]] con todos los municipios
+        """
+        cache = self._load_cache()
+
+        if not cache:
+            print(f"❌ No hay cache disponible para Navarra {self.year}")
             return [] if self.municipio else {}
+
+        print(f"📦 Cache cargado: {len(cache)} municipios")
+
+        if self.municipio:
+            municipio_upper = self.municipio.upper()
+            entry = cache.get(municipio_upper)
+
+            if entry:
+                festivo = self._festivo_from_cache(entry)
+                print(f"✅ Festivo local desde cache: {festivo['fecha']} ({festivo.get('fecha_original', '')})")
+                return [festivo]
+            else:
+                print(f"⚠️  '{self.municipio}' no encontrado en cache")
+                return []
+        else:
+            # Devolver todos como dict {municipio: [festivos]}
+            result = {}
+            for mun, entry in cache.items():
+                result[mun] = [self._festivo_from_cache(entry)]
+            print(f"✅ {len(result)} municipios cargados desde cache")
+            return result
 
     def get_festivos_municipio_from_dict(self, festivos_dict: Dict[str, List[Dict]], municipio: str) -> List[Dict]:
         """

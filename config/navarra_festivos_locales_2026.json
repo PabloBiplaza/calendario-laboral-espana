@@ -1,0 +1,4205 @@
+{
+  "ABÁIGAR": {
+    "fecha": "2026-01-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de enero",
+    "calculada": false
+  },
+  "ABÁRZUZA": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ABAURREGAINA / ABAURREA ALTA": {
+    "fecha": "2026-06-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de junio",
+    "calculada": false
+  },
+  "ABAURREPEA / ABAURREA BAJA": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "ABERIN": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "ABÍNZANO": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ABLITAS": {
+    "fecha": "2026-07-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de julio",
+    "calculada": false
+  },
+  "ACEDO": {
+    "fecha": "2026-12-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de diciembre",
+    "calculada": false
+  },
+  "ADIÓS": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ADOÁIN": {
+    "fecha": "2026-12-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de diciembre",
+    "calculada": false
+  },
+  "AGORRETA": {
+    "fecha": "2026-09-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de septiembre",
+    "calculada": false
+  },
+  "AGUILAR DE CODÉS": {
+    "fecha": "2026-07-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de julio",
+    "calculada": false
+  },
+  "AGUINAGA DE IZA": {
+    "fecha": "2026-06-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de junio",
+    "calculada": false
+  },
+  "AIBAR": {
+    "fecha": "2026-05-06",
+    "descripcion": "Fiesta local",
+    "fecha_original": "6 de mayo",
+    "calculada": false
+  },
+  "AINTZIALDE ARIZKUN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "AIZKORBE": {
+    "fecha": "2026-12-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de diciembre",
+    "calculada": false
+  },
+  "AIZOÁIN": {
+    "fecha": "2026-02-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de febrero",
+    "calculada": false
+  },
+  "AIZPÚN": {
+    "fecha": "2026-12-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de diciembre",
+    "calculada": false
+  },
+  "AKERRETA (ESTERIBAR)": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "ALBIASU": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ALDABA": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ALDATZ": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "ALDUNATE": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "ALKOTZ (ULTZAMA)": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "ALLI": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ALLO": {
+    "fecha": "2026-07-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de julio",
+    "calculada": false
+  },
+  "ALLOZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ALTSASU / ALSASUA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ALZÓRRIZ": {
+    "fecha": "2026-02-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de febrero",
+    "calculada": false
+  },
+  "ALZUZA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "AMATRIAIN": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "AMILLANO": {
+    "fecha": "2026-11-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de noviembre",
+    "calculada": false
+  },
+  "AMUNARRIZQUETA": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "ANCÍN": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "ANDOSILLA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "AÑÉZCAR": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ANOCIBAR": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "AÑORBE": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ANOZ (OLLO)": {
+    "fecha": "2026-09-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de septiembre",
+    "calculada": false
+  },
+  "ANOZ": {
+    "fecha": "2026-02-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de febrero",
+    "calculada": false
+  },
+  "ANSOÁIN": {
+    "fecha": "2026-09-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Viernes anterior al tercer domingo de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: viernes anterior al tercer domingo de septiembre"
+  },
+  "ANTXORITZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "AOIZ": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "AOS": {
+    "fecha": "2026-09-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de septiembre",
+    "calculada": false
+  },
+  "ARAMENDÍA (ALLÍN)": {
+    "fecha": "2026-09-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Tercer sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: tercer sábado de septiembre"
+  },
+  "ARANARACHE": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "ARANDIGOYEN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARANGUREN": {
+    "fecha": "2026-06-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de junio",
+    "calculada": false
+  },
+  "ARANO": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ARANTZA": {
+    "fecha": "2026-02-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Viernes de carnaval",
+    "calculada": true,
+    "metodo_calculo": "liturgico_carnaval: viernes"
+  },
+  "ARAS": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "ARAZURI (OLZA)": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "ARBEIZA (ALLÍN)": {
+    "fecha": "2026-08-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Tercer sábado de agosto",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: tercer sábado de agosto"
+  },
+  "ARBIZU": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "ARBONIÉS": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARDAITZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARDANAZ (EGÜÉS)": {
+    "fecha": "2026-01-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de enero",
+    "calculada": false
+  },
+  "ARDANAZ (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARELLANO": {
+    "fecha": "2026-03-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de marzo",
+    "calculada": false
+  },
+  "ARESO": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ARGUEDAS": {
+    "fecha": "2026-12-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de diciembre",
+    "calculada": false
+  },
+  "ARGUIÑANO": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "ARGUIÑÁRIZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARIA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ARIBE": {
+    "fecha": "2026-12-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de diciembre",
+    "calculada": false
+  },
+  "ARÍSTREGUI": {
+    "fecha": "2026-06-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de junio",
+    "calculada": false
+  },
+  "ARITZU": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de septiembre",
+    "calculada": false
+  },
+  "ARIZ": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "ARIZALA": {
+    "fecha": "2026-11-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de noviembre",
+    "calculada": false
+  },
+  "ARIZALETA": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "ARLEGUI": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ARMAÑANZAS": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARÓSTEGUI": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "ARRAITZ-ORKIN": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ARRAIZA": {
+    "fecha": "2026-10-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de octubre",
+    "calculada": false
+  },
+  "ARRARATS": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ARRE (EZCABARTE)": {
+    "fecha": "2026-11-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de noviembre",
+    "calculada": false
+  },
+  "ARRIBE": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ARRIETA": {
+    "fecha": "2026-08-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de agosto",
+    "calculada": false
+  },
+  "ARRÓNIZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ARRUAZU": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ARRUITZ": {
+    "fecha": "2026-07-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de julio",
+    "calculada": false
+  },
+  "ARTAIZ": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "ARTAJO": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "ARTAJONA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ARTARIAIN": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "ARTAVIA": {
+    "fecha": "2026-09-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Primer sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: primer sábado de septiembre"
+  },
+  "ARTAZA": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Segundo lunes de agosto",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: segundo lunes de agosto"
+  },
+  "ARTÁZCOZ": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "ARTAZU": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARTEAGA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ARTETA": {
+    "fecha": "2026-05-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de mayo",
+    "calculada": false
+  },
+  "ARTICA": {
+    "fecha": "2026-09-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de septiembre",
+    "calculada": false
+  },
+  "ARTIEDA": {
+    "fecha": "2026-09-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de septiembre",
+    "calculada": false
+  },
+  "ARTOZQUI": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "ARZOZ": {
+    "fecha": "2026-11-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de noviembre",
+    "calculada": false
+  },
+  "ASARTA": {
+    "fecha": "2026-09-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Tercer sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: tercer sábado de septiembre"
+  },
+  "ASIÁIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ASPURZ": {
+    "fecha": "2026-11-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de noviembre",
+    "calculada": false
+  },
+  "ASTITZ": {
+    "fecha": "2026-07-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de julio",
+    "calculada": false
+  },
+  "ASTRÁIN": {
+    "fecha": "2026-09-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de septiembre",
+    "calculada": false
+  },
+  "ATALLU": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "ATEZ": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ATONDO": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "AURITZ / BURGUETE": {
+    "fecha": "2026-12-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de diciembre",
+    "calculada": false
+  },
+  "AURIZBERRI  / ESPINAL": {
+    "fecha": "2026-08-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de agosto",
+    "calculada": false
+  },
+  "AUZA": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "AYECHU": {
+    "fecha": "2026-10-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de octubre",
+    "calculada": false
+  },
+  "AYEGUI": {
+    "fecha": "2026-08-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de agosto",
+    "calculada": false
+  },
+  "AYESA": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "AZAGRA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "AZANZA": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "AZCONA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "AZKARATE": {
+    "fecha": "2026-07-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de julio",
+    "calculada": false
+  },
+  "AZOZ (EZCABARTE)": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de agosto",
+    "calculada": false
+  },
+  "AZPA (EGÜÉS)": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "AZPARREN": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "AZPIROTZ": {
+    "fecha": "2026-08-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de agosto",
+    "calculada": false
+  },
+  "AZQUETA": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "AZUELO": {
+    "fecha": "2026-04-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de abril",
+    "calculada": false
+  },
+  "BADOSTÁIN": {
+    "fecha": "2026-09-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de septiembre",
+    "calculada": false
+  },
+  "BAKAIKU": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "BALLARIAIN": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "BAQUEDANO": {
+    "fecha": "2026-09-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Segundo viernes de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: segundo viernes de septiembre"
+  },
+  "BARAIBAR": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "BARAÑÁIN": {
+    "fecha": "2026-12-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de diciembre",
+    "calculada": false
+  },
+  "BARÁSOAIN": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "BARBARIN": {
+    "fecha": "2026-11-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de noviembre",
+    "calculada": false
+  },
+  "BARGOTA": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "BARILLAS": {
+    "fecha": "2026-08-06",
+    "descripcion": "Fiesta local",
+    "fecha_original": "6 de agosto",
+    "calculada": false
+  },
+  "BARÍNDANO": {
+    "fecha": "2026-07-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Cuarto viernes de julio",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: cuarto viernes de julio"
+  },
+  "BAZTAN": {
+    "fecha": "2026-10-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Viernes de la semana siguiente a San Lucas",
+    "calculada": true,
+    "metodo_calculo": "santoral_relativo: viernes siguiente a san lucas"
+  },
+  "BEARIN": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "BEASOAIN": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "BEIRE": {
+    "fecha": "2026-11-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de noviembre",
+    "calculada": false
+  },
+  "BELASCOÁIN": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "BELZUNCE": {
+    "fecha": "2026-12-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de diciembre",
+    "calculada": false
+  },
+  "BENEGORRI": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "BEORBURU": {
+    "fecha": "2026-10-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de octubre",
+    "calculada": false
+  },
+  "BEORTEGUI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "BERA": {
+    "fecha": "2026-03-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de marzo",
+    "calculada": false
+  },
+  "BERAMENDI": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "BERASÁIN": {
+    "fecha": "2026-07-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de julio",
+    "calculada": false
+  },
+  "BERBINZANA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "BERIÁIN": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "BERRIOPLANO": {
+    "fecha": "2026-07-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de julio",
+    "calculada": false
+  },
+  "BERRIOSUSO": {
+    "fecha": "2026-12-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de diciembre",
+    "calculada": false
+  },
+  "BERRIOZAR": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "BERROYA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "BERUETE": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "BETELU": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "BEUNZA (ATETZ)": {
+    "fecha": "2026-06-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de junio",
+    "calculada": false
+  },
+  "BÉZQUIZ (LEOZ)": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "BIDAURRETA": {
+    "fecha": "2026-01-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de enero",
+    "calculada": false
+  },
+  "BIGÜÉZAL": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "BIZKARRETA GERENDIAIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "BIURRUN": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "BUÑUEL": {
+    "fecha": "2026-01-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de enero",
+    "calculada": false
+  },
+  "BURGUI": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes de Pentecostés",
+    "calculada": true,
+    "metodo_calculo": "liturgico_pentecostes: lunes"
+  },
+  "BURLADA": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "BURUTAIN": {
+    "fecha": "2026-07-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de julio",
+    "calculada": false
+  },
+  "CABANILLAS": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "CABREDO": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "CADREITA": {
+    "fecha": "2026-01-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de enero",
+    "calculada": false
+  },
+  "CAPARROSO": {
+    "fecha": "2026-04-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de abril",
+    "calculada": false
+  },
+  "CÁRCAR": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "CARCASTILLO": {
+    "fecha": "2026-08-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de agosto",
+    "calculada": false
+  },
+  "CASCANTE": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de mayo",
+    "calculada": false
+  },
+  "CÁSEDA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "CASTEJÓN": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "CASTILLONUEVO": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "CEMBORÁIN (UNCITI)": {
+    "fecha": "2026-12-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de diciembre",
+    "calculada": false
+  },
+  "CIÁURRIZ": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "CIGANDA (ATETZ)": {
+    "fecha": "2026-09-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de septiembre",
+    "calculada": false
+  },
+  "CINTRUÉNIGO": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "CIRAUQUI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "CIRIZA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "CIZUR MENOR": {
+    "fecha": "2026-03-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de marzo",
+    "calculada": false
+  },
+  "CORDOVILLA": {
+    "fecha": "2026-09-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de septiembre",
+    "calculada": false
+  },
+  "CORELLA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "CORTES": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "DESOJO": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "DICASTILLO": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "DOMEÑO": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "DONAMARIA": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "DONEZTEBE / SANTESTEBAN": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "DORRAO / TORRANO": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ECALA (AMÉSCOA BAJA)": {
+    "fecha": "2026-09-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Último viernes de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: último viernes de septiembre"
+  },
+  "ECAY (LÓNGUIDA)": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "ECHAGUE (OLÓRIZ)": {
+    "fecha": "2026-10-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de octubre",
+    "calculada": false
+  },
+  "ECHARREN (GUIRGUILLANO)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ECHARRI": {
+    "fecha": "2026-08-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de agosto",
+    "calculada": false
+  },
+  "ECHÁVARRI (ALLÍN)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "EGIARRETA": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "EGILLOR": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "EGOZKUE (ANUE)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "EGUARAS (ATETZ)": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "EGÜÉS": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "EKAI (ARAKIL)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "EL BUSTO": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ELCANO (EGÜÉS)": {
+    "fecha": "2026-10-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de octubre",
+    "calculada": false
+  },
+  "ELCARTE (BERRIOPLANO)": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ELCOAZ (URRAÚL ALTO)": {
+    "fecha": "2026-12-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de diciembre",
+    "calculada": false
+  },
+  "ELGORRIAGA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ELÍA (EGÜÉS)": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "ELORZ": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ELTSO (ULTZAMA)": {
+    "fecha": "2026-08-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de agosto",
+    "calculada": false
+  },
+  "ELTZABURU (ULTZAMA)": {
+    "fecha": "2026-09-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de septiembre",
+    "calculada": false
+  },
+  "ENDÉRIZ (OLAIBAR)": {
+    "fecha": "2026-12-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de diciembre",
+    "calculada": false
+  },
+  "ENÉRIZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "EPAROZ (URRAÚL ALTO)": {
+    "fecha": "2026-12-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de diciembre",
+    "calculada": false
+  },
+  "ERANSUS (EGÜÉS)": {
+    "fecha": "2026-05-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Festividad de la Ascensión",
+    "calculada": true,
+    "metodo_calculo": "liturgico_ascension"
+  },
+  "ERASO (IMOTZ)": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "ERATSUN": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de septiembre",
+    "calculada": false
+  },
+  "ERAUL (YERRI)": {
+    "fecha": "2026-10-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de octubre",
+    "calculada": false
+  },
+  "ERBITI": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ERDOZÁIN (LÓNGUIDA)": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de agosto",
+    "calculada": false
+  },
+  "ERICE (ATETZ)": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "ERICE": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ERRAZKIN (LARRAUN)": {
+    "fecha": "2026-08-06",
+    "descripcion": "Fiesta local",
+    "fecha_original": "6 de agosto",
+    "calculada": false
+  },
+  "ERREA (SARASÍBAR)": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "ERRO": {
+    "fecha": "2026-12-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de diciembre",
+    "calculada": false
+  },
+  "ERROTZ (ARAKIL)": {
+    "fecha": "2026-05-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de mayo",
+    "calculada": false
+  },
+  "ESLAVA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ESNOTZ (ERRO)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ESPARZA (GALAR)": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "ESPARZA (SALAZAR)": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ESPOZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ESPRONCEDA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ESQUÍROZ (GALAR)": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "ESTELLA-LIZARRA": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de mayo",
+    "calculada": false
+  },
+  "ESTENOZ (GUESÁLAZ)": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "ETAYO": {
+    "fecha": "2026-08-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de agosto",
+    "calculada": false
+  },
+  "ETSAIN (ANUE)": {
+    "fecha": "2026-08-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Primer sábado de agosto",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: primer sábado de agosto"
+  },
+  "ETULAIN": {
+    "fecha": "2026-09-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de septiembre",
+    "calculada": false
+  },
+  "ETXALAR": {
+    "fecha": "2026-02-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Martes de carnaval",
+    "calculada": true,
+    "metodo_calculo": "liturgico_carnaval: martes"
+  },
+  "ECHÁLAZ": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "ETXALEKU": {
+    "fecha": "2026-09-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de septiembre",
+    "calculada": false
+  },
+  "ETXARREN (ARAKIL)": {
+    "fecha": "2026-01-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de enero",
+    "calculada": false
+  },
+  "ETXARRI (LARRAUN)": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "ETXARRI ARANATZ": {
+    "fecha": "2026-06-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de junio",
+    "calculada": false
+  },
+  "ETXAURI": {
+    "fecha": "2026-12-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de diciembre",
+    "calculada": false
+  },
+  "ETXEBERRI (ARAKIL)": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de septiembre",
+    "calculada": false
+  },
+  "EUGI": {
+    "fecha": "2026-09-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de septiembre",
+    "calculada": false
+  },
+  "EULATE": {
+    "fecha": "2026-06-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de junio",
+    "calculada": false
+  },
+  "EULZ": {
+    "fecha": "2026-09-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Primer sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: primer sábado de septiembre"
+  },
+  "EUSA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "EZCABA": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "EZCÁNIZ": {
+    "fecha": "2026-10-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de octubre",
+    "calculada": false
+  },
+  "EZCÁROZ": {
+    "fecha": "2026-11-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de noviembre",
+    "calculada": false
+  },
+  "EZKIROTZ (ESTERÍBAR)": {
+    "fecha": "2026-09-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de septiembre",
+    "calculada": false
+  },
+  "EZKURRA": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "EZPROGUI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "FALCES": {
+    "fecha": "2026-11-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de noviembre",
+    "calculada": false
+  },
+  "FITERO": {
+    "fecha": "2026-03-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de marzo",
+    "calculada": false
+  },
+  "FONTELLAS": {
+    "fecha": "2026-09-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de septiembre",
+    "calculada": false
+  },
+  "FUNES": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "FUSTIÑANA": {
+    "fecha": "2026-08-06",
+    "descripcion": "Fiesta local",
+    "fecha_original": "6 de agosto",
+    "calculada": false
+  },
+  "GABARDERAL": {
+    "fecha": "2026-02-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de febrero",
+    "calculada": false
+  },
+  "GAINTZA (ARAITZ)": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "GALAR": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "GALBARRA": {
+    "fecha": "2026-06-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de junio",
+    "calculada": false
+  },
+  "GALDEANO (ALLÍN)": {
+    "fecha": "2026-07-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de julio",
+    "calculada": false
+  },
+  "GALDÚROZ (LIZOAIN)": {
+    "fecha": "2026-05-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de mayo",
+    "calculada": false
+  },
+  "GALLIPIENZO": {
+    "fecha": "2026-09-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de septiembre",
+    "calculada": false
+  },
+  "GALLUÉS": {
+    "fecha": "2026-09-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de septiembre",
+    "calculada": false
+  },
+  "GANUZA (METAUTEN)": {
+    "fecha": "2026-09-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Tercer sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: tercer sábado de septiembre"
+  },
+  "GARAIOA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "GARCIRIÁIN (JUSLAPEÑA)": {
+    "fecha": "2026-07-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de julio",
+    "calculada": false
+  },
+  "GARDE": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "GARÍNOAIN": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "GARÍSOAIN": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de septiembre",
+    "calculada": false
+  },
+  "GARRALDA": {
+    "fecha": "2026-12-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de diciembre",
+    "calculada": false
+  },
+  "GARRUÉS (EZCABARTE)": {
+    "fecha": "2026-12-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de diciembre",
+    "calculada": false
+  },
+  "GARTZARON": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "GASCUE": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "GASTIÁIN (LANA)": {
+    "fecha": "2026-07-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de julio",
+    "calculada": false
+  },
+  "GAZÓLAZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "GENDULAIN (ESTERIBAR)": {
+    "fecha": "2026-10-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de octubre",
+    "calculada": false
+  },
+  "GENEVILLA": {
+    "fecha": "2026-10-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de octubre",
+    "calculada": false
+  },
+  "GERENDIAIN (ULTZAMA)": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de agosto",
+    "calculada": false
+  },
+  "GOIZUETA": {
+    "fecha": "2026-02-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Martes de carnaval",
+    "calculada": true,
+    "metodo_calculo": "liturgico_carnaval: martes"
+  },
+  "GOLDARATZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "GOLLANO": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "GOÑI": {
+    "fecha": "2026-01-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de enero",
+    "calculada": false
+  },
+  "GORRAIZ": {
+    "fecha": "2026-12-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de diciembre",
+    "calculada": false
+  },
+  "GORRITI (LARRAUN)": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "GORRONTZ OLANO (ULTZAMA)": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "GREZ": {
+    "fecha": "2026-05-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de mayo",
+    "calculada": false
+  },
+  "GROCIN (YERRI)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "GUELBENZU": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "GUEMBE": {
+    "fecha": "2026-12-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de diciembre",
+    "calculada": false
+  },
+  "GUENDULÁIN (ODIETA)": {
+    "fecha": "2026-10-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de octubre",
+    "calculada": false
+  },
+  "GUERENDIÁIN (ELORZ)": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "GUERGUITIÁIN (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "GÜESA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "GUIRGUILLANO": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "GULINA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "HIRIBERRI / VILLANUEVA": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de septiembre",
+    "calculada": false
+  },
+  "HIRIBERRI / VILLANUEVA DE AEZKOA": {
+    "fecha": "2026-07-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de julio",
+    "calculada": false
+  },
+  "HUARTE": {
+    "fecha": "2026-09-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Tercer lunes de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: tercer lunes de septiembre"
+  },
+  "IBERO": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "IBILCIETA": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "IBIRICU (EGÜÉS)": {
+    "fecha": "2026-06-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de junio",
+    "calculada": false
+  },
+  "IBIRICU (YERRI)": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "ICIZ": {
+    "fecha": "2026-09-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de septiembre",
+    "calculada": false
+  },
+  "IDOATE": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "IDOCIN": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "IDOI": {
+    "fecha": "2026-10-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de octubre",
+    "calculada": false
+  },
+  "IGAL (GÜESA)": {
+    "fecha": "2026-01-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de enero",
+    "calculada": false
+  },
+  "IGANTZI": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "IGOA (BASABURUA)": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "IGUZQUIZA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "IHABAR": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "IHABEN": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ILARRATZ (ESTERÍBAR)": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "ILARREGI (ULTZAMA)": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ILOZ (LIZOAIN)": {
+    "fecha": "2026-01-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de enero",
+    "calculada": false
+  },
+  "ILUNDÁIN": {
+    "fecha": "2026-01-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de enero",
+    "calculada": false
+  },
+  "ILURDOTZ": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "ILZARBE (OLLO)": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "IMÁRCOAIN (ELORZ)": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "IMIRIZALDU": {
+    "fecha": "2026-10-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de octubre",
+    "calculada": false
+  },
+  "IMIZCOZ (ARCE)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "INBULUZKETA (ESTERÍBAR)": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "INDURÁIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "INTZA (ARAITZ)": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "IRACHETA (LEOZ)": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "IRAGI (ESTERÍBAR)": {
+    "fecha": "2026-09-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de septiembre",
+    "calculada": false
+  },
+  "IRAIZOTZ (ULTZAMA)": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "IRAÑETA": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "IRIBAS (LARRAUN)": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "IRISO (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "IROTZ (ESTERÍBAR)": {
+    "fecha": "2026-06-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de junio",
+    "calculada": false
+  },
+  "IRUJO (GUESÁLAZ)": {
+    "fecha": "2026-11-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de noviembre",
+    "calculada": false
+  },
+  "IRUÑELA (YERRI)": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "IRURE (ESTERÍBAR)": {
+    "fecha": "2026-09-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de septiembre",
+    "calculada": false
+  },
+  "IRUROZQUI (URRAUL ALTO)": {
+    "fecha": "2026-09-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de septiembre",
+    "calculada": false
+  },
+  "IRURRE (GUESÁLAZ)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "IRURTZUN": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "ISABA": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "ISO (ROMANZADO)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ITOIZ (LÓNGUIDA)": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "ITSASO (BASABURUA)": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "ITUREN": {
+    "fecha": "2026-02-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes de carnaval",
+    "calculada": true,
+    "metodo_calculo": "liturgico_carnaval: lunes"
+  },
+  "ITURGOYEN (GUESÁLAZ)": {
+    "fecha": "2026-12-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de diciembre",
+    "calculada": false
+  },
+  "ITURMENDI": {
+    "fecha": "2026-07-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de julio",
+    "calculada": false
+  },
+  "IZA": {
+    "fecha": "2026-09-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de septiembre",
+    "calculada": false
+  },
+  "IZAGAONDOA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "IZAL (GALLUÉS)": {
+    "fecha": "2026-01-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de enero",
+    "calculada": false
+  },
+  "IZALZU": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "IZCO (IBARGOITI)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "IZCUE (OLZA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "IZU (OLZA)": {
+    "fecha": "2026-10-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de octubre",
+    "calculada": false
+  },
+  "IZURDIAGA (ARAKIL)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "IZURZU (GUESÁLAZ)": {
+    "fecha": "2026-12-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de diciembre",
+    "calculada": false
+  },
+  "JANARIZ (LIZOAIN)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "JAUNTSARATS (BASABURUA)": {
+    "fecha": "2026-08-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de agosto",
+    "calculada": false
+  },
+  "JAURRIETA": {
+    "fecha": "2026-06-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de junio",
+    "calculada": false
+  },
+  "JAVERRI (LÓNGUIDA)": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "JAVIER": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "JUSLAPEÑA": {
+    "fecha": "2026-07-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de julio",
+    "calculada": false
+  },
+  "LABAIEN": {
+    "fecha": "2026-08-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de agosto",
+    "calculada": false
+  },
+  "LABEAGA (IGÚZQUIZA)": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "LABIANO": {
+    "fecha": "2026-06-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de junio",
+    "calculada": false
+  },
+  "LACAR": {
+    "fecha": "2026-04-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de abril",
+    "calculada": false
+  },
+  "LAKAIN-APEZBORRO": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "LAKUNTZA": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "LANTZ": {
+    "fecha": "2026-09-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de septiembre",
+    "calculada": false
+  },
+  "LAPOBLACIÓN": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "LAQUIDAIN (ARANGUREN)": {
+    "fecha": "2026-06-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de junio",
+    "calculada": false
+  },
+  "LARRAGA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "LARRAGUETA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "LARRAINTZAR": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "LARRANGOZ (LÓNGUIDA)": {
+    "fecha": "2026-08-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de agosto",
+    "calculada": false
+  },
+  "LARRAONA": {
+    "fecha": "2026-07-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de julio",
+    "calculada": false
+  },
+  "LARRASOAÑA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "LARRAYA (CIZUR)": {
+    "fecha": "2026-11-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de noviembre",
+    "calculada": false
+  },
+  "LARRAYOZ": {
+    "fecha": "2026-09-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Primer lunes de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: primer lunes de septiembre"
+  },
+  "LARRIÓN (ALLÍN)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "LARUNBE": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "LATASA (IMOTZ)": {
+    "fecha": "2026-09-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de septiembre",
+    "calculada": false
+  },
+  "LATASA (ODIETA)": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "LAZAGURRÍA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LEACHE": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LEAZKUE (ANUE)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "LEGARDA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LEGARIA": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "LEGASA": {
+    "fecha": "2026-08-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de agosto",
+    "calculada": false
+  },
+  "LEITZA": {
+    "fecha": "2026-01-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de enero",
+    "calculada": false
+  },
+  "LEKUNBERRI": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "LEOZ": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "LERANOTZ": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "LERATE": {
+    "fecha": "2026-07-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de julio",
+    "calculada": false
+  },
+  "LERGA": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "LERÍN": {
+    "fecha": "2026-12-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de diciembre",
+    "calculada": false
+  },
+  "LERRUZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LESAKA": {
+    "fecha": "2026-07-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de julio",
+    "calculada": false
+  },
+  "LETE": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "LEYUN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LEZAUN": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "LIEDENA": {
+    "fecha": "2026-07-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de julio",
+    "calculada": false
+  },
+  "LINTZOAIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LIZARRAGA (ERGOIENA)": {
+    "fecha": "2026-11-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de noviembre",
+    "calculada": false
+  },
+  "LIZARRAGA (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LIZARRAGABENGOA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "LIZASO (ULTZAMA)": {
+    "fecha": "2026-10-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de octubre",
+    "calculada": false
+  },
+  "LIZASOÁIN (OLZA)": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "LIZOÁIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LODOSA": {
+    "fecha": "2026-07-31",
+    "descripcion": "Fiesta local",
+    "fecha_original": "31 de julio",
+    "calculada": false
+  },
+  "LOIZU": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LORCA (YERRI)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LOS ARCOS": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de mayo",
+    "calculada": false
+  },
+  "LOZA (BERRIOPLANO)": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "LUMBIER": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "LUQUIN": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "LUZAIDE / VALCARLOS": {
+    "fecha": "2026-07-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de julio",
+    "calculada": false
+  },
+  "MADOTZ (LARRAUN)": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "MAÑERU": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "MAKIRRIAIN (EZCABARTE)": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "MAQUIRRIAIN (LEOZ)": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "MARAÑÓN": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "MARCALÁIN": {
+    "fecha": "2026-09-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de septiembre",
+    "calculada": false
+  },
+  "MARCILLA": {
+    "fecha": "2026-08-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de agosto",
+    "calculada": false
+  },
+  "MEANO": {
+    "fecha": "2026-06-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de junio",
+    "calculada": false
+  },
+  "MÉLIDA": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "MENDAVIA": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes de Pentecostés",
+    "calculada": true,
+    "metodo_calculo": "liturgico_pentecostes: lunes"
+  },
+  "MENDAZA": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de mayo",
+    "calculada": false
+  },
+  "MENDIGORRIA": {
+    "fecha": "2026-02-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de febrero",
+    "calculada": false
+  },
+  "MENDILIBARRI (ANCIN)": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "MENDIOROZ (LIZOAIN)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "MENDIVIL (OLÓRIZ)": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "MEOZ (LÓNGUIDA)": {
+    "fecha": "2026-07-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de julio",
+    "calculada": false
+  },
+  "METAUTEN": {
+    "fecha": "2026-09-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de septiembre",
+    "calculada": false
+  },
+  "MEZKIRITZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "MILAGRO": {
+    "fecha": "2026-02-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de febrero",
+    "calculada": false
+  },
+  "MIRAFUENTES": {
+    "fecha": "2026-12-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de diciembre",
+    "calculada": false
+  },
+  "MIRANDA DE ARGA": {
+    "fecha": "2026-03-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de marzo",
+    "calculada": false
+  },
+  "MONREAL": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "MONTEAGUDO": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "MORENTIN": {
+    "fecha": "2026-05-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de mayo",
+    "calculada": false
+  },
+  "MUÉS": {
+    "fecha": "2026-09-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de septiembre",
+    "calculada": false
+  },
+  "MUEZ": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "MUGIRO (LARRAUN)": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "MUGUETA (LÓNGUIDA)": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "MUNÁRRIZ (GOÑI)": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "MUNETA (ALLÍN)": {
+    "fecha": "2026-09-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Segundo sábado de septiembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: segundo sábado de septiembre"
+  },
+  "MUNIÁIN DE GUESÁLAZ": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "MUNIÁIN DE LA SOLANA": {
+    "fecha": "2026-01-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de enero",
+    "calculada": false
+  },
+  "MURCHANTE": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "MURIETA": {
+    "fecha": "2026-08-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de agosto",
+    "calculada": false
+  },
+  "MURILLO (LÓNGUIDA)": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "MURILLO BERROYA": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "MURILLO EL CUENDE": {
+    "fecha": "2026-09-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de septiembre",
+    "calculada": false
+  },
+  "MURILLO EL FRUTO": {
+    "fecha": "2026-10-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de octubre",
+    "calculada": false
+  },
+  "MURILLO YERRI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "MURU ASTRÁIN": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "MURUARTE DE RETA": {
+    "fecha": "2026-09-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de septiembre",
+    "calculada": false
+  },
+  "MURUGARREN": {
+    "fecha": "2026-11-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de noviembre",
+    "calculada": false
+  },
+  "MURUZABAL": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "MUSKITZ": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "MUTILVA": {
+    "fecha": "2026-06-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de junio",
+    "calculada": false
+  },
+  "MUZQUI (GUESÁLAZ)": {
+    "fecha": "2026-01-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de enero",
+    "calculada": false
+  },
+  "NAGORE (ARCE)": {
+    "fecha": "2026-01-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de enero",
+    "calculada": false
+  },
+  "NAJURIETA": {
+    "fecha": "2026-12-23",
+    "descripcion": "Fiesta local",
+    "fecha_original": "23 de diciembre",
+    "calculada": false
+  },
+  "NAPAL": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "NARBARTE": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "NARCUE (LANA)": {
+    "fecha": "2026-11-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de noviembre",
+    "calculada": false
+  },
+  "NARDUÉS ALDUNATE (URRAÚL BAJO)": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "NARDUÉS ANDURRA (URRAÚL BAJO)": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "NAVASCUÉS": {
+    "fecha": "2026-07-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de julio",
+    "calculada": false
+  },
+  "NAVAZ (JUSLAPEÑA)": {
+    "fecha": "2026-09-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de septiembre",
+    "calculada": false
+  },
+  "NAZAR": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "NOÁIN (VALLE DE ELORZ)": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "NUIN (JUSLAPEÑA)": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "OBANOS": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "OCHAGAVÍA": {
+    "fecha": "2026-12-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de diciembre",
+    "calculada": false
+  },
+  "OCHOVI": {
+    "fecha": "2026-06-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de junio",
+    "calculada": false
+  },
+  "OCO": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "ODERITZ (LARRAUN)": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de agosto",
+    "calculada": false
+  },
+  "ODIETA": {
+    "fecha": "2026-01-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de enero",
+    "calculada": false
+  },
+  "OIEREGI": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "OITZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "OLAGUE (ANUE)": {
+    "fecha": "2026-06-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de junio",
+    "calculada": false
+  },
+  "OLAIBAR": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "OLAIZ": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "OLAVE": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "OLAVERRI": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "OLAZ (EGÜÉS)": {
+    "fecha": "2026-06-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de junio",
+    "calculada": false
+  },
+  "OLAZ SUBIZA (GALAR)": {
+    "fecha": "2026-09-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de septiembre",
+    "calculada": false
+  },
+  "OLAZTI / OLAZAGUTIA": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "OLCOZ": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "OLEJUA": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "OLITE": {
+    "fecha": "2026-08-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de agosto",
+    "calculada": false
+  },
+  "OLLACARIZQUETA": {
+    "fecha": "2026-09-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de septiembre",
+    "calculada": false
+  },
+  "OLLETA": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "OLLO": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "OLLOBARREN (METAUTEN)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "OLLOGOYEN (METAUTEN)": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "OLLOKI": {
+    "fecha": "2026-05-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de mayo",
+    "calculada": false
+  },
+  "OLÓRIZ": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "OLZA": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "ONGOZ (URRAÚL ALTO)": {
+    "fecha": "2026-12-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de diciembre",
+    "calculada": false
+  },
+  "ORBAIZETA": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "ORBAIZ": {
+    "fecha": "2026-07-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de julio",
+    "calculada": false
+  },
+  "ORBARA": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "ORICÁIN (EZCABARTE)": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "ORICIN (OLÓRIZ)": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ORÍSOAIN": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "ORIZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ORKOIEN": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "OROKIETA (BASABURUA)": {
+    "fecha": "2026-08-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de agosto",
+    "calculada": false
+  },
+  "ORONDRITZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ORONZ": {
+    "fecha": "2026-03-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de marzo",
+    "calculada": false
+  },
+  "ORORBIA (OLZA)": {
+    "fecha": "2026-01-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de enero",
+    "calculada": false
+  },
+  "OROZ-BETELU": {
+    "fecha": "2026-06-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de junio",
+    "calculada": false
+  },
+  "ORRADRE": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ORREAGA / RONCESVALLES": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ORRIO (EZCABARTE)": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "OSA (EZCABARTE)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "OSACÁIN": {
+    "fecha": "2026-12-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de diciembre",
+    "calculada": false
+  },
+  "OSACAR": {
+    "fecha": "2026-12-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de diciembre",
+    "calculada": false
+  },
+  "OSINAGA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "OSKOTZ": {
+    "fecha": "2026-07-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de julio",
+    "calculada": false
+  },
+  "OSTERITZ": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "OSTIZ (ODIETA)": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "OTANO": {
+    "fecha": "2026-05-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de mayo",
+    "calculada": false
+  },
+  "OTEIZA (BERRIOPLANO)": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "OTEIZA": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "OTIÑANO": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "OSCÁRIZ (LIZOAIN)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "OZCOIDI (URRAÚL ALTO)": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "PAMPLONA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "PATERNÁIN": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "PERALTA": {
+    "fecha": "2026-02-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de febrero",
+    "calculada": false
+  },
+  "PETILLA DE ARAGÓN": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "PIEDRAMILLERA": {
+    "fecha": "2026-12-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de diciembre",
+    "calculada": false
+  },
+  "PITILLAS": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "PUENTE LA REINA": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "PUEYO": {
+    "fecha": "2026-07-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de julio",
+    "calculada": false
+  },
+  "RADA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "REDÍN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "RETA (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "RIBAFORADA": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "RIEZU (YERRI)": {
+    "fecha": "2026-02-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de febrero",
+    "calculada": false
+  },
+  "RIPA": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "RÍPODAS (URRAÚL ALTO)": {
+    "fecha": "2026-02-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de febrero",
+    "calculada": false
+  },
+  "ROCAFORTE": {
+    "fecha": "2026-08-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de agosto",
+    "calculada": false
+  },
+  "RONCAL": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "SADA": {
+    "fecha": "2026-01-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de enero",
+    "calculada": false
+  },
+  "SAGASETA": {
+    "fecha": "2026-04-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de abril",
+    "calculada": false
+  },
+  "SAGÜÉS (CIZUR)": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "SAGÜÉS (EGÜÉS)": {
+    "fecha": "2026-04-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de abril",
+    "calculada": false
+  },
+  "SAIGOTS (ESTERÍBAR)": {
+    "fecha": "2026-06-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de junio",
+    "calculada": false
+  },
+  "SALDIAS": {
+    "fecha": "2026-06-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de junio",
+    "calculada": false
+  },
+  "SALDISE": {
+    "fecha": "2026-05-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de mayo",
+    "calculada": false
+  },
+  "SALINAS DE IBARGOITI": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "SALINAS DE ORO": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "SALINAS DE PAMPLONA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "SAN ADRIÁN": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "SAN ISIDRO DEL PINAR": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "SAN MARTÍN DE AMESCOA": {
+    "fecha": "2026-11-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Segundo viernes de noviembre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: segundo viernes de noviembre"
+  },
+  "SAN MARTÍN DE UNX": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "SAN VICENTE (URRAÚL BAJO)": {
+    "fecha": "2026-10-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de octubre",
+    "calculada": false
+  },
+  "SANGÜESA": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "SÁNSOAIN (LEOZ)": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de mayo",
+    "calculada": false
+  },
+  "SANSOÁIN (URRAÚL BAJO)": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "SANSOÁIN": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "SANSOL": {
+    "fecha": "2026-05-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Segundo día de Pentecostés",
+    "calculada": true,
+    "metodo_calculo": "liturgico_pentecostes: segundo día"
+  },
+  "SANSOMAIN": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "SANTACARA": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "SARAGÜETA (ARCE)": {
+    "fecha": "2026-08-31",
+    "descripcion": "Fiesta local",
+    "fecha_original": "31 de agosto",
+    "calculada": false
+  },
+  "SARASA": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "SARASATE": {
+    "fecha": "2026-12-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de diciembre",
+    "calculada": false
+  },
+  "SARASIBAR (ESTERÍBAR)": {
+    "fecha": "2026-12-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de diciembre",
+    "calculada": false
+  },
+  "SARRIÉS": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "SARRIGUREN": {
+    "fecha": "2026-06-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de junio",
+    "calculada": false
+  },
+  "SARTAGUDA": {
+    "fecha": "2026-08-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de agosto",
+    "calculada": false
+  },
+  "SATRUSTEGI": {
+    "fecha": "2026-09-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de septiembre",
+    "calculada": false
+  },
+  "SENGÁRIZ (IBARGOITI)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "SENOSIÁIN (OLLO)": {
+    "fecha": "2026-09-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de septiembre",
+    "calculada": false
+  },
+  "SESMA": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "SETOAIN": {
+    "fecha": "2026-06-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de junio",
+    "calculada": false
+  },
+  "SOLCHAGA (OLÓRIZ)": {
+    "fecha": "2026-08-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de agosto",
+    "calculada": false
+  },
+  "SORAUREN": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "SORLADA": {
+    "fecha": "2026-11-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de noviembre",
+    "calculada": false
+  },
+  "SUARBE (ULTZAMA)": {
+    "fecha": "2026-10-13",
+    "descripcion": "Fiesta local",
+    "fecha_original": "13 de octubre",
+    "calculada": false
+  },
+  "SUBIZA": {
+    "fecha": "2026-06-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de junio",
+    "calculada": false
+  },
+  "SUNBILLA": {
+    "fecha": "2026-01-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de enero",
+    "calculada": false
+  },
+  "TABAR (URRAÚL ALTO)": {
+    "fecha": "2026-09-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de septiembre",
+    "calculada": false
+  },
+  "TAFALLA": {
+    "fecha": "2026-01-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de enero",
+    "calculada": false
+  },
+  "TAJONAR": {
+    "fecha": "2026-03-21",
+    "descripcion": "Fiesta local",
+    "fecha_original": "21 de marzo",
+    "calculada": false
+  },
+  "TIEBAS": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "TIRAPU": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "TORRALBA DEL RÍO": {
+    "fecha": "2026-12-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de diciembre",
+    "calculada": false
+  },
+  "TORRES DE ELORZ": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "TORRES DEL RÍO": {
+    "fecha": "2026-09-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de septiembre",
+    "calculada": false
+  },
+  "TRAIBUENAS": {
+    "fecha": "2026-08-31",
+    "descripcion": "Fiesta local",
+    "fecha_original": "31 de agosto",
+    "calculada": false
+  },
+  "TUDELA": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "TULEBRAS": {
+    "fecha": "2026-08-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de agosto",
+    "calculada": false
+  },
+  "TURRILLAS": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "UBAGO (MENDAZA)": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Primer sábado de octubre",
+    "calculada": true,
+    "metodo_calculo": "ordinal_simple: primer sábado de octubre"
+  },
+  "UBANI (ZABALZA)": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "ÚCAR": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "UDABE (BASABURUA)": {
+    "fecha": "2026-10-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de octubre",
+    "calculada": false
+  },
+  "ÚGAR": {
+    "fecha": "2026-11-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de noviembre",
+    "calculada": false
+  },
+  "UHARTE ARAKIL": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "UITZI": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "UJUÉ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ULI BAJO (LÓNGUIDA)": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "ULIBARRI (LANA)": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ULZURRUN (OLLO)": {
+    "fecha": "2026-09-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de septiembre",
+    "calculada": false
+  },
+  "UNANU (ERGOIENA)": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "UNCITI": {
+    "fecha": "2026-04-20",
+    "descripcion": "Fiesta local",
+    "fecha_original": "20 de abril",
+    "calculada": false
+  },
+  "UNDIANO": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "UNZU (JUSLAPEÑA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "UNZUÉ": {
+    "fecha": "2026-11-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de noviembre",
+    "calculada": false
+  },
+  "URBICÁIN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "URBIOLA": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "URDAITZ / URDÁNIZ": {
+    "fecha": "2026-10-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de octubre",
+    "calculada": false
+  },
+  "URDÁNOZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "URDAZUBI / URDAX": {
+    "fecha": "2026-05-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes de Pentecostés",
+    "calculada": true,
+    "metodo_calculo": "liturgico_pentecostes: lunes"
+  },
+  "URDIAIN": {
+    "fecha": "2026-07-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de julio",
+    "calculada": false
+  },
+  "URDIROZ (ARCE)": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "URIZ (ARCE)": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "UROZ (LIZOAIN)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "URRA": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "URRICELQUI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "URRITZA": {
+    "fecha": "2026-06-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de junio",
+    "calculada": false
+  },
+  "URRITZOLA (ARAKIL)": {
+    "fecha": "2026-07-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de julio",
+    "calculada": false
+  },
+  "URRITZOLA-GALAIN (ULTZAMA)": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "URROTZ": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "URROZVILLA": {
+    "fecha": "2026-08-06",
+    "descripcion": "Fiesta local",
+    "fecha_original": "6 de agosto",
+    "calculada": false
+  },
+  "URTASUN": {
+    "fecha": "2026-09-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de septiembre",
+    "calculada": false
+  },
+  "URZAINQUI": {
+    "fecha": "2026-11-11",
+    "descripcion": "Fiesta local",
+    "fecha_original": "11 de noviembre",
+    "calculada": false
+  },
+  "USCARRÉS (GALLUÉS)": {
+    "fecha": "2026-01-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de enero",
+    "calculada": false
+  },
+  "USETXI": {
+    "fecha": "2026-08-10",
+    "descripcion": "Fiesta local",
+    "fecha_original": "10 de agosto",
+    "calculada": false
+  },
+  "USI (JUSLAPEÑA)": {
+    "fecha": "2026-09-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de septiembre",
+    "calculada": false
+  },
+  "USOZ": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "USTÁRROZ": {
+    "fecha": "2026-08-25",
+    "descripcion": "Fiesta local",
+    "fecha_original": "25 de agosto",
+    "calculada": false
+  },
+  "USTÉS": {
+    "fecha": "2026-12-01",
+    "descripcion": "Fiesta local",
+    "fecha_original": "1 de diciembre",
+    "calculada": false
+  },
+  "USUN (ROMANZADO)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "UTERGA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "UZQUITA": {
+    "fecha": "2026-05-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "Lunes siguiente al primer domingo de mayo",
+    "calculada": true,
+    "metodo_calculo": "ordinal_compuesto: lunes siguiente al primer domingo de mayo"
+  },
+  "UZTARROZ": {
+    "fecha": "2026-04-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de abril",
+    "calculada": false
+  },
+  "UZTEGI": {
+    "fecha": "2026-08-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de agosto",
+    "calculada": false
+  },
+  "VALTIERRA": {
+    "fecha": "2026-12-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de diciembre",
+    "calculada": false
+  },
+  "VIANA": {
+    "fecha": "2026-07-22",
+    "descripcion": "Fiesta local",
+    "fecha_original": "22 de julio",
+    "calculada": false
+  },
+  "VIDANGOZ": {
+    "fecha": "2026-06-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de junio",
+    "calculada": false
+  },
+  "VIDAURRE (GUESÁLAZ)": {
+    "fecha": "2026-07-28",
+    "descripcion": "Fiesta local",
+    "fecha_original": "28 de julio",
+    "calculada": false
+  },
+  "VIGURIA": {
+    "fecha": "2026-12-14",
+    "descripcion": "Fiesta local",
+    "fecha_original": "14 de diciembre",
+    "calculada": false
+  },
+  "VILLAFRANCA": {
+    "fecha": "2026-09-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de septiembre",
+    "calculada": false
+  },
+  "VILLAMAYOR DE MONJARDÍN": {
+    "fecha": "2026-09-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de septiembre",
+    "calculada": false
+  },
+  "VILLANUEVA (YERRI)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "VILLANUEVA DE ARCE": {
+    "fecha": "2026-12-05",
+    "descripcion": "Fiesta local",
+    "fecha_original": "5 de diciembre",
+    "calculada": false
+  },
+  "VILLATUERTA": {
+    "fecha": "2026-03-09",
+    "descripcion": "Fiesta local",
+    "fecha_original": "9 de marzo",
+    "calculada": false
+  },
+  "VILLAVA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "VILLAVETA (LÓNGUIDA)": {
+    "fecha": "2026-12-12",
+    "descripcion": "Fiesta local",
+    "fecha_original": "12 de diciembre",
+    "calculada": false
+  },
+  "VILORIA": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "YÁRNOZ": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "YELZ": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "YESA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "ZABAL": {
+    "fecha": "2026-11-24",
+    "descripcion": "Fiesta local",
+    "fecha_original": "24 de noviembre",
+    "calculada": false
+  },
+  "ZABALCETA": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "ZABALDIKA": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "ZABALEGUI": {
+    "fecha": "2026-10-07",
+    "descripcion": "Fiesta local",
+    "fecha_original": "7 de octubre",
+    "calculada": false
+  },
+  "ZABALZA (URRAÚL ALTO)": {
+    "fecha": "2026-07-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de julio",
+    "calculada": false
+  },
+  "ZABALZA": {
+    "fecha": "2026-08-19",
+    "descripcion": "Fiesta local",
+    "fecha_original": "19 de agosto",
+    "calculada": false
+  },
+  "ZALBA": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ZANDIO": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ZARIQUIEGUI": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ZARRANTZ": {
+    "fecha": "2026-09-29",
+    "descripcion": "Fiesta local",
+    "fecha_original": "29 de septiembre",
+    "calculada": false
+  },
+  "ZENOTZ (ULTZAMA)": {
+    "fecha": "2026-07-27",
+    "descripcion": "Fiesta local",
+    "fecha_original": "27 de julio",
+    "calculada": false
+  },
+  "ZIA": {
+    "fecha": "2026-09-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de septiembre",
+    "calculada": false
+  },
+  "ZILBETI": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ZILDOTZ / CILDOZ": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "ZIORDIA": {
+    "fecha": "2026-09-08",
+    "descripcion": "Fiesta local",
+    "fecha_original": "8 de septiembre",
+    "calculada": false
+  },
+  "ZIZUR MAYOR": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ZOLINA": {
+    "fecha": "2026-06-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de junio",
+    "calculada": false
+  },
+  "ZOROQUIÁIN": {
+    "fecha": "2026-12-02",
+    "descripcion": "Fiesta local",
+    "fecha_original": "2 de diciembre",
+    "calculada": false
+  },
+  "ZUASTI": {
+    "fecha": "2026-09-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de septiembre",
+    "calculada": false
+  },
+  "ZUAZU (IZAGAONDOA)": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ZUBIELQUI (ALLÍN)": {
+    "fecha": "2026-08-18",
+    "descripcion": "Fiesta local",
+    "fecha_original": "18 de agosto",
+    "calculada": false
+  },
+  "ZUBIETA": {
+    "fecha": "2026-01-17",
+    "descripcion": "Fiesta local",
+    "fecha_original": "17 de enero",
+    "calculada": false
+  },
+  "ZUBIRI": {
+    "fecha": "2026-12-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de diciembre",
+    "calculada": false
+  },
+  "ZUDAIRE": {
+    "fecha": "2026-11-30",
+    "descripcion": "Fiesta local",
+    "fecha_original": "30 de noviembre",
+    "calculada": false
+  },
+  "ZUFIA": {
+    "fecha": "2026-10-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de octubre",
+    "calculada": false
+  },
+  "ZUGARRAMURDI": {
+    "fecha": "2026-08-31",
+    "descripcion": "Fiesta local",
+    "fecha_original": "31 de agosto",
+    "calculada": false
+  },
+  "ZUHATZU": {
+    "fecha": "2026-09-26",
+    "descripcion": "Fiesta local",
+    "fecha_original": "26 de septiembre",
+    "calculada": false
+  },
+  "ZULUETA": {
+    "fecha": "2026-08-31",
+    "descripcion": "Fiesta local",
+    "fecha_original": "31 de agosto",
+    "calculada": false
+  },
+  "ZÚÑIGA": {
+    "fecha": "2026-07-03",
+    "descripcion": "Fiesta local",
+    "fecha_original": "3 de julio",
+    "calculada": false
+  },
+  "ZUNZARREN": {
+    "fecha": "2026-05-15",
+    "descripcion": "Fiesta local",
+    "fecha_original": "15 de mayo",
+    "calculada": false
+  },
+  "ZURIAIN": {
+    "fecha": "2026-11-16",
+    "descripcion": "Fiesta local",
+    "fecha_original": "16 de noviembre",
+    "calculada": false
+  },
+  "ZURUCUÁIN": {
+    "fecha": "2026-02-04",
+    "descripcion": "Fiesta local",
+    "fecha_original": "4 de febrero",
+    "calculada": false
+  }
+}
