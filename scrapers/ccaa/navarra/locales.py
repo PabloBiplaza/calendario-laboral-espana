@@ -2,10 +2,17 @@
 Scraper de festivos locales para la Comunidad Foral de Navarra.
 
 Extrae festivos del BON (Boletín Oficial de Navarra) en formato HTML.
+
+Estrategia de obtención de datos (4 niveles):
+1. Cache de festivos pre-generado (instantáneo, fiable en cloud)
+2. URL conocida en ccaa_registry.yaml
+3. URL descubierta previamente (navarra_urls_cache.json)
+4. Auto-discovery en el BON (busca la URL automáticamente)
 """
 
-from typing import List, Dict
+from typing import List, Dict, Optional
 import json
+import os
 from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
@@ -30,10 +37,33 @@ class NavarraLocalesScraper(BaseScraper):
     - Estructura: 8 nacionales + 4 autonómicos + 1 local = 14 festivos totales
     """
 
+    CACHE_FILE = 'config/navarra_urls_cache.json'
+
     def __init__(self, year: int = 2026, municipio: str = None):
         super().__init__(year, ccaa='navarra', tipo='locales')
         self.municipio = municipio
         self.municipios = self._load_municipios()
+        self.cached_urls = self._load_urls_cache()
+
+    def _load_urls_cache(self) -> Dict:
+        """Carga el cache de URLs descubiertas previamente."""
+        if os.path.exists(self.CACHE_FILE):
+            try:
+                with open(self.CACHE_FILE, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return {}
+
+    def _save_urls_cache(self, year: int, url: str):
+        """Guarda una URL descubierta en el cache."""
+        try:
+            self.cached_urls[str(year)] = url
+            with open(self.CACHE_FILE, 'w', encoding='utf-8') as f:
+                json.dump(self.cached_urls, f, ensure_ascii=False, indent=2)
+            print(f"💾 URL guardada en cache: {self.CACHE_FILE}")
+        except Exception as e:
+            print(f"⚠️  Error guardando en cache: {e}")
 
     def _load_municipios(self) -> Dict[str, str]:
         """
@@ -256,23 +286,51 @@ class NavarraLocalesScraper(BaseScraper):
         """
         Extrae festivos locales de Navarra.
 
-        Estrategia cache-first: usa el cache pre-generado si existe (es más
-        rápido y fiable). Solo descarga del BON en vivo si no hay cache
-        disponible para el año solicitado.
+        Estrategia de 4 niveles:
+        1. Cache de festivos pre-generado (instantáneo, fiable en cloud)
+        2. URL conocida en ccaa_registry.yaml → descarga BON
+        3. URL descubierta previamente (navarra_urls_cache.json) → descarga BON
+        4. Auto-discovery del BON (busca la URL automáticamente) → descarga BON
 
         Returns:
             Si self.municipio está definido: List[Dict] de festivos del municipio
             Si no: Dict[str, List[Dict]] con {municipio: [festivos]}
         """
-        # 1. Intentar cache primero (rápido y fiable)
+        # Nivel 1: Cache de festivos pre-generado
         cache = self._load_cache()
         if cache:
             print(f"📦 Usando cache de festivos locales de Navarra {self.year} ({len(cache)} municipios)")
             return self._resolve_from_cache(cache)
 
-        # 2. Si no hay cache, descargar del BON en vivo
-        print(f"⚠️  No hay cache para Navarra {self.year}, descargando del BON...")
-        return self._scrape_from_bon()
+        # Nivel 2: URL conocida en registry
+        url = registry.get_url('navarra', self.year, 'locales')
+        if url:
+            print(f"✅ URL oficial (registry) para {self.year}: {url}")
+            return self._scrape_from_url(url)
+
+        # Nivel 3: URL descubierta previamente
+        cached_url = self.cached_urls.get(str(self.year))
+        if cached_url:
+            print(f"📦 URL en cache (descubierta previamente) para {self.year}: {cached_url}")
+            return self._scrape_from_url(cached_url)
+
+        # Nivel 4: Auto-discovery
+        print(f"🔍 Auto-discovery para Navarra {self.year}...")
+        print(f"   ⏱️  Esto puede tardar varios minutos...")
+        try:
+            from scrapers.discovery.ccaa.navarra_discovery import discover_url
+            discovered_url = discover_url(self.year)
+
+            if discovered_url:
+                print(f"✅ URL encontrada por auto-discovery: {discovered_url}")
+                self._save_urls_cache(self.year, discovered_url)
+                print(f"💡 Próximas ejecuciones usarán el cache (instantáneo)")
+                return self._scrape_from_url(discovered_url)
+        except Exception as e:
+            print(f"⚠️  Error en auto-discovery: {e}")
+
+        print(f"❌ No se pudo obtener festivos locales de Navarra {self.year}")
+        return [] if self.municipio else {}
 
     def _resolve_from_cache(self, cache: Dict[str, Dict]):
         """
@@ -302,19 +360,16 @@ class NavarraLocalesScraper(BaseScraper):
             print(f"✅ {len(result)} municipios cargados desde cache")
             return result
 
-    def _scrape_from_bon(self):
+    def _scrape_from_url(self, url: str):
         """
-        Descarga y parsea festivos del BON en vivo.
+        Descarga y parsea festivos del BON desde una URL.
+
+        Args:
+            url: URL del BON con la tabla de festivos locales
 
         Returns:
             Si self.municipio: List[Dict] | Si no: Dict[str, List[Dict]]
         """
-        url = registry.get_url('navarra', self.year, 'locales')
-
-        if not url:
-            print(f"❌ No hay URL configurada para Navarra {self.year}")
-            return [] if self.municipio else {}
-
         print(f"Scraping festivos locales de Navarra {self.year}")
         print(f"URL: {url}")
 
