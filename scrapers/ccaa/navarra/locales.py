@@ -254,95 +254,36 @@ class NavarraLocalesScraper(BaseScraper):
 
     def scrape(self):
         """
-        Extrae festivos locales de Navarra del BON.
+        Extrae festivos locales de Navarra.
 
-        Intenta descargar del BON en vivo. Si falla (ej: IP bloqueada en
-        Streamlit Cloud), usa cache pre-generado como fallback.
+        Estrategia cache-first: usa el cache pre-generado si existe (es más
+        rápido y fiable). Solo descarga del BON en vivo si no hay cache
+        disponible para el año solicitado.
 
         Returns:
             Si self.municipio está definido: List[Dict] de festivos del municipio
             Si no: Dict[str, List[Dict]] con {municipio: [festivos]}
         """
-        # Obtener URL del BON
-        url = registry.get_url('navarra', self.year, 'locales')
+        # 1. Intentar cache primero (rápido y fiable)
+        cache = self._load_cache()
+        if cache:
+            print(f"📦 Usando cache de festivos locales de Navarra {self.year} ({len(cache)} municipios)")
+            return self._resolve_from_cache(cache)
 
-        if not url:
-            print(f"No hay URL configurada para Navarra {self.year}")
-            return self._fallback_from_cache()
+        # 2. Si no hay cache, descargar del BON en vivo
+        print(f"⚠️  No hay cache para Navarra {self.year}, descargando del BON...")
+        return self._scrape_from_bon()
 
-        print(f"Scraping festivos locales de Navarra {self.year}")
-        print(f"URL: {url}")
-
-        # Descargar el HTML
-        try:
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
-            }
-            print(f"📥 Descargando desde: {url}")
-            response = requests.get(url, timeout=30, headers=headers)
-            response.raise_for_status()
-            print(f"✅ Descarga exitosa: {len(response.text)} caracteres")
-
-            # Parsear el HTML
-            festivos_todos = self.parse_festivos_html(response.text)
-            print(f"📊 Municipios parseados del HTML: {len(festivos_todos)}")
-
-            # Si el parsing no devolvió resultados (ej: página de error con HTTP 200),
-            # usar cache como fallback
-            if not festivos_todos:
-                print(f"⚠️  El BON devolvió HTML pero sin tabla de festivos")
-                print(f"   Intentando fallback desde cache...")
-                return self._fallback_from_cache()
-
-            # Si se especificó un municipio, filtrar y retornar solo sus festivos
-            if self.municipio:
-                print(f"🎯 Filtrando por municipio: {self.municipio}")
-                festivos_municipio = self.get_festivos_municipio_from_dict(festivos_todos, self.municipio)
-
-                if festivos_municipio:
-                    print(f"✅ Festivos locales extraídos: {len(festivos_municipio)}")
-                else:
-                    print(f"⚠️  NO se encontraron festivos para '{self.municipio}'")
-                    print(f"   Municipios disponibles (muestra): {list(festivos_todos.keys())[:5]}")
-
-                return festivos_municipio
-            else:
-                # Contar festivos fijos vs calculados
-                total_fijos = sum(1 for fests in festivos_todos.values() for f in fests if not f.get('calculada', False))
-                total_calculados = sum(1 for fests in festivos_todos.values() for f in fests if f.get('calculada', False))
-
-                print(f"✅ Extraídos festivos de {len(festivos_todos)} municipios")
-                print(f"   • Fechas fijas: {total_fijos}")
-                print(f"   • Fechas calculadas: {total_calculados}")
-                return festivos_todos
-
-        except requests.RequestException as e:
-            print(f"⚠️  Error descargando el BON: {e}")
-            print(f"   URL intentada: {url}")
-            print(f"   Intentando fallback desde cache...")
-            return self._fallback_from_cache()
-        except Exception as e:
-            print(f"⚠️  Error parseando el BON: {e}")
-            print(f"   Municipio buscado: {self.municipio}")
-            print(f"   Intentando fallback desde cache...")
-            return self._fallback_from_cache()
-
-    def _fallback_from_cache(self):
+    def _resolve_from_cache(self, cache: Dict[str, Dict]):
         """
-        Fallback: devuelve festivos desde el cache pre-generado.
+        Resuelve festivos desde el cache cargado.
+
+        Args:
+            cache: Dict con {MUNICIPIO: {fecha, descripcion, ...}}
 
         Returns:
-            Si self.municipio: List[Dict] de festivos del municipio
-            Si no: Dict[str, List[Dict]] con todos los municipios
+            Si self.municipio: List[Dict] | Si no: Dict[str, List[Dict]]
         """
-        cache = self._load_cache()
-
-        if not cache:
-            print(f"❌ No hay cache disponible para Navarra {self.year}")
-            return [] if self.municipio else {}
-
-        print(f"📦 Cache cargado: {len(cache)} municipios")
-
         if self.municipio:
             municipio_upper = self.municipio.upper()
             entry = cache.get(municipio_upper)
@@ -355,12 +296,70 @@ class NavarraLocalesScraper(BaseScraper):
                 print(f"⚠️  '{self.municipio}' no encontrado en cache")
                 return []
         else:
-            # Devolver todos como dict {municipio: [festivos]}
             result = {}
             for mun, entry in cache.items():
                 result[mun] = [self._festivo_from_cache(entry)]
             print(f"✅ {len(result)} municipios cargados desde cache")
             return result
+
+    def _scrape_from_bon(self):
+        """
+        Descarga y parsea festivos del BON en vivo.
+
+        Returns:
+            Si self.municipio: List[Dict] | Si no: Dict[str, List[Dict]]
+        """
+        url = registry.get_url('navarra', self.year, 'locales')
+
+        if not url:
+            print(f"❌ No hay URL configurada para Navarra {self.year}")
+            return [] if self.municipio else {}
+
+        print(f"Scraping festivos locales de Navarra {self.year}")
+        print(f"URL: {url}")
+
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+            }
+            print(f"📥 Descargando desde: {url}")
+            response = requests.get(url, timeout=30, headers=headers)
+            response.raise_for_status()
+            print(f"✅ Descarga exitosa: {len(response.text)} caracteres")
+
+            festivos_todos = self.parse_festivos_html(response.text)
+            print(f"📊 Municipios parseados del HTML: {len(festivos_todos)}")
+
+            if not festivos_todos:
+                print(f"⚠️  El BON devolvió HTML pero sin tabla de festivos")
+                return [] if self.municipio else {}
+
+            if self.municipio:
+                print(f"🎯 Filtrando por municipio: {self.municipio}")
+                festivos_municipio = self.get_festivos_municipio_from_dict(festivos_todos, self.municipio)
+
+                if festivos_municipio:
+                    print(f"✅ Festivos locales extraídos: {len(festivos_municipio)}")
+                else:
+                    print(f"⚠️  NO se encontraron festivos para '{self.municipio}'")
+                    print(f"   Municipios disponibles (muestra): {list(festivos_todos.keys())[:5]}")
+
+                return festivos_municipio
+            else:
+                total_fijos = sum(1 for fests in festivos_todos.values() for f in fests if not f.get('calculada', False))
+                total_calculados = sum(1 for fests in festivos_todos.values() for f in fests if f.get('calculada', False))
+
+                print(f"✅ Extraídos festivos de {len(festivos_todos)} municipios")
+                print(f"   • Fechas fijas: {total_fijos}")
+                print(f"   • Fechas calculadas: {total_calculados}")
+                return festivos_todos
+
+        except requests.RequestException as e:
+            print(f"❌ Error descargando el BON: {e}")
+            return [] if self.municipio else {}
+        except Exception as e:
+            print(f"❌ Error parseando el BON: {e}")
+            return [] if self.municipio else {}
 
     def get_festivos_municipio_from_dict(self, festivos_dict: Dict[str, List[Dict]], municipio: str) -> List[Dict]:
         """
