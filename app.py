@@ -78,7 +78,7 @@ def cargar_municipios(ccaa: str):
 
 
 # Cargar municipios para CCAA disponibles
-CCAA_DISPONIBLES = ['canarias', 'madrid', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia', 'navarra']  # ← Fácil añadir más
+CCAA_DISPONIBLES = ['canarias', 'madrid', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia', 'navarra', 'aragon']  # ← Fácil añadir más
 
 MUNICIPIOS = {
     ccaa: cargar_municipios(ccaa)

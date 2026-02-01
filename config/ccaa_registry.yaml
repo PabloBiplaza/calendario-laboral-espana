@@ -237,11 +237,30 @@ ccaa:
         2026: "https://bon.navarra.es/es/anuncio/-/texto/2025/241/12"  # BON nº 241, 02/12/2025 - Calendario de fiestas locales 2026
     municipios_file: "config/navarra_municipios.json"
 
+  aragon:
+    name: "Aragón"
+    municipios_count: 565
+    provincias:
+      - "Huesca"
+      - "Teruel"
+      - "Zaragoza"
+    boletin: "BOA"
+    boletin_url: "https://www.boa.aragon.es/"
+    formato: "csv"
+    formato_especifico: "opendata_ckan_csv"
+    auto_discovery: true
+    discovery_method: "ckan_api"
+    opendata_url: "https://opendata.aragon.es/"
+    urls:
+      locales:
+        2026: "https://opendata.aragon.es/ckan/dataset/f861c5f7-5424-4b3c-90bf-a6d2c2f5b0bd/resource/5ff8c1f8-fb7e-4343-abba-eb7dbd796dbc/download/festivos_aragon_2026_final_con_ine.csv"
+    municipios_file: "config/aragon_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 13
-  total_municipios: 4231  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694)
+  total_ccaa: 14
+  total_municipios: 4796  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694+565)
   municipios_en_json: 989  # Asturias, Cantabria, La Rioja, Murcia y Navarra tienen JSONs completos
-  auto_discovery_percentage: 85  # 11 de 13 CCAA
-  ultima_actualizacion: "2026-01-30"
-  version: "1.0.3"
+  auto_discovery_percentage: 86  # 12 de 14 CCAA
+  ultima_actualizacion: "2026-02-01"
+  version: "1.0.4"
