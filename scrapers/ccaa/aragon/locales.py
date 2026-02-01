@@ -8,15 +8,17 @@ publicados anualmente en https://opendata.aragon.es/
 Formato CSV (separador ;):
     Provincia;CodigoINE;Municipio;Fecha;NombreFestivo
 
-Estrategia de obtención de datos (3 niveles):
-1. URL en cache (aragon_urls_cache.json)
-2. URL conocida en ccaa_registry.yaml
-3. Auto-discovery vía CKAN API de OpenData Aragón
+Estrategia de obtención de datos (4 niveles):
+1. Cache de festivos pre-generado (instantáneo, fiable en cloud)
+2. URL en cache (aragon_urls_cache.json)
+3. URL conocida en ccaa_registry.yaml
+4. Auto-discovery vía CKAN API de OpenData Aragón
 """
 
 from scrapers.core.base_scraper import BaseScraper
 from config.config_manager import CCAaRegistry
 from typing import List, Dict, Optional
+from pathlib import Path
 import requests
 import json
 import csv
@@ -102,6 +104,104 @@ class AragonLocalesScraper(BaseScraper):
             json.dump(cache, f, indent=2, ensure_ascii=False)
 
         print(f"💾 URL guardada en cache: {self.CACHE_FILE}")
+
+    def _load_festivos_cache(self) -> Dict[str, list]:
+        """
+        Carga cache de festivos pre-generado.
+
+        Archivo: config/aragon_festivos_locales_{year}.json
+        Estructura: {municipio: [{fecha, descripcion, provincia, codigo_ine}]}
+
+        Returns:
+            Dict con festivos por municipio, o {} si no hay cache.
+        """
+        cache_path = Path(__file__).parent.parent.parent.parent / 'config' / f'aragon_festivos_locales_{self.year}.json'
+        if not cache_path.exists():
+            return {}
+        try:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"⚠️  Error cargando cache de festivos de Aragón: {e}")
+            return {}
+
+    def _resolve_from_cache(self, cache: Dict[str, list]):
+        """
+        Resuelve festivos desde el cache pre-generado.
+
+        Args:
+            cache: Dict {municipio: [{fecha, descripcion, ...}]}
+
+        Returns:
+            Si self.municipio: List[Dict] de festivos del municipio
+            Si no: List[Dict] vacío (no soportamos devolver todos sin municipio)
+        """
+        if self.municipio:
+            # Buscar municipio exacto primero
+            festivos_muni = cache.get(self.municipio)
+
+            # Si no hay match exacto, buscar con normalización
+            if not festivos_muni:
+                municipio_upper = self.municipio.upper()
+                for muni_cache, fests in cache.items():
+                    if muni_cache.upper() == municipio_upper:
+                        festivos_muni = fests
+                        break
+
+            # Fuzzy match como último recurso
+            if not festivos_muni:
+                from utils.normalizer import MunicipioNormalizer
+                for muni_cache, fests in cache.items():
+                    if MunicipioNormalizer.are_equivalent(self.municipio, muni_cache, threshold=85):
+                        festivos_muni = fests
+                        print(f"   🔍 Fuzzy match en cache: '{self.municipio}' → '{muni_cache}'")
+                        break
+
+            if festivos_muni:
+                result = []
+                for f in festivos_muni:
+                    result.append({
+                        'fecha': f['fecha'],
+                        'fecha_texto': f['fecha'],
+                        'descripcion': f['descripcion'],
+                        'tipo': 'local',
+                        'ambito': 'local',
+                        'municipio': self.municipio,
+                        'provincia': f.get('provincia', ''),
+                        'codigo_ine': f.get('codigo_ine', ''),
+                        'year': self.year
+                    })
+                print(f"   ✅ {len(result)} festivos locales desde cache para {self.municipio}")
+                return result
+            else:
+                print(f"   ⚠️  Municipio '{self.municipio}' no encontrado en cache")
+                return []
+        else:
+            # Sin municipio específico, no devolver todos (sería demasiado)
+            return []
+
+    def scrape(self):
+        """
+        Extrae festivos locales de Aragón.
+
+        Estrategia de 4 niveles:
+        1. Cache de festivos pre-generado (instantáneo, fiable en cloud)
+        2. URL en cache (aragon_urls_cache.json) → descarga CSV
+        3. URL conocida en ccaa_registry.yaml → descarga CSV
+        4. Auto-discovery CKAN API → descarga CSV
+
+        Returns:
+            List[Dict] de festivos del municipio
+        """
+        # Nivel 1: Cache de festivos pre-generado
+        cache = self._load_festivos_cache()
+        if cache:
+            print(f"📦 Usando cache de festivos locales de Aragón {self.year} ({len(cache)} municipios)")
+            return self._resolve_from_cache(cache)
+
+        # Niveles 2-4: Flujo estándar BaseScraper (get_source_url → fetch → parse)
+        print(f"⚠️  No hay cache de festivos para Aragón {self.year}, descargando CSV...")
+        return super().scrape()
 
     def get_source_url(self) -> str:
         """
