@@ -6,10 +6,34 @@
 
 ```bash
 # Canarias - Arrecife 2025
-python scrape_municipio.py "Arrecife" canarias 2025
+python3 scrape_municipio.py "Arrecife" canarias 2025
 
-# Madrid - Alcalá de Henares 2026
-python scrape_municipio.py "Alcalá de Henares" madrid 2026
+# Madrid - Alcala de Henares 2026
+python3 scrape_municipio.py "Alcala de Henares" madrid 2026
+
+# Aragon - Zaragoza 2026
+python3 scrape_municipio.py "Zaragoza" aragon 2026
+
+# Castilla y Leon - Valladolid 2026
+python3 scrape_municipio.py "Valladolid" castilla_leon 2026
+
+# Castilla-La Mancha - Toledo 2026
+python3 scrape_municipio.py "Toledo" castilla_mancha 2026
+
+# Extremadura - Badajoz 2026
+python3 scrape_municipio.py "Badajoz" extremadura 2026
+
+# Navarra - Pamplona 2026
+python3 scrape_municipio.py "Pamplona" navarra 2026
+
+# Pais Vasco - Vitoria-Gasteiz 2026
+python3 scrape_municipio.py "Vitoria-Gasteiz" pais_vasco 2026
+
+# Cataluña - Barcelona 2026
+python3 scrape_municipio.py "Barcelona" cataluna 2026
+
+# Andalucia - Sevilla 2026
+python3 scrape_municipio.py "Sevilla" andalucia 2026
 ```
 
 **Salida:**
@@ -21,7 +45,7 @@ python scrape_municipio.py "Alcalá de Henares" madrid 2026
 ### 2. Solo festivos nacionales
 
 ```bash
-python -m scrapers.core.boe_scraper 2025
+python3 -m scrapers.core.boe_scraper 2025
 ```
 
 **Salida:**
@@ -43,14 +67,17 @@ python -m scrapers.core.boe_scraper 2025
 
 ---
 
-### 3. Solo festivos autonómicos
+### 3. Solo festivos autonomicos
 
 ```bash
 # Canarias 2025
-python -m scrapers.ccaa.canarias.autonomicos 2025
+python3 -m scrapers.ccaa.canarias.autonomicos 2025
 
 # Madrid 2026
-python -m scrapers.ccaa.madrid.autonomicos 2026
+python3 -m scrapers.ccaa.madrid.autonomicos 2026
+
+# Navarra 2026
+python3 -m scrapers.ccaa.navarra.autonomicos 2026
 ```
 
 ---
@@ -59,29 +86,34 @@ python -m scrapers.ccaa.madrid.autonomicos 2026
 
 ```bash
 # Canarias - Santa Cruz de Tenerife
-python -m scrapers.ccaa.canarias.locales "Santa Cruz de Tenerife" 2025
+python3 -m scrapers.ccaa.canarias.locales "Santa Cruz de Tenerife" 2025
 
 # Madrid - Madrid capital
-python -m scrapers.ccaa.madrid.locales "Madrid" 2026
+python3 -m scrapers.ccaa.madrid.locales "Madrid" 2026
 ```
 
 ---
 
-### 5. Múltiples municipios (script bash)
+### 5. Multiples municipios (script bash)
 
 ```bash
 #!/bin/bash
-# Script para procesar varios municipios
+# Script para procesar varios municipios de diferentes CCAA
 
-MUNICIPIOS=(
-    "Arrecife"
-    "Santa Cruz de Tenerife"
-    "Las Palmas de Gran Canaria"
+declare -A MUNICIPIOS=(
+    ["Madrid,madrid"]="2026"
+    ["Arrecife,canarias"]="2026"
+    ["Zaragoza,aragon"]="2026"
+    ["Sevilla,andalucia"]="2026"
+    ["Barcelona,cataluna"]="2026"
+    ["Valladolid,castilla_leon"]="2026"
 )
 
-for municipio in "${MUNICIPIOS[@]}"; do
-    echo "Procesando: $municipio"
-    python scrape_municipio.py "$municipio" canarias 2025
+for key in "${!MUNICIPIOS[@]}"; do
+    IFS=',' read -r municipio ccaa <<< "$key"
+    year="${MUNICIPIOS[$key]}"
+    echo "Procesando: $municipio ($ccaa) $year"
+    python3 scrape_municipio.py "$municipio" "$ccaa" "$year"
 done
 ```
 
@@ -391,53 +423,14 @@ enviar_recordatorios(
 
 ### 13. Dashboard con Streamlit
 
-```python
-# dashboard.py
-import streamlit as st
-import pandas as pd
-import json
-import subprocess
+El proyecto incluye un dashboard completo en `app.py`:
 
-st.title("📅 Calendario Laboral España")
-
-# Sidebar
-ccaa = st.sidebar.selectbox("Comunidad Autónoma", ["canarias", "madrid"])
-year = st.sidebar.number_input("Año", min_value=2025, max_value=2030, value=2025)
-
-if ccaa == "canarias":
-    municipios = ["Arrecife", "Santa Cruz de Tenerife", "Las Palmas de Gran Canaria"]
-else:
-    municipios = ["Madrid", "Alcalá de Henares", "Getafe"]
-
-municipio = st.sidebar.selectbox("Municipio", municipios)
-
-# Botón para generar
-if st.sidebar.button("Generar Calendario"):
-    with st.spinner("Extrayendo festivos..."):
-        subprocess.run([
-            'python', 'scrape_municipio.py',
-            municipio, ccaa, str(year)
-        ])
-    
-    # Cargar y mostrar
-    filename = f"data/{ccaa}_{municipio.lower().replace(' ', '_')}_completo_{year}.json"
-    with open(filename, 'r') as f:
-        data = json.load(f)
-    
-    st.success(f"Total festivos: {data['total_festivos']}")
-    
-    # DataFrame
-    df = pd.DataFrame(data['festivos'])
-    st.dataframe(df[['fecha', 'descripcion', 'tipo']])
-    
-    # Gráfico
-    st.bar_chart(df['tipo'].value_counts())
-```
-
-**Ejecutar:**
 ```bash
-streamlit run dashboard.py
+streamlit run app.py
 ```
+
+Soporta las 17 CCAA con selector dinamico de municipios.
+La lista de CCAA se carga automaticamente desde `ccaa_registry.yaml`.
 
 ---
 
@@ -491,8 +484,8 @@ YEAR=$(date +%Y)
 NEXT_YEAR=$((YEAR + 1))
 
 # Actualizar festivos para año siguiente
-python scrape_municipio.py "Arrecife" canarias $NEXT_YEAR
-python scrape_municipio.py "Madrid" madrid $NEXT_YEAR
+python3 scrape_municipio.py "Arrecife" canarias $NEXT_YEAR
+python3 scrape_municipio.py "Madrid" madrid $NEXT_YEAR
 
 # Enviar notificación
 python email_festivos.py

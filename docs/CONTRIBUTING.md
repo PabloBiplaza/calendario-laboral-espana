@@ -1,471 +1,299 @@
-# 🤝 Guía de Contribución
+# Guia de Contribucion
 
-## Cómo Añadir una Nueva CCAA
+## Como Añadir una Nueva CCAA
 
-Esta guía explica paso a paso cómo añadir soporte para una nueva comunidad autónoma.
+Esta guia explica paso a paso como añadir soporte para una nueva comunidad autonoma.
 
-### Ejemplo: Añadir Valencia
+> **Nota:** Las 17 CCAA ya estan implementadas. Esta guia sirve como referencia para mantenimiento y para añadir nuevos años.
 
 ---
 
 ## PASO 1: Investigar Fuentes Oficiales
 
-### 1.1 Encontrar el Boletín Oficial
+### 1.1 Encontrar el Boletin Oficial
 
-Buscar el boletín oficial de la CCAA:
-- **Valencia**: DOGV (Diari Oficial de la Generalitat Valenciana)
-- **Cataluña**: DOGC (Diari Oficial de la Generalitat de Catalunya)
-- **Andalucía**: BOJA (Boletín Oficial de la Junta de Andalucía)
+Buscar el boletin oficial de la CCAA. Consultar la tabla en la seccion "Recursos Utiles" al final.
 
 ### 1.2 Encontrar Publicaciones Recientes
 
-Web search: `site:dogv.gva.es fiestas laborales 2025`
+Web search: `site:boletin.ejemplo.es fiestas laborales 2027`
 
 Identificar:
-- **Tipo de documento**: Decreto, Orden, Resolución
-- **Fecha de publicación**: ¿Cuándo se publica? (septiembre, octubre, diciembre)
-- **URL pattern**: ¿Cómo están estructuradas las URLs?
+- **Tipo de documento**: Decreto, Orden, Resolucion
+- **Fecha de publicacion**: Cuando se publica (septiembre, octubre, diciembre)
+- **Formato**: PDF, HTML, XML, CSV, JSON
+- **URL pattern**: Como estan estructuradas las URLs
 
-**Ejemplo Valencia:**
+---
+
+## PASO 2: Actualizar `config/ccaa_registry.yaml`
+
+Añadir la nueva URL en la seccion de la CCAA existente:
+
+```yaml
+ccaa:
+  mi_ccaa:
+    # ... metadata existente ...
+    urls:
+      locales:
+        2027: "https://boletin.ejemplo.es/festivos-2027.pdf"  # <-- Nuevo
+        2026: "https://boletin.ejemplo.es/festivos-2026.pdf"
 ```
-Autonómicos: Decreto del Consell (septiembre)
-URL: https://www.dogv.gva.es/datos/2024/09/25/pdf/2024_8765.pdf
 
-Locales: Resolución (diciembre)
-URL: https://www.dogv.gva.es/datos/2024/12/15/pdf/2024_10234.pdf
+Si es una CCAA nueva (caso hipotetico), añadir toda la metadata:
+
+```yaml
+ccaa:
+  mi_ccaa:
+    name: "Mi Comunidad"
+    municipios_count: 100
+    provincias:
+      - "Provincia 1"
+    boletin: "BO-CCAA"
+    boletin_url: "https://boletin.ejemplo.es/"
+    formato: "pdf"
+    auto_discovery: true
+    discovery_method: "mi_metodo"
+    urls:
+      locales:
+        2027: "https://ejemplo.es/festivos-2027.pdf"
+    municipios_file: "config/mi_ccaa_municipios.json"
 ```
 
 ---
 
-## PASO 2: Crear Estructura de Directorios
+## PASO 3: Crear Estructura de Directorios
 
 ```bash
-mkdir -p scrapers/ccaa/valencia
-touch scrapers/ccaa/valencia/__init__.py
-touch scrapers/ccaa/valencia/autonomicos.py
-touch scrapers/ccaa/valencia/locales.py
-```
-
----
-
-## PASO 3: Implementar Scraper de Autonómicos
-
-### 3.1 Template Básico
-
-**scrapers/ccaa/valencia/autonomicos.py:**
-
-```python
-"""
-Scraper de festivos autonómicos de Valencia desde el DOGV
-"""
-
-from typing import Dict, List, Optional
-from scrapers.core.base_scraper import CCAAAutonomicosScraper
-import re
-from datetime import datetime
-
-
-class ValenciaAutonomicosScraper(CCAAAutonomicosScraper):
-    """
-    Extrae festivos autonómicos de la Comunidad Valenciana
-    desde el DOGV (Diari Oficial de la Generalitat Valenciana)
-    """
-    
-    # URLs conocidas (añadir según se vayan publicando)
-    KNOWN_URLS = {
-        2025: "https://www.dogv.gva.es/datos/2024/09/25/pdf/2024_8765.pdf",
-        # Añadir más años según se publiquen
-    }
-    
-    # Archivo de cache
-    CACHE_FILE = 'config/valencia_urls_cache.json'
-    
-    def __init__(self, year: int):
-        super().__init__(year=year, ccaa='valencia', tipo='autonomicos')
-        self._load_cache()
-    
-    def get_source_url(self) -> str:
-        """
-        Obtiene la URL de la fuente oficial
-        
-        Niveles:
-        1. KNOWN_URLS (hardcoded)
-        2. Cache (descubierto previamente)
-        3. Auto-discovery (si existe)
-        """
-        
-        # Nivel 1: KNOWN_URLS
-        if self.year in self.KNOWN_URLS:
-            print(f"✅ URL oficial (KNOWN_URLS) para {self.year}: {self.KNOWN_URLS[self.year]}")
-            return self.KNOWN_URLS[self.year]
-        
-        # Nivel 2: Cache
-        if self.year in self.cache.get('autonomicos', {}):
-            url = self.cache['autonomicos'][self.year]
-            print(f"📦 URL en cache para {self.year}: {url}")
-            return url
-        
-        # Nivel 3: Auto-discovery (implementar si es posible)
-        # TODO: Implementar auto_discover_valencia()
-        
-        raise ValueError(
-            f"❌ No se pudo encontrar URL para festivos autonómicos Valencia {self.year}\n"
-            f"   Añade manualmente la URL en KNOWN_URLS o cache."
-        )
-    
-    def parse_festivos(self, content: str) -> List[Dict]:
-        """
-        Parsea festivos desde el contenido del DOGV
-        
-        IMPORTANTE: Adaptar según el formato real del DOGV
-        """
-        print(f"🔍 Parseando festivos autonómicos de Valencia...")
-        
-        festivos = []
-        
-        # TODO: Implementar parsing específico del DOGV
-        # Ejemplo genérico:
-        
-        # Buscar fechas en formato "dd de mes de yyyy"
-        patron_fecha = r'(\d{1,2})\s+de\s+(\w+)\s+de\s+(\d{4})'
-        matches = re.finditer(patron_fecha, content, re.IGNORECASE)
-        
-        meses = {
-            'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
-            'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
-            'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
-        }
-        
-        for match in matches:
-            dia = int(match.group(1))
-            mes_texto = match.group(2).lower()
-            year = int(match.group(3))
-            
-            if year == self.year and mes_texto in meses:
-                mes = meses[mes_texto]
-                fecha_iso = f"{year:04d}-{mes:02d}-{dia:02d}"
-                
-                # Extraer descripción (adaptar según formato real)
-                # ...
-                
-                festivos.append({
-                    'fecha': fecha_iso,
-                    'descripcion': 'Festivo autonómico',  # TODO: Extraer descripción real
-                    'tipo': 'autonomico',
-                    'ambito': 'autonomico',
-                    'sustituible': False,
-                    'year': self.year
-                })
-        
-        print(f"   ✅ Extraídos {len(festivos)} festivos autonómicos")
-        return festivos
-    
-    def _load_cache(self):
-        """Carga URLs del cache"""
-        import os
-        import json
-        
-        self.cache = {'autonomicos': {}, 'locales': {}}
-        
-        if os.path.exists(self.CACHE_FILE):
-            try:
-                with open(self.CACHE_FILE, 'r', encoding='utf-8') as f:
-                    self.cache = json.load(f)
-                print(f"📦 Cache cargado: {len(self.cache.get('autonomicos', {}))} URLs autonómicas")
-            except Exception as e:
-                print(f"⚠️  Error cargando cache: {e}")
-
-
-# Test individual
-if __name__ == "__main__":
-    import sys
-    
-    year = int(sys.argv[1]) if len(sys.argv) > 1 else 2025
-    
-    print("=" * 80)
-    print(f"🧪 TEST: Valencia Autonómicos Scraper - Festivos {year}")
-    print("=" * 80)
-    
-    scraper = ValenciaAutonomicosScraper(year=year)
-    festivos = scraper.scrape()
-    
-    # Mostrar resumen
-    scraper.print_summary(festivos)
-    
-    # Guardar
-    scraper.save_to_json(festivos, f'data/valencia_autonomicos_{year}.json')
-    scraper.save_to_excel(festivos, f'data/valencia_autonomicos_{year}.xlsx')
-```
-
-### 3.2 Adaptar el Parser
-
-**CRÍTICO:** El método `parse_festivos()` debe adaptarse al formato específico del boletín oficial.
-
-**Pasos:**
-1. Descargar un PDF/HTML de ejemplo
-2. Analizar la estructura
-3. Crear expresiones regulares específicas
-4. Probar con varios años
-
-**Ejemplo de formatos comunes:**
-
-```python
-# Formato 1: Lista numerada
-"""
-1. 1 de enero - Año Nuevo
-2. 6 de enero - Epifanía del Señor
-...
-"""
-patron = r'(\d+)\.\s+(\d{1,2})\s+de\s+(\w+)\s+-\s+([^\n]+)'
-
-# Formato 2: Tabla
-"""
-| Fecha       | Festividad          |
-|-------------|---------------------|
-| 1 de enero  | Año Nuevo          |
-"""
-# Usar Beautiful Soup para parsear tablas HTML
-
-# Formato 3: Párrafos
-"""
-Artículo 1. Se establecen como festivos:
-El día 1 de enero (Año Nuevo), el 6 de enero (Epifanía)...
-"""
-patron = r'(\d{1,2})\s+de\s+(\w+)\s+\(([^)]+)\)'
+mkdir -p scrapers/ccaa/mi_ccaa
+touch scrapers/ccaa/mi_ccaa/__init__.py
+touch scrapers/ccaa/mi_ccaa/locales.py
 ```
 
 ---
 
 ## PASO 4: Implementar Scraper de Locales
 
-Similar al de autonómicos, pero filtrando por municipio:
-
-**scrapers/ccaa/valencia/locales.py:**
+**scrapers/ccaa/mi_ccaa/locales.py:**
 
 ```python
-class ValenciaLocalesScraper(CCAALocalesScraper):
-    def __init__(self, municipio: str, year: int):
-        super().__init__(year=year, ccaa='valencia', municipio=municipio, tipo='locales')
-        self._load_cache()
-    
-    def parse_festivos(self, content: str) -> List[Dict]:
-        """
-        Parsea festivos locales
-        
-        Formato típico:
-        — Valencia: 9 de octubre y 19 de marzo
-        — Alicante: 24 de junio y 29 de junio
-        """
-        
-        festivos = []
-        
-        # Buscar líneas con municipio
-        patron = r'—\s*([^:]+):\s*([^.\n]+)'
-        matches = re.finditer(patron, content)
-        
-        for match in matches:
-            nombre_municipio = match.group(1).strip()
-            fechas_texto = match.group(2).strip()
-            
-            # Filtrar por municipio
-            if self.municipio.lower() not in nombre_municipio.lower():
-                continue
-            
-            # Extraer fechas del texto
-            # ...
-            
+"""Scraper de festivos locales de Mi CCAA"""
+
+from scrapers.core.base_scraper import BaseScraper
+from config.config_manager import CCAaRegistry
+from typing import List, Dict
+
+
+class MiCcaaLocalesScraper(BaseScraper):
+    """Extrae festivos locales de Mi CCAA desde su boletin oficial"""
+
+    def __init__(self, year: int = 2026, municipio: str = None):
+        super().__init__(year=year, ccaa='mi_ccaa')
+        self.municipio = municipio
+        self._registry = CCAaRegistry()
+
+    def scrape(self) -> List[Dict]:
+        # 1. Obtener URL del registry
+        url = self._registry.get_url('mi_ccaa', self.year, 'locales')
+
+        # 2. Descargar y parsear
+        # ... tu logica aqui ...
+
+        # 3. Filtrar por municipio
+        if self.municipio:
+            festivos = [f for f in festivos if self._match_municipio(f)]
+
         return festivos
+```
+
+> **Importante:** La clase debe aceptar `year` y `municipio` como parametros en `__init__`, ya que el `ScraperFactory` los pasa al instanciar.
+
+---
+
+## PASO 5: Crear `__init__.py`
+
+**scrapers/ccaa/mi_ccaa/__init__.py:**
+
+```python
+"""Scrapers para Mi CCAA"""
+
+from .locales import MiCcaaLocalesScraper
+
+__all__ = ['MiCcaaLocalesScraper']
+```
+
+> **Convencion de nombres:** El nombre de la clase se deriva automaticamente por el `ScraperFactory`:
+> - `mi_ccaa` -> `MiCcaaLocalesScraper`
+> - `pais_vasco` -> `PaisVascoLocalesScraper`
+> - Excepcion: `castilla_mancha` -> `CastillaLaManchaLocalesScraper` (override en factory)
+
+---
+
+## PASO 6: Verificar integracion automatica
+
+**No hace falta tocar `scrape_municipio.py` ni `app.py`.**
+
+El `ScraperFactory` importa dinamicamente el scraper usando `importlib`:
+
+```python
+# El factory hace esto internamente:
+module = importlib.import_module('scrapers.ccaa.mi_ccaa.locales')
+scraper_class = getattr(module, 'MiCcaaLocalesScraper')
+scraper = scraper_class(year=2026, municipio='Mi Municipio')
+```
+
+Verificar:
+
+```bash
+# Debe funcionar sin modificar nada mas
+python3 scrape_municipio.py "Mi Municipio" mi_ccaa 2026
 ```
 
 ---
 
-## PASO 5: Crear Cache
+## PASO 7: Crear archivo de municipios (si es necesario)
 
-**config/valencia_urls_cache.json:**
+**config/mi_ccaa_municipios.json:**
 
 ```json
 {
-  "autonomicos": {
-    "2025": "https://www.dogv.gva.es/datos/2024/09/25/pdf/2024_8765.pdf"
-  },
-  "locales": {
-    "2025": "https://www.dogv.gva.es/datos/2024/12/15/pdf/2024_10234.pdf"
-  }
+  "MUNICIPIO 1": "metadata",
+  "MUNICIPIO 2": "metadata"
 }
 ```
 
 ---
 
-## PASO 6: Integrar en Scraper Unificado
+## PASO 8: Testing
 
-**scrape_municipio.py:**
+### 8.1 Test unificado
+
+```bash
+python3 scrape_municipio.py "Municipio" mi_ccaa 2026
+```
+
+**Verificar:**
+- Total: 14 festivos (11-12 nacionales/autonomicos + 2 locales)
+- Sin duplicados
+- Tipo correcto (nacional/autonomico/local)
+
+### 8.2 Tests unitarios
+
+Crear `tests/unit/test_mi_ccaa.py`:
 
 ```python
-# Añadir en la función scrape_festivos_completos()
-
-elif ccaa.lower() == 'valencia':
-    # Autonómicos
-    from scrapers.ccaa.valencia.autonomicos import ValenciaAutonomicosScraper
-    scraper_auto = ValenciaAutonomicosScraper(year=year)
-    festivos_autonomicos = scraper_auto.scrape()
-    
-    # Locales
-    from scrapers.ccaa.valencia.locales import ValenciaLocalesScraper
-    scraper_local = ValenciaLocalesScraper(municipio=municipio, year=year)
-    festivos_locales = scraper_local.scrape()
+def test_mi_ccaa_extrae_festivos():
+    from scrapers.ccaa.mi_ccaa.locales import MiCcaaLocalesScraper
+    scraper = MiCcaaLocalesScraper(year=2026, municipio='Municipio Test')
+    festivos = scraper.scrape()
+    assert len(festivos) == 2
 ```
 
----
-
-## PASO 7: Testing
-
-### 7.1 Test Individual Autonómicos
-
-```bash
-python -m scrapers.ccaa.valencia.autonomicos 2025
-```
-
-**Verificar:**
-- ✅ Descarga correctamente
-- ✅ Parsea festivos
-- ✅ Número correcto de festivos (típicamente 10-12)
-
-### 7.2 Test Individual Locales
-
-```bash
-python -m scrapers.ccaa.valencia.locales "Valencia" 2025
-```
-
-**Verificar:**
-- ✅ Encuentra el municipio
-- ✅ Extrae 2 festivos locales
-
-### 7.3 Test Unificado
-
-```bash
-python scrape_municipio.py "Valencia" valencia 2025
-```
-
-**Verificar:**
-- ✅ Total: 14 festivos (11-12 únicos tras eliminar duplicados)
-- ✅ Sin duplicados
-- ✅ JSON y Excel generados
-
----
-
-## PASO 8: Documentación
-
-Actualizar README.md:
-
-```markdown
-## ✅ Implementado
-
-- **Valencia**: Sistema completo
-  - Festivos autonómicos
-  - Festivos locales (540 municipios)
-  - Años disponibles: 2025
-```
-
----
-
-## PASO 9: Auto-Discovery (Opcional)
-
-Si el boletín oficial tiene búsqueda web, implementar:
-
-**scrapers/discovery/ccaa/valencia_discovery.py:**
+### 8.3 Test de factory
 
 ```python
-def auto_discover_valencia(year: int) -> Dict[str, str]:
-    """
-    Busca automáticamente publicaciones en el DOGV
-    """
-    
-    # Estrategia 1: Web search
-    query = f"site:dogv.gva.es fiestas laborales {year}"
-    
-    # Estrategia 2: Scraping de índices
-    # ...
-    
-    # Estrategia 3: API si existe
+def test_factory_instancia_mi_ccaa():
+    from scrapers.core.scraper_factory import ScraperFactory
+    factory = ScraperFactory()
+    scraper = factory.create_locales_scraper('mi_ccaa', 2026, 'Municipio')
+    assert scraper is not None
+```
+
+### 8.4 Ejecutar suite completa
+
+```bash
+python3 -m pytest tests/ -v
+```
+
+---
+
+## PASO 9: Autonomicos (Opcional)
+
+La mayoria de CCAA obtienen los festivos autonomicos de la tabla del BOE (via `BOEScraper.parse_tabla_ccaa()`). Solo si la CCAA publica festivos autonomicos separados (como Canarias, Madrid o Navarra), crear:
+
+**scrapers/ccaa/mi_ccaa/autonomicos.py:**
+
+```python
+class MiCcaaAutonomicosScraper(BaseScraper):
     # ...
 ```
 
----
+Y añadir al `_AUTONOMICOS_CCAA` en `scrapers/core/scraper_factory.py`:
 
-## PASO 10: Pull Request
-
-### 10.1 Commit
-
-```bash
-git add .
-git commit -m "feat: añadir soporte para Valencia
-
-- Scraper de festivos autonómicos
-- Scraper de festivos locales (540 municipios)
-- Cache para 2025
-- Tests pasando
-- Documentación actualizada"
+```python
+_AUTONOMICOS_CCAA = {
+    'madrid': 'MadridAutonomicosScraper',
+    'canarias': 'CanariasAutonomicosScraper',
+    'navarra': 'NavarraAutonomicosScraper',
+    'mi_ccaa': 'MiCcaaAutonomicosScraper',  # <-- Nuevo
+}
 ```
 
-### 10.2 PR Description
+---
 
-```markdown
-## Añadir soporte para Valencia
+## PASO 10: Documentacion y Commit
 
-### ✅ Implementado
-- Festivos autonómicos desde DOGV
-- Festivos locales (540 municipios)
-- Parser adaptado al formato del DOGV
-- Cache inicial: 2025
+1. Actualizar `config/ccaa_registry.yaml` (ya hecho en PASO 2)
+2. Actualizar `CHANGELOG.md`
+3. Commit:
 
-### 🧪 Tests
-- [x] Autonómicos: 10 festivos extraídos
-- [x] Locales Valencia: 2 festivos extraídos
-- [x] Unificado: 14 festivos totales
-- [x] Sin duplicados
+```bash
+git add scrapers/ccaa/mi_ccaa/ config/ tests/
+git commit -m "feat: añadir soporte para Mi CCAA (#XX)
 
-### 📝 Formato del DOGV
-- Autonómicos: Decreto del Consell (septiembre)
-- Locales: Resolución (diciembre)
-- Parser: Expresiones regulares adaptadas
-
-### ⏳ Pendiente
-- Auto-discovery (DOGV tiene protección anti-scraping)
+- Scraper de festivos locales
+- N municipios soportados
+- Tests unitarios
+- Documentacion actualizada"
 ```
 
 ---
 
 ## Checklist de Nueva CCAA
 
-- [ ] Investigar fuente oficial
-- [ ] Identificar patrón de URLs
-- [ ] Crear estructura de directorios
-- [ ] Implementar scraper autonómicos
-- [ ] Implementar scraper locales
-- [ ] Adaptar parsers al formato específico
-- [ ] Crear archivo de cache
-- [ ] Integrar en scraper unificado
-- [ ] Tests individuales pasando
-- [ ] Test unificado pasando
-- [ ] Documentación actualizada
-- [ ] (Opcional) Implementar auto-discovery
-- [ ] Commit y PR
+- [ ] Investigar fuente oficial y formato
+- [ ] Actualizar `ccaa_registry.yaml` con URLs y metadata
+- [ ] Crear `scrapers/ccaa/mi_ccaa/locales.py`
+- [ ] Crear `scrapers/ccaa/mi_ccaa/__init__.py`
+- [ ] Verificar que ScraperFactory lo instancia correctamente
+- [ ] Test: `python3 scrape_municipio.py "Municipio" mi_ccaa 2026` -> 14 festivos
+- [ ] Tests unitarios pasando
+- [ ] Suite completa: `pytest tests/ -v`
+- [ ] (Opcional) Scraper de autonomicos si es necesario
+- [ ] Documentacion actualizada
 
 ---
 
-## Recursos Útiles
+## Añadir un Nuevo Año a una CCAA Existente
+
+Para añadir datos de un nuevo año (ej. 2027):
+
+1. Buscar la URL del boletin oficial con los festivos de 2027
+2. Añadir en `ccaa_registry.yaml`:
+   ```yaml
+   urls:
+     locales:
+       2027: "https://nueva-url..."  # <-- Nuevo
+       2026: "https://url-existente..."
+   ```
+3. Para CCAA con cache-first (Aragon, CyL, CLM, Extremadura): generar el JSON de festivos
+4. Verificar: `python3 scrape_municipio.py "Municipio" ccaa 2027`
+
+---
+
+## Recursos Utiles
 
 ### Boletines Oficiales de CCAA
 
-| CCAA | Boletín | URL |
+| CCAA | Boletin | URL |
 |------|---------|-----|
-| Andalucía | BOJA | https://www.juntadeandalucia.es/boja |
-| Aragón | BOA | https://www.boa.aragon.es |
+| Andalucia | BOJA | https://www.juntadeandalucia.es/boja |
+| Aragon | BOA | https://www.boa.aragon.es |
 | Asturias | BOPA | https://sede.asturias.es/bopa |
 | Baleares | BOIB | https://www.caib.es/boib |
 | Canarias | BOC | https://www.gobiernodecanarias.org/boc |
 | Cantabria | BOC | https://boc.cantabria.es |
-| Castilla y León | BOCYL | https://bocyl.jcyl.es |
+| Castilla y Leon | BOCYL | https://bocyl.jcyl.es |
 | Castilla-La Mancha | DOCM | https://docm.jccm.es |
 | Cataluña | DOGC | https://dogc.gencat.cat |
 | Extremadura | DOE | https://doe.juntaex.es |
@@ -473,7 +301,7 @@ git commit -m "feat: añadir soporte para Valencia
 | Madrid | BOCM | https://www.bocm.es |
 | Murcia | BORM | https://www.borm.es |
 | Navarra | BON | https://bon.navarra.es |
-| País Vasco | BOPV | https://www.euskadi.eus/bopv2 |
+| Pais Vasco | BOPV | https://www.euskadi.eus/bopv2 |
 | La Rioja | BOR | https://web.larioja.org/bor |
 | Valencia | DOGV | https://www.dogv.gva.es |
 
@@ -484,62 +312,24 @@ git commit -m "feat: añadir soporte para Valencia
 pdftotext documento.pdf - | less
 
 # Extraer texto limpio
-python -c "import pdfplumber; print(pdfplumber.open('doc.pdf').pages[0].extract_text())"
+python3 -c "import pdfplumber; print(pdfplumber.open('doc.pdf').pages[0].extract_text())"
 
 # Test regex
-python -c "import re; print(re.findall(r'tu_patron', 'texto_prueba'))"
+python3 -c "import re; print(re.findall(r'tu_patron', 'texto_prueba'))"
 
-# Ver encoding
-file -I documento.txt
+# Ejecutar tests
+python3 -m pytest tests/ -v
+
+# Validar YAML
+python3 config/migrate_to_yaml.py --validate
 ```
 
-### Patrones Comunes
+### Patrones de Formato por CCAA
 
-```python
-# Fechas español
-r'(\d{1,2})\s+de\s+(enero|febrero|...|diciembre)'
-
-# Municipios
-r'—\s*([^:]+):\s*([^.\n]+)'
-
-# Descripciones
-r'([A-ZÁÉÍÓÚÑ][a-záéíóúñ\s]+)'
-
-# Normalizar texto
-import unicodedata
-texto = unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
-```
-
----
-
-## Preguntas Frecuentes
-
-### ¿Qué hacer si el PDF no se puede parsear?
-
-1. Probar con `pdfplumber` en lugar de `PyPDF2`
-2. Usar OCR si es imagen: `pytesseract`
-3. Convertir PDF → HTML: herramientas online
-
-### ¿Cómo manejar formatos inconsistentes?
-
-Implementar múltiples patrones y probar en orden:
-
-```python
-for patron in [patron1, patron2, patron3]:
-    matches = re.finditer(patron, content)
-    if matches:
-        return parse_matches(matches)
-```
-
-### ¿Qué hacer si hay actualizaciones del boletín?
-
-El mismo boletín puede tener correcciones:
-
-```python
-# Buscar "modificación", "corrección"
-# Aplicar cambios sobre datos anteriores
-```
-
----
-
-¡Gracias por contribuir! 🎉
+| Formato | CCAA | Libreria |
+|---------|------|----------|
+| PDF | Madrid, Asturias, Cantabria, CLM, Extremadura, Murcia, Rioja, Valencia | PyPDF2, pdfplumber |
+| HTML | Andalucia, Baleares, Galicia, Navarra, Canarias | BeautifulSoup |
+| CSV | Aragon, Castilla y Leon | pandas |
+| XML | Cataluña (Akoma Ntoso) | BeautifulSoup |
+| JSON | Pais Vasco (OpenData API) | json nativo |

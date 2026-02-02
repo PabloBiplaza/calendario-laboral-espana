@@ -7,11 +7,98 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [No publicado]
 
 ### Por Hacer
-- Soporte para 17 comunidades autónomas restantes (7 más para completar)
 - Generalización de lógica de sustituciones
 - Optimización de normalización (O(1) con fuzzy matching)
 - API REST
 - Frontend web
+
+---
+
+## [2.0.0] - 2026-02-02
+
+### 🏭 ScraperFactory + Eliminación de Duplicación
+
+**Añadido:**
+- `ScraperFactory` (`scrapers/core/scraper_factory.py`) — imports dinámicos vía `importlib`
+  - `create_locales_scraper()` para las 17 CCAA
+  - `create_autonomicos_scraper()` para madrid, canarias, navarra
+  - Derivación automática de nombre de clase desde código CCAA
+  - Override explícito para nombres irregulares (`castilla_mancha`)
+- 27 tests unitarios para el factory (`tests/unit/test_scraper_factory.py`)
+
+**Cambiado:**
+- `scrape_municipio.py`: 17 elif locales + 3 elif autonómicos → 2 llamadas al factory
+- `scrape_municipio.py`: lista hardcodeada de CCAA → `CCAaRegistry().list_ccaa()`
+- `app.py`: `CCAA_DISPONIBLES` hardcodeada → `CCAaRegistry().list_ccaa()`
+- Estandarizados 9 `__init__.py` de CCAA (exports uniformes)
+
+**Eliminado:**
+- `scrapers/orchestrator.py` — código muerto (solo soportaba Canarias)
+- `scrapers/unificador.py` — código muerto (solo importaba orchestrator)
+
+**Resultados:**
+- ✅ +273 líneas, −571 líneas = reducción neta de 298 líneas
+- ✅ 79 tests passing, 3 skipped
+- ✅ 0 regresiones
+
+---
+
+## [1.2.0] - 2026-02-02
+
+### 🐛 Fix: Mapeo BOE para Castilla-La Mancha
+
+**Corregido:**
+- `boe_scraper.py`: `CCAA_MAP` mapeaba `'Castilla-La Mancha'` a `'castilla_la_mancha'` (con `_la_`) pero el proyecto usa `'castilla_mancha'` → la tabla BOE no filtraba festivos autonómicos correctamente
+- Resultado: CLM pasó de 13 festivos a 14 festivos (correcto)
+
+---
+
+## [1.1.0] - 2026-02-01
+
+### 🎉 17/17 Comunidades Autónomas Completas
+
+7 nuevas CCAA implementadas en una sesión:
+
+#### CCAA #11: La Rioja (`c8e36fe` → `2d17595`)
+- Parser PDF del BOR
+- 164 municipios
+- Auto-discovery implementado
+
+#### CCAA #12: Región de Murcia (`98003db`)
+- Parser PDF del BORM
+- 45 municipios
+
+#### CCAA #13: Navarra (`42bcee6` → `411287d`)
+- Parser HTML del BON con sistema de fechas relativas
+- 694 municipios (solo 1 festivo local por municipio)
+- Scraper de autonómicos dedicado
+- Auto-discovery de 4 niveles con cache-first
+- 5.6% de fechas son relativas (ordinales, litúrgicas, santoral)
+
+#### CCAA #14: Aragón (`693b32e` → `0bfeba7`)
+- OpenData CSV desde portal de datos abiertos de Aragón
+- 565 municipios
+- Estrategia cache-first
+
+#### CCAA #15: Castilla y León (`3665a0b`)
+- OpenData CSV desde portal de transparencia JCyL
+- 2248 municipios (la CCAA con más municipios)
+- URLs predecibles por año
+
+#### CCAA #16: Castilla-La Mancha (`b25c58a`)
+- Parser PDF del DOCM
+- 919 municipios
+- Estrategia cache-first
+
+#### CCAA #17: Extremadura (`85c6e9a`)
+- Parser PDF del DOE
+- 388 municipios
+- Estrategia cache-first
+
+**Resultados:**
+- ✅ 17/17 CCAA implementadas (100% cobertura)
+- ✅ 8.351 municipios teóricos cubiertos
+- ✅ 52 tests passing, 3 skipped
 
 ---
 
@@ -312,26 +399,20 @@ feat: implementar scrapers de Canarias
 
 ## Roadmap
 
-### v1.1.0 (Próxima versión)
-- [ ] Auto-discovery para Madrid
-- [ ] Añadir Valencia
-- [ ] Tests unitarios con pytest
-- [ ] CI/CD con GitHub Actions
-
-### v1.2.0
-- [ ] Añadir Cataluña
-- [ ] Añadir Andalucía
+### v2.1.0 (Próxima versión)
 - [ ] Generalizar lógica de sustituciones
+- [ ] Optimización fuzzy matching (O(1) con índices)
+- [ ] Extraer CacheFirstMixin para reducir duplicación
 
-### v2.0.0
+### v3.0.0
 - [ ] API REST completa
 - [ ] Frontend web
-- [ ] Autenticación de usuarios
 - [ ] Base de datos persistente
 
 ### Futuro
-- [ ] 17 comunidades autónomas completas
+- [x] ~~17 comunidades autónomas completas~~ (completado v1.1.0)
+- [x] ~~Tests unitarios con pytest~~ (completado v1.0.0-refactor)
+- [x] ~~CI/CD con GitHub Actions~~ (completado v1.0.0-refactor)
 - [ ] Histórico desde 2010
 - [ ] Exportación a iCal
 - [ ] Integración con Google Calendar
-- [ ] App móvil
