@@ -303,11 +303,29 @@ ccaa:
         2026: "https://docm.jccm.es/portaldocm/descargarArchivo.do?ruta=2025/12/12/pdf/2025_9468.pdf&tipo=rutaDocm"
     municipios_file: "config/castilla_mancha_municipios.json"
 
+  extremadura:
+    name: "Extremadura"
+    municipios_count: 388
+    provincias:
+      - "Badajoz"
+      - "Cáceres"
+    boletin: "DOE"
+    boletin_url: "https://doe.juntaex.es/"
+    formato: "pdf"
+    formato_especifico: "doe_pdf_text"
+    auto_discovery: true
+    discovery_method: "doe_search"
+    opendata_url: "https://datos.gob.es/es/catalogo/a11002926-festivos-locales-en-extremadura"
+    urls:
+      locales:
+        2026: "https://www.laboral-social.com/sites/laboral-social.com/files/Calendario-fiestas-locales-extremadura-2026.pdf"
+    municipios_file: "config/extremadura_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 16
-  total_municipios: 7963  # Total teórico (+919 Castilla-La Mancha)
+  total_ccaa: 17
+  total_municipios: 8351  # Total teórico (+388 Extremadura) - ¡TODAS las CCAA!
   municipios_en_json: 989  # Asturias, Cantabria, La Rioja, Murcia y Navarra tienen JSONs completos
-  auto_discovery_percentage: 88  # 14 de 16 CCAA
+  auto_discovery_percentage: 88  # 15 de 17 CCAA
   ultima_actualizacion: "2026-02-02"
-  version: "1.0.6"
+  version: "2.0.0"

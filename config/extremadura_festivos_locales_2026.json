@@ -1,0 +1,5257 @@
+{
+  "Abadía": [
+    {
+      "fecha": "2026-08-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Abertura": [
+    {
+      "fecha": "2026-05-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Acebo": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Acedera": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Acehúche": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-01-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aceituna": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aceuchal": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Ahigal": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ahillones": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alagón del Río": [
+    {
+      "fecha": "2026-08-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Alange": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Albalá": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Albuera (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alburquerque": [
+    {
+      "fecha": "2026-05-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alcollarín": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Alconchel": [
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alconera": [
+    {
+      "fecha": "2026-04-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alcuéscar": [
+    {
+      "fecha": "2026-04-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Alcántara": [
+    {
+      "fecha": "2026-04-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldea del Cano": [
+    {
+      "fecha": "2026-11-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldea del Obispo (la)": [
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldeacentenera": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldeanueva de la Vera": [
+    {
+      "fecha": "2026-05-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldeanueva del Camino": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aldehuela del Jerte": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aliseda": [
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Aljucén": [
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Almaraz": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Almendral": [
+    {
+      "fecha": "2026-01-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Almendralejo": [
+    {
+      "fecha": "2026-04-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Almoharín": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Almorchón": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Alonso de Ojeda": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Alía": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Arroyo San Serván": [
+    {
+      "fecha": "2026-05-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Arroyo de la Luz": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Arroyomolinos": [
+    {
+      "fecha": "2026-01-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Arroyomolinos de la Vera": [
+    {
+      "fecha": "2026-01-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Atalaya": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Azabal": [
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Azuaga": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Badajoz": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Barbaño": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Barcarrota": [
+    {
+      "fecha": "2026-04-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Barquilla de Pinares": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Barrado": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Baterno": [
+    {
+      "fecha": "2026-08-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Batán (el)": [
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Bazana (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Baños de Montemayor": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Belvís de Monroy": [
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Benquerencia": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Benquerencia de la Serena": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-03-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Berlanga": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Berrocalejo": [
+    {
+      "fecha": "2026-01-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Berzocana": [
+    {
+      "fecha": "2026-01-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Bienvenida": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Bodonal de la Sierra": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Bohonal de Ibor": [
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Botija": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Bronco (el)": [
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Brovales": [
+    {
+      "fecha": "2026-09-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Brozas": [
+    {
+      "fecha": "2026-04-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Burguillos del Cerro": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cabañas del Castillo": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cabeza del Buey": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cabeza la Vaca": [
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cabezabellosa": [
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cabezuela del Valle": [
+    {
+      "fecha": "2026-03-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cabrero": [
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cachorrilla": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cadalso": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Calamonte": [
+    {
+      "fecha": "2026-03-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Calera de León": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Calzadilla": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Calzadilla de los Barros": [
+    {
+      "fecha": "2026-03-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Caminomorisco": [
+    {
+      "fecha": "2026-07-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Campanario": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Campillo de Deleitosa": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Campillo de Llerena": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Campo Lugar": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Capilla": [
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Carbajo": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Carcaboso": [
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Carmonita": [
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Carrascalejo": [
+    {
+      "fecha": "2026-04-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Carrascalejo (el)": [
+    {
+      "fecha": "2026-05-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Casar de Cáceres": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casar de Miajadas": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casar de Palomero": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casares de las Hurdes": [
+    {
+      "fecha": "2026-01-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-01-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas de Don Antonio": [
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas de Don Gómez": [
+    {
+      "fecha": "2026-05-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas de Don Pedro": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Casas de Millán": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas de Miravete": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas de Reina": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Casas del Castañar": [
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casas del Monte": [
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casatejada": [
+    {
+      "fecha": "2026-09-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Casillas de Coria": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Castañar de Ibor": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Castilblanco": [
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Castuera": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cañamero": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cañaveral": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ceclavín": [
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cedillo": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cerezo": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cheles": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cilleros": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Codosera (la)": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Collado de la Vera": [
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Conquista de la Sierra": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cordobilla de Lácara": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Coria": [
+    {
+      "fecha": "2026-05-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Coronada (la)": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Corte de Peleas": [
+    {
+      "fecha": "2026-03-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cortegana": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cristina": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Cuacos de Yuste": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cumbre (la)": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Cáceres": [
+    {
+      "fecha": "2026-04-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Deleitosa": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Descargamaría": [
+    {
+      "fecha": "2026-01-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Don Benito": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Don Álvaro": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Eljas": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Entrerríos": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Entrín Alto": [
+    {
+      "fecha": "2026-05-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Entrín Bajo": [
+    {
+      "fecha": "2026-05-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Escurial": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Esparragalejo": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Esparragosa de Lares": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Esparragosa de la Serena": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Feria": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fregenal de la Sierra": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fresnedoso de Ibor": [
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Fuenlabrada de los Montes": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fuente de Cantos": [
+    {
+      "fecha": "2026-05-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fuente del Arco": [
+    {
+      "fecha": "2026-06-01",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fuente del Maestre": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Fuentes de León": [
+    {
+      "fecha": "2026-06-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Galisteo": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Garbayuela": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Garciaz": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Garganta (la)": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Garganta la Olla": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Gargantilla": [
+    {
+      "fecha": "2026-01-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Gargáligas": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Gargüera": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Garlitos": [
+    {
+      "fecha": "2026-01-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Garrovilla (la)": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Garrovillas de Alconétar": [
+    {
+      "fecha": "2026-02-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Garvín de la Jara": [
+    {
+      "fecha": "2026-06-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Gata": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Gordo (el)": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Granja (la)": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Granja de Torrehermosa": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Guadajira": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Guadalperales (los)": [
+    {
+      "fecha": "2026-01-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Guadalupe": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Guadiana": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Guareña": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Guijo de Coria": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Guijo de Galisteo": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Guijo de Granadilla": [
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Guijo de Santa Bárbara": [
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Haba (la)": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Helechal": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-11-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Helechosa de los Montes": [
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Herguijuela": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Hernán Cortés": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Herrera de Alcántara": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Herrera del Duque": [
+    {
+      "fecha": "2026-01-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Herreruela": [
+    {
+      "fecha": "2026-06-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Hervás": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Higuera de Albalat": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Higuera de Llerena": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Higuera de Vargas": [
+    {
+      "fecha": "2026-02-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Higuera de la Serena": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Higuera la Real": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Hinojal": [
+    {
+      "fecha": "2026-04-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Hinojosa del Valle": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Holguera": [
+    {
+      "fecha": "2026-04-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Hornachos": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Hoyos": [
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Huélaga": [
+    {
+      "fecha": "2026-07-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ibahernando": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Jaraicejo": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Jarandilla de la Vera": [
+    {
+      "fecha": "2026-05-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Jaraíz de la Vera": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Jarilla": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Jerez de los Caballeros": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Jerte": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ladrillar": [
+    {
+      "fecha": "2026-01-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Lapa (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Llera": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Llerena": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Lobón": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Logrosán": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Losar de la Vera": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Madrigal de la Vera": [
+    {
+      "fecha": "2026-09-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Madrigalejo": [
+    {
+      "fecha": "2026-02-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Madroñera": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Magacela": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Maguilla": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Malcocinado": [
+    {
+      "fecha": "2026-06-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Malpartida de Cáceres": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Malpartida de Plasencia": [
+    {
+      "fecha": "2026-04-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Malpartida de la Serena": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Manchita": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Marchagaz": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Mata de Alcántara": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Medellín": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Medina de las Torres": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Membrío": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Mengabril": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Mesas de Ibor": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Miajadas": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Millanes": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Mirabel": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Mirandilla": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Moheda de Gata (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Mohedas de Granadilla": [
+    {
+      "fecha": "2026-01-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Monesterio": [
+    {
+      "fecha": "2026-05-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Monroy": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Montehermoso": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Montemolín": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Monterrubio de la Serena": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Montijo": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Montánchez": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Moraleja": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Morcillo": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Morera (la)": [
+    {
+      "fecha": "2026-08-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Mérida": [
+    {
+      "fecha": "2026-05-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-12-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Nava (la)": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Nava de Santiago (la)": [
+    {
+      "fecha": "2026-05-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Navaconcejo": [
+    {
+      "fecha": "2026-04-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Navalmoral de la Mata": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Navalvillar de Ibor": [
+    {
+      "fecha": "2026-02-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Navalvillar de Pela": [
+    {
+      "fecha": "2026-01-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Navas del Madroño": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Navatrasierra": [
+    {
+      "fecha": "2026-07-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Navezuelas": [
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Nogales": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Nuñomoral": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Obando": [
+    {
+      "fecha": "2026-03-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Oliva de Mérida": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Oliva de Plasencia": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Oliva de la Frontera": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Olivenza": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Orellana de la Sierra": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Orellana la Vieja": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Palazuelo": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Pallares": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Palomas": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Palomero": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Parra (la)": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Pasarón de la Vera": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pedroso de Acim": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Peraleda de San Román": [
+    {
+      "fecha": "2026-09-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Peraleda de la Mata": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Peraleda del Zaucejo": [
+    {
+      "fecha": "2026-05-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Perales del Puerto": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pescueza": [
+    {
+      "fecha": "2026-01-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pesga (la)": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Peñalsordo": [
+    {
+      "fecha": "2026-06-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Piedras Albas": [
+    {
+      "fecha": "2026-05-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pinofranqueado": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Piornal": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pizarro": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Plasencia": [
+    {
+      "fecha": "2026-06-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Plasenzuela": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Portaje": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Portezuelo": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-01-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pozuelo de Zarzón": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pradochano": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Puebla de Alcocer": [
+    {
+      "fecha": "2026-04-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla de Alcollarín": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla de Obando": [
+    {
+      "fecha": "2026-01-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla de Sancho Pérez": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla de la Calzada": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla de la Reina": [
+    {
+      "fecha": "2026-03-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla del Maestre": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puebla del Prior": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Pueblonuevo de Miramontes": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Pueblonuevo del Guadiana": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puerto Hurraco": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Puerto de Santa Cruz": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Quintana de la Serena": [
+    {
+      "fecha": "2026-02-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Rebollar": [
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Reina": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Rena": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Retamal de Llerena": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Retamar": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Retamosa de Cabañas": [
+    {
+      "fecha": "2026-01-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ribera del Fresno": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Riolobos": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Risco": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Robledillo de Gata": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Robledillo de Trujillo": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Robledillo de la Vera": [
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Robledollano": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Roca de la Sierra (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Romangordo": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Rosalejo": [
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Rotura de Cabañas": [
+    {
+      "fecha": "2026-05-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ruanes": [
+    {
+      "fecha": "2026-05-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Ruecas": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Salorino": [
+    {
+      "fecha": "2026-01-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Salvaleón": [
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Salvatierra de Santiago": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Salvatierra de los Barros": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Benito de la Contienda": [
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Francisco de Olivenza": [
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Gil": [
+    {
+      "fecha": "2026-07-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "San Jorge de Alor": [
+    {
+      "fecha": "2026-04-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Martín de Trevejo": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "San Pedro de Mérida": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Rafael de Olivenza": [
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "San Vicente de Alcántara": [
+    {
+      "fecha": "2026-01-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Santa Amalia": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Santa Ana": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santa Cruz de Paniagua": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santa Cruz de la Sierra": [
+    {
+      "fecha": "2026-05-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santa Marta": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Santa Marta de Magasca": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santa María": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Santa María de las Lomas": [
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santiago de Alcántara": [
+    {
+      "fecha": "2026-09-01",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santiago del Campo": [
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santibáñez el Alto": [
+    {
+      "fecha": "2026-06-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-10",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santibáñez el Bajo": [
+    {
+      "fecha": "2026-06-01",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Santo Domingo de Guzmán": [
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Santos de Maimona (los)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Saucedilla": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Segura de León": [
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Segura de Toro": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Serradilla": [
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Serrejón": [
+    {
+      "fecha": "2026-01-23",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Sierra de Fuentes": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Siruela": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Solana de Cabañas": [
+    {
+      "fecha": "2026-09-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Solana de los Barros": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Talarrubias": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Talavera la Real": [
+    {
+      "fecha": "2026-03-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Talaveruela de la Vera": [
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Talaván": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Talayuela": [
+    {
+      "fecha": "2026-04-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Tamurejo": [
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Tejeda de Tiétar": [
+    {
+      "fecha": "2026-09-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Tiétar": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Toril": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Tornavacas": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torno (el)": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torre de Don Miguel": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torre de Miguel Sesmero": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Torre de Santa María": [
+    {
+      "fecha": "2026-08-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torrecilla de los Ángeles": [
+    {
+      "fecha": "2026-04-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torrecillas de la Tiesa": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torrefresneda": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Torrejoncillo": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torrejón el Rubio": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torremayor": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Torremejía": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Torremenga": [
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torremocha": [
+    {
+      "fecha": "2026-05-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torreorgaz": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torrequemada": [
+    {
+      "fecha": "2026-03-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Torviscal (el)": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Trasierra": [
+    {
+      "fecha": "2026-06-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Trevejo": [
+    {
+      "fecha": "2026-05-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Trujillanos": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-06-01",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Trujillo": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Táliga": [
+    {
+      "fecha": "2026-04-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Usagre": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valdastillas": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdecaballeros": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valdecañas de Tajo": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdefuentes": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdehornillos": [
+    {
+      "fecha": "2026-06-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valdehúncar": [
+    {
+      "fecha": "2026-03-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-22",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdelacalzada": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valdelacasa de Tajo": [
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdemorales": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdencín": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdeobispo": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdesalor": [
+    {
+      "fecha": "2026-01-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdetorres": [
+    {
+      "fecha": "2026-01-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valdeíñigos": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valdivia": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valencia de Alcántara": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valencia de las Torres": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valencia del Mombuey": [
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valencia del Ventoso": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valle de Matamoros": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valle de Santa Ana": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valle de la Serena": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valrío": [
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-12-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valuengo": [
+    {
+      "fecha": "2026-06-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valverde de Burguillos": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valverde de Leganés": [
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valverde de Llerena": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valverde de Mérida": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Valverde de la Vera": [
+    {
+      "fecha": "2026-02-02",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Valverde del Fresno": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-02-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Vegas Altas": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Vegaviana": [
+    {
+      "fecha": "2026-05-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Viandar de la Vera": [
+    {
+      "fecha": "2026-01-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-10-05",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villa del Campo": [
+    {
+      "fecha": "2026-04-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villa del Rey": [
+    {
+      "fecha": "2026-02-03",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-13",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villafranca de los Barros": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villagarcía de la Torre": [
+    {
+      "fecha": "2026-05-18",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villagonzalo": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villalba de los Barros": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-21",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villamesías": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villamiel": [
+    {
+      "fecha": "2026-05-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-11-20",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villanueva de la Serena": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-07-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villanueva de la Sierra": [
+    {
+      "fecha": "2026-02-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-06-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villanueva de la Vera": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villanueva del Fresno": [
+    {
+      "fecha": "2026-08-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villar de Plasencia": [
+    {
+      "fecha": "2026-06-12",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villar de Rena": [
+    {
+      "fecha": "2026-05-08",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-05-09",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villar del Pedroso": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Villar del Rey": [
+    {
+      "fecha": "2026-02-17",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villarreal": [
+    {
+      "fecha": "2026-07-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villarta de los Montes": [
+    {
+      "fecha": "2026-01-19",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Villasbuenas de Gata": [
+    {
+      "fecha": "2026-07-27",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-07-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Vivares": [
+    {
+      "fecha": "2026-06-26",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-25",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Yelbes": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-04-30",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Zafra": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-10-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Zahínos": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Zalamea de la Serena": [
+    {
+      "fecha": "2026-05-04",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Zarza (la)": [
+    {
+      "fecha": "2026-05-15",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-11-11",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ],
+  "Zarza de Granadilla": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-31",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Zarza de Montánchez": [
+    {
+      "fecha": "2026-09-14",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-09-29",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Zarza la Mayor": [
+    {
+      "fecha": "2026-04-07",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-08-24",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Zorita": [
+    {
+      "fecha": "2026-02-16",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    },
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Cáceres"
+    }
+  ],
+  "Zurbarán": [
+    {
+      "fecha": "2026-04-06",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    },
+    {
+      "fecha": "2026-08-28",
+      "descripcion": "Fiesta local",
+      "provincia": "Badajoz"
+    }
+  ]
+}
