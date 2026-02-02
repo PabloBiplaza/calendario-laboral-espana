@@ -256,11 +256,37 @@ ccaa:
         2026: "https://opendata.aragon.es/ckan/dataset/f861c5f7-5424-4b3c-90bf-a6d2c2f5b0bd/resource/5ff8c1f8-fb7e-4343-abba-eb7dbd796dbc/download/festivos_aragon_2026_final_con_ine.csv"
     municipios_file: "config/aragon_municipios.json"
 
+  castilla_leon:
+    name: "Castilla y León"
+    municipios_count: 2248
+    provincias:
+      - "Ávila"
+      - "Burgos"
+      - "León"
+      - "Palencia"
+      - "Salamanca"
+      - "Segovia"
+      - "Soria"
+      - "Valladolid"
+      - "Zamora"
+    boletin: "BOCYL"
+    boletin_url: "https://bocyl.jcyl.es/"
+    formato: "csv"
+    formato_especifico: "opendata_jcyl_csv"
+    auto_discovery: true
+    discovery_method: "predictable_url"
+    opendata_url: "https://transparencia.jcyl.es/"
+    urls:
+      locales:
+        2026: "https://transparencia.jcyl.es/empresas/FIESTAS-LOCALES-INE-2026.csv"
+        2025: "https://transparencia.jcyl.es/empresas/FIESTAS-LOCALES-INE-2025.csv"
+    municipios_file: "config/castilla_leon_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 14
-  total_municipios: 4796  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694+565)
+  total_ccaa: 15
+  total_municipios: 7044  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694+565+2248)
   municipios_en_json: 989  # Asturias, Cantabria, La Rioja, Murcia y Navarra tienen JSONs completos
-  auto_discovery_percentage: 86  # 12 de 14 CCAA
-  ultima_actualizacion: "2026-02-01"
-  version: "1.0.4"
+  auto_discovery_percentage: 87  # 13 de 15 CCAA
+  ultima_actualizacion: "2026-02-02"
+  version: "1.0.5"
