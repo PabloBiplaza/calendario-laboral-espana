@@ -371,7 +371,7 @@ class BOEScraper(BaseScraper):
             'Canarias (1)': 'canarias',
             'Cantabria': 'cantabria',
             'Castilla y León': 'castilla_leon',
-            'Castilla-La Mancha': 'castilla_la_mancha',
+            'Castilla-La Mancha': 'castilla_mancha',
             'Cataluña (2)': 'cataluna',
             'Comunitat Valenciana': 'valencia',
             'Extremadura': 'extremadura',
