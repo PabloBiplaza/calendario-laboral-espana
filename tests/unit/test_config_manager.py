@@ -17,10 +17,10 @@ class TestCCAaRegistry:
         assert instance1 is instance2, "Debe ser la misma instancia (Singleton)"
 
     def test_list_ccaa(self):
-        """Verifica que lista las 15 CCAA correctamente"""
+        """Verifica que lista las 16 CCAA correctamente"""
         ccaa_list = registry.list_ccaa()
 
-        assert len(ccaa_list) == 15, "Debe haber 15 CCAA"
+        assert len(ccaa_list) == 16, "Debe haber 16 CCAA"
         assert 'canarias' in ccaa_list
         assert 'madrid' in ccaa_list
         assert 'andalucia' in ccaa_list
@@ -35,6 +35,7 @@ class TestCCAaRegistry:
         assert 'murcia' in ccaa_list
         assert 'navarra' in ccaa_list
         assert 'castilla_leon' in ccaa_list
+        assert 'castilla_mancha' in ccaa_list
 
     def test_get_url_canarias_2026(self):
         """Verifica que obtiene la URL de Canarias 2026 correctamente"""
@@ -156,8 +157,8 @@ class TestCCAaRegistry:
         """Verifica que lista solo CCAA con auto-discovery"""
         ccaa_with_discovery = registry.list_ccaa_with_discovery()
 
-        # Según el YAML, hay 13 CCAA con auto_discovery=true
-        assert len(ccaa_with_discovery) == 13
+        # Según el YAML, hay 14 CCAA con auto_discovery=true
+        assert len(ccaa_with_discovery) == 14
 
         # Verificar que Cataluña NO está (auto_discovery=false)
         assert 'cataluna' not in ccaa_with_discovery
@@ -176,15 +177,15 @@ class TestCCAaRegistry:
         """Verifica que obtiene el total de municipios"""
         total = registry.get_total_municipios()
 
-        assert total == 7044  # Incluyendo La Rioja (164), Murcia (45), Navarra (694), Aragón (565) y Castilla y León (2248)
+        assert total == 7963  # Incluyendo La Rioja (164), Murcia (45), Navarra (694), Aragón (565), Castilla y León (2248) y Castilla-La Mancha (919)
 
     def test_get_metadata(self):
         """Verifica que obtiene los metadatos globales"""
         metadata = registry.get_metadata()
 
         assert metadata is not None
-        assert metadata['total_ccaa'] == 15  # Incluyendo La Rioja, Murcia, Navarra, Aragón y Castilla y León
-        assert metadata['total_municipios'] >= 7044  # Incluyendo La Rioja, Murcia, Navarra, Aragón y Castilla y León
+        assert metadata['total_ccaa'] == 16  # Incluyendo La Rioja, Murcia, Navarra, Aragón, Castilla y León y Castilla-La Mancha
+        assert metadata['total_municipios'] >= 7963  # Incluyendo La Rioja, Murcia, Navarra, Aragón, Castilla y León y Castilla-La Mancha
         assert 'ultima_actualizacion' in metadata
         assert 'version' in metadata
 

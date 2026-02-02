@@ -282,11 +282,32 @@ ccaa:
         2025: "https://transparencia.jcyl.es/empresas/FIESTAS-LOCALES-INE-2025.csv"
     municipios_file: "config/castilla_leon_municipios.json"
 
+  castilla_mancha:
+    name: "Castilla-La Mancha"
+    municipios_count: 919
+    provincias:
+      - "Albacete"
+      - "Ciudad Real"
+      - "Cuenca"
+      - "Guadalajara"
+      - "Toledo"
+    boletin: "DOCM"
+    boletin_url: "https://docm.jccm.es/"
+    formato: "pdf"
+    formato_especifico: "docm_pdf_text"
+    auto_discovery: true
+    discovery_method: "docm_search"
+    opendata_url: "https://datosabiertos.castillalamancha.es/"
+    urls:
+      locales:
+        2026: "https://docm.jccm.es/portaldocm/descargarArchivo.do?ruta=2025/12/12/pdf/2025_9468.pdf&tipo=rutaDocm"
+    municipios_file: "config/castilla_mancha_municipios.json"
+
 # Metadatos globales
 metadata:
-  total_ccaa: 15
-  total_municipios: 7044  # Total teórico (88+181+746+542+67+950+313+251+78+102+164+45+694+565+2248)
+  total_ccaa: 16
+  total_municipios: 7963  # Total teórico (+919 Castilla-La Mancha)
   municipios_en_json: 989  # Asturias, Cantabria, La Rioja, Murcia y Navarra tienen JSONs completos
-  auto_discovery_percentage: 87  # 13 de 15 CCAA
+  auto_discovery_percentage: 88  # 14 de 16 CCAA
   ultima_actualizacion: "2026-02-02"
-  version: "1.0.5"
+  version: "1.0.6"
