@@ -1,8 +1,6 @@
-"""
-Scrapers para la Comunidad de Madrid
-Incluye festivos autonómicos y locales (179 municipios)
-"""
+"""Scrapers para la Comunidad de Madrid"""
 
 from .autonomicos import MadridAutonomicosScraper
+from .locales import MadridLocalesScraper
 
-__all__ = ['MadridAutonomicosScraper']
+__all__ = ['MadridAutonomicosScraper', 'MadridLocalesScraper']

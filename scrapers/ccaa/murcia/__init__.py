@@ -1,5 +1,5 @@
-"""
-Scraper para festivos locales de Murcia.
+"""Scrapers para la Región de Murcia"""
 
-Extrae festivos del BORM (Boletín Oficial de la Región de Murcia).
-"""
+from .locales import MurciaLocalesScraper
+
+__all__ = ['MurciaLocalesScraper']

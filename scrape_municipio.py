@@ -28,6 +28,10 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
     print("=" * 80)
     print()
 
+    # Factory para instanciar scrapers dinámicamente
+    from scrapers.core.scraper_factory import ScraperFactory
+    factory = ScraperFactory()
+
     # Normalizar el nombre del municipio para mejorar las búsquedas
     from utils.normalizer import normalize_municipio
     municipio_normalizado = normalize_municipio(municipio)
@@ -59,27 +63,19 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
     # 2. FESTIVOS AUTONÓMICOS
     print(f"📌 PASO 2/3: Extrayendo festivos AUTONÓMICOS de {ccaa.upper()}...")
     try:
-        if ccaa.lower() == 'madrid':
-            from scrapers.ccaa.madrid.autonomicos import MadridAutonomicosScraper
-            scraper_auto = MadridAutonomicosScraper(year=year)
-        elif ccaa.lower() == 'canarias':
-            from scrapers.ccaa.canarias.autonomicos import CanariasAutonomicosScraper
-            scraper_auto = CanariasAutonomicosScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'navarra':
-            from scrapers.ccaa.navarra.autonomicos import NavarraAutonomicosScraper
-            scraper_auto = NavarraAutonomicosScraper(year=year, municipio=municipio)
-        else:
-            print(f"   ❌ CCAA '{ccaa}' no soportada todavía")
-            scraper_auto = None
-        
+        scraper_auto = factory.create_autonomicos_scraper(ccaa.lower(), year=year, municipio=municipio)
+
         if scraper_auto:
             festivos_autonomicos = scraper_auto.scrape()
-            
+
             if festivos_autonomicos:
                 festivos_todos.extend(festivos_autonomicos)
                 print(f"   ✅ {len(festivos_autonomicos)} festivos autonómicos extraídos")
             else:
                 print(f"   ⚠️  No se encontraron festivos autonómicos")
+        else:
+            # Sin scraper dedicado: los autonómicos ya vienen de la tabla BOE (PASO 1)
+            print(f"   ℹ️  Festivos autonómicos incluidos desde tabla BOE")
     except Exception as e:
         print(f"   ❌ Error extrayendo festivos autonómicos: {e}")
         import traceback
@@ -88,61 +84,8 @@ def scrape_festivos_completos(municipio: str, ccaa: str, year: int) -> Dict:
     # 3. FESTIVOS LOCALES
     print(f"📌 PASO 3/3: Extrayendo festivos LOCALES de {municipio}...")
     try:
-        if ccaa.lower() == 'madrid':
-            from scrapers.ccaa.madrid.locales import MadridLocalesScraper
-            scraper_local = MadridLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'canarias':
-            from scrapers.ccaa.canarias.locales import CanariasLocalesScraper
-            scraper_local = CanariasLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'andalucia':
-            from scrapers.ccaa.andalucia.locales import AndaluciaLocalesScraper
-            scraper_local = AndaluciaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'valencia':
-            from scrapers.ccaa.valencia.locales import ValenciaLocalesScraper
-            scraper_local = ValenciaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'baleares':        
-            from scrapers.ccaa.baleares.locales import BalearesLocalesScraper
-            scraper_local = BalearesLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'cataluna':
-            from scrapers.ccaa.cataluna.locales import CatalunaLocalesScraper
-            scraper_local = CatalunaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'galicia':
-            from scrapers.ccaa.galicia.locales import GaliciaLocalesScraper
-            scraper_local = GaliciaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'pais_vasco':
-            from scrapers.ccaa.pais_vasco.locales import PaisVascoLocalesScraper
-            scraper_local = PaisVascoLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'asturias':
-            from scrapers.ccaa.asturias.locales import AsturiasLocalesScraper
-            scraper_local = AsturiasLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'cantabria':
-            from scrapers.ccaa.cantabria.locales import CantabriaLocalesScraper
-            scraper_local = CantabriaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'rioja':
-            from scrapers.ccaa.rioja.locales import RiojaLocalesScraper
-            scraper_local = RiojaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'murcia':
-            from scrapers.ccaa.murcia.locales import MurciaLocalesScraper
-            scraper_local = MurciaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'navarra':
-            from scrapers.ccaa.navarra.locales import NavarraLocalesScraper
-            scraper_local = NavarraLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'aragon':
-            from scrapers.ccaa.aragon.locales import AragonLocalesScraper
-            scraper_local = AragonLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'castilla_leon':
-            from scrapers.ccaa.castilla_leon.locales import CastillaLeonLocalesScraper
-            scraper_local = CastillaLeonLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'castilla_mancha':
-            from scrapers.ccaa.castilla_mancha.locales import CastillaLaManchaLocalesScraper
-            scraper_local = CastillaLaManchaLocalesScraper(year=year, municipio=municipio)
-        elif ccaa.lower() == 'extremadura':
-            from scrapers.ccaa.extremadura.locales import ExtremaduraLocalesScraper
-            scraper_local = ExtremaduraLocalesScraper(year=year, municipio=municipio)
-        else:
-            print(f"   ❌ CCAA '{ccaa}' no soportada todavía")
-            scraper_local = None
-        
+        scraper_local = factory.create_locales_scraper(ccaa.lower(), year=year, municipio=municipio)
+
         if scraper_local:
             festivos_locales = scraper_local.scrape()
 
@@ -287,7 +230,8 @@ def main():
         sys.exit(1)
     
     # Validar CCAA
-    ccaa_soportadas = ['madrid', 'canarias', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia', 'navarra', 'aragon', 'castilla_leon', 'castilla_mancha', 'extremadura']
+    from config.config_manager import CCAaRegistry
+    ccaa_soportadas = CCAaRegistry().list_ccaa()
     if ccaa.lower() not in ccaa_soportadas:
         print(f"❌ CCAA '{ccaa}' no soportada")
         print(f"   CCAA disponibles: {', '.join(ccaa_soportadas)}")

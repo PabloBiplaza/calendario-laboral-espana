@@ -77,8 +77,9 @@ def cargar_municipios(ccaa: str):
     return fallbacks.get(ccaa, [f'Municipio de {ccaa.title()}'])
 
 
-# Cargar municipios para CCAA disponibles
-CCAA_DISPONIBLES = ['canarias', 'madrid', 'andalucia', 'valencia', 'baleares', 'cataluna', 'galicia', 'pais_vasco', 'asturias', 'cantabria', 'rioja', 'murcia', 'navarra', 'aragon', 'castilla_leon', 'castilla_mancha', 'extremadura']  # ← ¡17 CCAA completas!
+# Cargar CCAA disponibles dinámicamente desde el registry
+from config.config_manager import CCAaRegistry
+CCAA_DISPONIBLES = CCAaRegistry().list_ccaa()
 
 MUNICIPIOS = {
     ccaa: cargar_municipios(ccaa)
