@@ -320,8 +320,8 @@ python3 -m pytest tests/ --cov=scrapers --cov=config --cov-report=term-missing
 
 ### Tests Actuales
 
-- 79 tests passing, 3 skipped
-- Cobertura: config (100%), parsers (100%), factory (100%)
+- 90 tests passing, 3 skipped
+- Cobertura: config (100%), parsers (100%), factory (100%), web (100%)
 - CI/CD: GitHub Actions
 
 ### Casos de Prueba Criticos
@@ -348,9 +348,28 @@ python3 scrape_municipio.py "Badajoz" extremadura 2026    # 14 festivos
 | Madrid | N/A | 1-2 seg |
 | **Unificado tipico** | **5-10 seg** | **3-5 seg** |
 
+## Frontend Web (Flask)
+
+La web profesional (`web/`) usa Flask desplegado en Railway:
+
+```
+web/
+├── app.py                     # Flask app (17 CCAA vía CCAaRegistry)
+├── utils/
+│   └── calendar_generator.py  # Generador HTML para PDF
+├── templates/
+│   ├── landing.html           # Selector CCAA + municipio
+│   └── calendario.html        # Vista festivos + descarga PDF/CSV/Excel
+├── static/images/
+└── temp_sessions/             # Sesiones temporales (JSON)
+```
+
+**URL:** [calendariolaboral.biplaza.es](https://calendariolaboral.biplaza.es)
+**Deploy:** Railway con `gunicorn web.app:app`
+**Build:** nixpacks.toml (cairo, pango, fontconfig para WeasyPrint)
+
 ## Proximos Pasos
 
 1. **Generalizar sustituciones**: Leer de publicaciones oficiales (actualmente hardcoded)
 2. **Optimizacion fuzzy matching**: O(1) con indices
 3. **API REST**: Endpoint `/festivos/{ccaa}/{municipio}/{year}`
-4. **Frontend web**: Interfaz para consultas

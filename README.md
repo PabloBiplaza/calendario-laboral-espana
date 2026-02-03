@@ -4,6 +4,7 @@
 
 Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE, boletines autonómicos) y genera calendarios visuales listos para imprimir o descargar.
 
+[![Web App](https://img.shields.io/badge/Web-calendariolaboral.biplaza.es-F1AB6C?style=for-the-badge)](https://calendariolaboral.biplaza.es)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendario-laboral-espana-yornkkgnnzizqn4omxfhr5.streamlit.app)
 
 ---
@@ -17,7 +18,8 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 ✅ **Cache-first** — datos pre-generados para funcionamiento sin dependencias externas
 ✅ **Parsing inteligente** de HTML, PDF, XML, CSV, YAML y JSON
 ✅ **Generación de PDF** para imprimir con branding personalizable
-✅ **Deploy en Streamlit Cloud** — acceso público y gratuito
+✅ **App web profesional** en [calendariolaboral.biplaza.es](https://calendariolaboral.biplaza.es) (Flask + Railway)
+✅ **ScraperFactory** con imports dinámicos — extensible sin tocar código central
 
 ---
 
@@ -50,22 +52,23 @@ Extrae festivos nacionales, autonómicos y locales desde fuentes oficiales (BOE,
 
 ## 🚀 Uso Rápido
 
-### Opción 1: App Web (Recomendado)
+### Opción 1: App Web BIPLAZA (Recomendado)
 
-Accede directamente a la aplicación desplegada:
-
-👉 **[calendario-laboral-espana.streamlit.app](https://calendario-laboral-espana-yornkkgnnzizqn4omxfhr5.streamlit.app)**
+👉 **[calendariolaboral.biplaza.es](https://calendariolaboral.biplaza.es)**
 
 1. Selecciona tu comunidad autónoma
 2. Selecciona tu municipio
-3. Elige el año
-4. Genera el calendario visual
-5. Descarga el PDF para imprimir
+3. Rellena los datos de tu empresa (nombre, dirección, horario)
+4. Descarga el PDF profesional listo para imprimir
 
-### Opción 2: Línea de Comandos
+### Opción 2: Streamlit (Exploración)
+
+👉 **[calendario-laboral-espana.streamlit.app](https://calendario-laboral-espana-yornkkgnnzizqn4omxfhr5.streamlit.app)**
+
+### Opción 3: Línea de Comandos
 ```bash
 # Clonar repositorio
-git clone https://github.com/tu-usuario/calendario-laboral-espana.git
+git clone https://github.com/PabloBiplaza/calendario-laboral-espana.git
 cd calendario-laboral-espana
 
 # Instalar dependencias
@@ -78,7 +81,10 @@ python scrape_municipio.py "BARCELONA" cataluna 2026
 python scrape_municipio.py "Valladolid" castilla_leon 2026
 python scrape_municipio.py "Mérida" extremadura 2026
 
-# Iniciar la app local
+# Iniciar la web Flask local
+PYTHONPATH=. python -m flask --app web.app run --port 5001
+
+# O la app Streamlit
 streamlit run app.py
 ```
 
@@ -88,9 +94,15 @@ streamlit run app.py
 
 ### Scrapers Modulares
 
-El proyecto utiliza scrapers especializados para cada fuente oficial:
+El proyecto es un monorepo con motor de scraping + frontend web:
 ```
-scrapers/
+calendario-laboral-espana/
+├── web/                           # Frontend Flask (Railway)
+│   ├── app.py                     # App Flask con 17 CCAA
+│   ├── utils/calendar_generator.py
+│   ├── templates/                 # landing.html, calendario.html
+│   └── static/images/
+├── scrapers/                      # Motor de scraping
 ├── core/
 │   ├── base_scraper.py          # Clase base abstracta
 │   └── boe_scraper.py           # Festivos nacionales + autonómicos (BOE)
@@ -253,9 +265,14 @@ Calendario generado: 14 festivos
 - [x] **Castilla-La Mancha** (919 municipios) — DOCM / PDF
 - [x] **Extremadura** (388 municipios) — DOE / PDF
 
+### Hitos Completados
+
+- [x] ScraperFactory con imports dinámicos (v2.0.0)
+- [x] Frontend web Flask con descarga PDF (v2.1.0)
+- [x] Deploy en Railway ([calendariolaboral.biplaza.es](https://calendariolaboral.biplaza.es))
+
 ### Features Planificadas
 
-- [ ] Refactoring: factory pattern para scrapers
 - [ ] Export a Google Calendar (ICS)
 - [ ] API REST pública
 - [ ] Comparador entre municipios
@@ -306,7 +323,8 @@ Las contribuciones son bienvenidas. Para añadir soporte a un nuevo año:
 ## 📋 Requisitos
 
 - Python 3.9+
-- Dependencias: `streamlit`, `requests`, `beautifulsoup4`, `pypdf`, `pyyaml`, `pdfplumber`
+- Dependencias principales: `flask`, `gunicorn`, `requests`, `beautifulsoup4`, `pypdf`, `pyyaml`, `pdfplumber`
+- Streamlit (opcional, para app de exploración): `streamlit`
 - Sistema: `curl` (para Cataluña, generalmente preinstalado en Linux/Mac)
 ```bash
 pip install -r requirements.txt
@@ -324,7 +342,7 @@ MIT License - Ver [LICENSE](LICENSE) para más detalles
 
 Desarrollado con ❤️ para facilitar la gestión de calendarios laborales en España.
 
-**¿Preguntas o sugerencias?** Abre un [issue](https://github.com/tu-usuario/calendario-laboral-espana/issues)
+**¿Preguntas o sugerencias?** Abre un [issue](https://github.com/PabloBiplaza/calendario-laboral-espana/issues)
 
 ---
 

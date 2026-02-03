@@ -9,8 +9,37 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ### Por Hacer
 - Generalización de lógica de sustituciones
 - Optimización de normalización (O(1) con fuzzy matching)
-- API REST
-- Frontend web
+- API REST pública
+- Export a Google Calendar (ICS)
+
+---
+
+## [2.1.0] - 2026-02-03
+
+### 🌐 Frontend Web Flask + Deploy en Railway
+
+**Añadido:**
+- `web/` — Frontend Flask completo migrado al monorepo
+  - `web/app.py` — App Flask con 17 CCAA dinámicas vía `CCAaRegistry`
+  - `web/utils/calendar_generator.py` — Generador de HTML para PDF
+  - `web/templates/landing.html` — Landing con selector de CCAA/municipio
+  - `web/templates/calendario.html` — Vista de festivos + formulario de descarga
+  - `web/static/images/` — Logo y assets de BIPLAZA
+- `Procfile` — `web: gunicorn web.app:app` para Railway
+- `nixpacks.toml` — Dependencias de sistema para WeasyPrint/Cairo
+- `tests/unit/test_web_app.py` — 11 tests del frontend web
+- Descarga en CSV y Excel desde la vista de calendario
+
+**Corregido:**
+- `fecha_texto` en formato ISO en 6 CCAA — los scrapers locales de Extremadura, Aragón, Castilla y León, Castilla-La Mancha, País Vasco y Asturias asignaban `fecha_texto: "2026-06-04"` (ISO) en vez de `"4 de junio"` (texto legible). Añadido helper `_iso_to_fecha_texto()` en cada scraper afectado.
+- Template `calendario.html` — split seguro de `fecha_texto` con fallback para evitar crash si el formato es inesperado.
+- Procfile — Cambiado de `gunicorn --chdir web app:app` a `gunicorn web.app:app` porque Railway railpack ignora `--chdir`.
+
+**Resultados:**
+- ✅ Deploy en Railway: [calendariolaboral.biplaza.es](https://calendariolaboral.biplaza.es)
+- ✅ 17/17 CCAA funcionando en la web sin errores
+- ✅ 90 tests passing, 3 skipped
+- ✅ Health check: `{"ccaa_count": 17, "status": "ok"}`
 
 ---
 
@@ -399,20 +428,20 @@ feat: implementar scrapers de Canarias
 
 ## Roadmap
 
-### v2.1.0 (Próxima versión)
+### v2.2.0 (Próxima versión)
 - [ ] Generalizar lógica de sustituciones
 - [ ] Optimización fuzzy matching (O(1) con índices)
 - [ ] Extraer CacheFirstMixin para reducir duplicación
 
 ### v3.0.0
-- [ ] API REST completa
-- [ ] Frontend web
+- [ ] API REST pública
 - [ ] Base de datos persistente
 
 ### Futuro
 - [x] ~~17 comunidades autónomas completas~~ (completado v1.1.0)
 - [x] ~~Tests unitarios con pytest~~ (completado v1.0.0-refactor)
 - [x] ~~CI/CD con GitHub Actions~~ (completado v1.0.0-refactor)
+- [x] ~~ScraperFactory~~ (completado v2.0.0)
+- [x] ~~Frontend web~~ (completado v2.1.0)
 - [ ] Histórico desde 2010
-- [ ] Exportación a iCal
-- [ ] Integración con Google Calendar
+- [ ] Exportación a iCal / Google Calendar

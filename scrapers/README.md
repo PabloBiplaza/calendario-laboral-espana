@@ -192,8 +192,8 @@ python3 -m pytest tests/ --cov=scrapers --cov=config --cov-report=term-missing
 
 ### Cobertura de Tests
 
-- 79 tests passing, 3 skipped
-- Cobertura: config (100%), parsers (100%), factory (100%)
+- 90 tests passing, 3 skipped
+- Cobertura: config (100%), parsers (100%), factory (100%), web (100%)
 - CI/CD: GitHub Actions
 
 ## Utilidades
@@ -221,5 +221,5 @@ python3 config/migrate_to_yaml.py --validate
 
 ---
 
-**Ultima actualizacion**: 2026-02-02
-**Version**: 2.0.0
+**Ultima actualizacion**: 2026-02-03
+**Version**: 2.1.0
