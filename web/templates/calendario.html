@@ -63,9 +63,10 @@
                         {% for festivo in data.festivos %}
                         <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-100 hover:border-[#F1AB6C]/30 hover:bg-[#F1AB6C]/5 transition-all">
                             <!-- Fecha -->
+                            {% set partes = festivo.fecha_texto.split(' de ') if festivo.fecha_texto else ['', ''] %}
                             <div class="flex-shrink-0 w-16 h-16 bg-[#F1AB6C]/10 rounded-lg flex flex-col items-center justify-center">
-                                <span class="text-xs font-bold text-[#F1AB6C] uppercase">{{ festivo.fecha_texto.split(' de ')[1][:3] }}</span>
-                                <span class="text-2xl font-black text-gray-900">{{ festivo.fecha_texto.split(' de ')[0] }}</span>
+                                <span class="text-xs font-bold text-[#F1AB6C] uppercase">{{ partes[1][:3] if partes|length > 1 else '' }}</span>
+                                <span class="text-2xl font-black text-gray-900">{{ partes[0] }}</span>
                             </div>
                             
                             <!-- Descripción -->

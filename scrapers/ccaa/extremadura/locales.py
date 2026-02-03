@@ -33,6 +33,19 @@ MESES = {
     'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
 }
 
+MESES_INV = {v: k for k, v in MESES.items()}
+
+
+def _iso_to_fecha_texto(fecha_iso: str) -> str:
+    """Convierte '2026-06-04' → '4 de junio'."""
+    try:
+        partes = fecha_iso.split('-')
+        mes = int(partes[1])
+        dia = int(partes[2])
+        return f"{dia} de {MESES_INV.get(mes, str(mes))}"
+    except (IndexError, ValueError):
+        return fecha_iso
+
 
 def _title_case_municipio(name: str) -> str:
     """Convierte MAYÚSCULAS → Title Case."""
@@ -143,7 +156,7 @@ class ExtremaduraLocalesScraper(BaseScraper):
                 for f in festivos_muni:
                     result.append({
                         'fecha': f['fecha'],
-                        'fecha_texto': f['fecha'],
+                        'fecha_texto': _iso_to_fecha_texto(f['fecha']),
                         'descripcion': f['descripcion'],
                         'tipo': 'local',
                         'ambito': 'local',
@@ -277,7 +290,7 @@ class ExtremaduraLocalesScraper(BaseScraper):
             if fecha1:
                 festivos.append({
                     'fecha': fecha1,
-                    'fecha_texto': fecha1,
+                    'fecha_texto': _iso_to_fecha_texto(fecha1),
                     'descripcion': 'Fiesta local',
                     'tipo': 'local',
                     'ambito': 'local',
@@ -288,7 +301,7 @@ class ExtremaduraLocalesScraper(BaseScraper):
             if fecha2:
                 festivos.append({
                     'fecha': fecha2,
-                    'fecha_texto': fecha2,
+                    'fecha_texto': _iso_to_fecha_texto(fecha2),
                     'descripcion': 'Fiesta local',
                     'tipo': 'local',
                     'ambito': 'local',
