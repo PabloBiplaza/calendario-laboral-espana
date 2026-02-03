@@ -53,3 +53,7 @@ _old_scrapers/
 # Cache
 *.cache
 .pytest_cache/*.bak
+
+# Web sessions
+web/temp_sessions/*.json
+!web/temp_sessions/.gitkeep
