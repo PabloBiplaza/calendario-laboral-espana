@@ -23,6 +23,7 @@ from flask import (
 )
 
 from web.utils.calendar_generator import CalendarGenerator
+from web.analytics import log_generation, log_download, get_stats
 from scrape_municipio import scrape_festivos_completos
 from config.config_manager import CCAaRegistry
 
@@ -33,6 +34,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get(
     'SECRET_KEY', 'dev-secret-key-super-importante-cambiar-en-produccion'
 )
+app.config['UMAMI_WEBSITE_ID'] = os.environ.get('UMAMI_WEBSITE_ID', '')
 
 # ---------------------------------------------------------------------------
 # CCAA dinámicas desde el registry (17 CCAA)
@@ -102,6 +104,12 @@ def generar():
             }, f, ensure_ascii=False, indent=2)
 
         print(f"  Calendario generado: {session_id}")
+
+        try:
+            log_generation(ccaa, municipio, year, session_id, request)
+        except Exception:
+            pass
+
         return redirect(url_for('calendario', session_id=session_id))
 
     except Exception as e:
@@ -154,6 +162,11 @@ def download_csv(session_id):
 
         municipio_safe = session_data['municipio'].lower().replace(' ', '_')
         filename = f"festivos_{municipio_safe}_{session_data['year']}.csv"
+
+        try:
+            log_download(session_id, 'csv')
+        except Exception:
+            pass
 
         return send_file(
             csv_path,
@@ -247,6 +260,11 @@ def download(session_id):
         municipio_safe = session_data['municipio'].lower().replace(' ', '_')
         filename = f"calendario_{municipio_safe}_{session_data['year']}.html"
 
+        try:
+            log_download(session_id, 'pdf', has_empresa=bool(empresa))
+        except Exception:
+            pass
+
         return send_file(
             html_path,
             as_attachment=True,
@@ -311,6 +329,18 @@ def api_municipios(ccaa):
             municipios = sorted(data['municipios'])
 
     return jsonify(municipios)
+
+
+@app.route('/admin/stats')
+def admin_stats():
+    """Dashboard de estadísticas (protegido por ADMIN_SECRET)."""
+    secret = request.args.get('key', '')
+    expected = os.environ.get('ADMIN_SECRET', '')
+
+    if not expected or secret != expected:
+        return "Unauthorized", 401
+
+    return jsonify(get_stats())
 
 
 if __name__ == '__main__':

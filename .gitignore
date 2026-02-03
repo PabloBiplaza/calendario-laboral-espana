@@ -57,3 +57,7 @@ _old_scrapers/
 # Web sessions
 web/temp_sessions/*.json
 !web/temp_sessions/.gitkeep
+
+# Analytics DB
+web/data/
+*.db

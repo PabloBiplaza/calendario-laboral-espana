@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if config.UMAMI_WEBSITE_ID %}<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ config.UMAMI_WEBSITE_ID }}"></script>{% endif %}
     <title>Calendario {{ data.year }} - {{ data.municipio }} - BIPLAZA</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
