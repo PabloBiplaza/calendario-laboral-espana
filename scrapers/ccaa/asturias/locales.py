@@ -7,6 +7,23 @@ import json
 import csv
 import io
 
+MESES_INV = {
+    1: 'enero', 2: 'febrero', 3: 'marzo', 4: 'abril',
+    5: 'mayo', 6: 'junio', 7: 'julio', 8: 'agosto',
+    9: 'septiembre', 10: 'octubre', 11: 'noviembre', 12: 'diciembre'
+}
+
+
+def _iso_to_fecha_texto(fecha_iso: str) -> str:
+    """Convierte '2026-06-04' → '4 de junio'."""
+    try:
+        partes = fecha_iso.split('-')
+        mes = int(partes[1])
+        dia = int(partes[2])
+        return f"{dia} de {MESES_INV.get(mes, str(mes))}"
+    except (IndexError, ValueError):
+        return fecha_iso
+
 
 class AsturiasLocalesScraper(BaseScraper):
     """Scraper para festivos locales de Asturias desde OpenData Asturias"""
@@ -193,7 +210,7 @@ class AsturiasLocalesScraper(BaseScraper):
 
             festivos.append({
                 'fecha': fecha,
-                'fecha_texto': item.get('fecha_texto', fecha),
+                'fecha_texto': item.get('fecha_texto', _iso_to_fecha_texto(fecha)),
                 'descripcion': descripcion,
                 'tipo': 'local',
                 'ambito': 'local',
@@ -238,7 +255,7 @@ class AsturiasLocalesScraper(BaseScraper):
 
                 festivos.append({
                     'fecha': fecha,
-                    'fecha_texto': fecha,
+                    'fecha_texto': _iso_to_fecha_texto(fecha),
                     'descripcion': descripcion,
                     'tipo': 'local',
                     'ambito': 'local',

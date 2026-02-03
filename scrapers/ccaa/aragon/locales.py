@@ -28,6 +28,23 @@ import os
 
 registry = CCAaRegistry()
 
+MESES_INV = {
+    1: 'enero', 2: 'febrero', 3: 'marzo', 4: 'abril',
+    5: 'mayo', 6: 'junio', 7: 'julio', 8: 'agosto',
+    9: 'septiembre', 10: 'octubre', 11: 'noviembre', 12: 'diciembre'
+}
+
+
+def _iso_to_fecha_texto(fecha_iso: str) -> str:
+    """Convierte '2026-06-04' → '4 de junio'."""
+    try:
+        partes = fecha_iso.split('-')
+        mes = int(partes[1])
+        dia = int(partes[2])
+        return f"{dia} de {MESES_INV.get(mes, str(mes))}"
+    except (IndexError, ValueError):
+        return fecha_iso
+
 
 class AragonLocalesScraper(BaseScraper):
     """
@@ -162,7 +179,7 @@ class AragonLocalesScraper(BaseScraper):
                 for f in festivos_muni:
                     result.append({
                         'fecha': f['fecha'],
-                        'fecha_texto': f['fecha'],
+                        'fecha_texto': _iso_to_fecha_texto(f['fecha']),
                         'descripcion': f['descripcion'],
                         'tipo': 'local',
                         'ambito': 'local',
@@ -342,7 +359,7 @@ class AragonLocalesScraper(BaseScraper):
 
                 festivos.append({
                     'fecha': fecha_iso,
-                    'fecha_texto': fecha_iso,
+                    'fecha_texto': _iso_to_fecha_texto(fecha_iso),
                     'descripcion': descripcion,
                     'tipo': 'local',
                     'ambito': 'local',
