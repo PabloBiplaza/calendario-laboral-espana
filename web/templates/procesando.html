@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if config.UMAMI_WEBSITE_ID %}<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ config.UMAMI_WEBSITE_ID }}"></script>{% endif %}
+    <title>Generando calendario… - BIPLAZA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9fafb;
+            color: #111827;
+            padding: 1.5rem;
+        }
+        .card {
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem;
+        }
+        .spinner {
+            width: 64px; height: 64px;
+            margin: 0 auto 1.5rem;
+            border: 5px solid #f3e6d6;
+            border-top-color: #F1AB6C;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        h1 { font-size: 1.4rem; font-weight: 700; margin: 0 0 0.5rem; }
+        .sub { color: #6b7280; font-size: 0.95rem; margin: 0 0 1.5rem; }
+        .msg {
+            font-size: 1rem; color: #374151; font-weight: 600;
+            min-height: 1.5rem; margin: 0 0 0.5rem;
+            transition: opacity 0.3s;
+        }
+        .hint { font-size: 0.8rem; color: #9ca3af; margin: 1.25rem 0 0; }
+        .error-box { display: none; }
+        .error-box h1 { color: #b91c1c; }
+        .btn {
+            display: inline-block;
+            margin-top: 1.25rem;
+            background: #F1AB6C; color: #fff;
+            font-weight: 700; text-decoration: none;
+            padding: 0.75rem 1.5rem; border-radius: 0.5rem;
+        }
+        .btn:hover { filter: brightness(1.08); }
+    </style>
+</head>
+<body>
+    <div class="card" id="loading-card">
+        <div class="spinner"></div>
+        <h1>Generando tu calendario…</h1>
+        <p class="sub">{{ municipio }} · {{ ccaa_nombre }} · {{ year }}</p>
+        <p class="msg" id="msg">Buscando festivos en los boletines oficiales.</p>
+        <p class="hint">La primera vez para un municipio puede tardar hasta un minuto,
+           ya que se consultan varios boletines oficiales. No cierres esta ventana.</p>
+    </div>
+
+    <div class="card error-box" id="error-card">
+        <h1>No se pudo generar el calendario</h1>
+        <p class="sub" id="error-msg">Ha ocurrido un error durante la búsqueda.</p>
+        <a class="btn" href="/">Volver a intentarlo</a>
+    </div>
+
+    <script>
+    (function () {
+        var sessionId = {{ session_id | tojson }};
+        var msgEl = document.getElementById('msg');
+        var loadingCard = document.getElementById('loading-card');
+        var errorCard = document.getElementById('error-card');
+        var errorMsg = document.getElementById('error-msg');
+
+        var mensajes = [
+            'Consultando el BOE (festivos nacionales).',
+            'Consultando el boletín autonómico.',
+            'Buscando los festivos locales del municipio.',
+            'Combinando y ordenando los festivos.',
+            'Casi listo, preparando tu calendario.'
+        ];
+        var i = 0;
+        setInterval(function () {
+            i = (i + 1) % mensajes.length;
+            msgEl.textContent = mensajes[i];
+        }, 4000);
+
+        function showError(text) {
+            loadingCard.style.display = 'none';
+            if (text) errorMsg.textContent = text;
+            errorCard.style.display = 'block';
+        }
+
+        var fails = 0;
+        function poll() {
+            fetch('/status/' + sessionId, { cache: 'no-store' })
+                .then(function (r) {
+                    if (r.status === 404) throw new Error('not_found');
+                    return r.json();
+                })
+                .then(function (data) {
+                    fails = 0;
+                    if (data.status === 'done') {
+                        window.location.href = '/calendario/' + sessionId;
+                    } else if (data.status === 'error') {
+                        showError(data.error || null);
+                    } else {
+                        setTimeout(poll, 2000);
+                    }
+                })
+                .catch(function () {
+                    // Reintentar unas cuantas veces ante fallos de red transitorios
+                    fails++;
+                    if (fails >= 5) {
+                        showError('No se pudo contactar con el servidor. Inténtalo de nuevo.');
+                    } else {
+                        setTimeout(poll, 2500);
+                    }
+                });
+        }
+        setTimeout(poll, 1500);
+    })();
+    </script>
+</body>
+</html>

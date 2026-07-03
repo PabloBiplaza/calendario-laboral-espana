@@ -10,6 +10,7 @@ import sys
 import uuid
 import json
 import tempfile
+import threading
 from pathlib import Path
 from datetime import datetime
 
@@ -81,54 +82,129 @@ def landing():
     return render_template('landing.html', ccaas=ccaas, years=years)
 
 
-@app.route('/generar', methods=['POST'])
-def generar():
-    """Procesa el formulario y genera el calendario"""
+def _write_session(session_file, session_id, municipio, ccaa, year,
+                   status, data=None, error=None):
+    """Escribe el fichero de sesión de forma atómica (evita lecturas parciales)."""
+    payload = {
+        'session_id': session_id,
+        'municipio': municipio,
+        'ccaa': ccaa,
+        'ccaa_nombre': CCAA_NOMBRES.get(ccaa, ccaa.title()),
+        'year': year,
+        'status': status,
+        'created_at': datetime.now().isoformat(),
+    }
+    if data is not None:
+        payload['data'] = data
+    if error is not None:
+        payload['error'] = error
+
+    tmp_file = session_file.with_suffix('.json.tmp')
+    with open(tmp_file, 'w', encoding='utf-8') as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    tmp_file.replace(session_file)
+
+
+def _run_generation(session_id, municipio, ccaa, year):
+    """Ejecuta el scraping en segundo plano y actualiza el estado de la sesión."""
+    session_file = SESSION_DIR / f"{session_id}.json"
     try:
-        municipio = request.form.get('municipio', '').strip()
-        ccaa = request.form.get('ccaa', '').strip()
-        year = int(request.form.get('year', datetime.now().year))
-
-        if not municipio or not ccaa:
-            return "Error: Faltan datos del formulario", 400
-
-        if ccaa not in CCAA_SOPORTADAS:
-            return f"Error: CCAA '{ccaa}' no soportada", 400
-
-        session_id = str(uuid.uuid4())
-
-        print(f"  Generando calendario: {municipio}, {ccaa}, {year}")
+        print(f"  [bg] Generando calendario: {municipio}, {ccaa}, {year}")
         data = scrape_festivos_completos(municipio, ccaa, year)
 
         if not data:
-            return "Error: No se pudieron obtener los festivos", 500
+            _write_session(session_file, session_id, municipio, ccaa, year,
+                           status='error', error='No se pudieron obtener los festivos')
+            return
 
-        session_file = SESSION_DIR / f"{session_id}.json"
-        with open(session_file, 'w', encoding='utf-8') as f:
-            json.dump({
-                'session_id': session_id,
-                'municipio': municipio,
-                'ccaa': ccaa,
-                'ccaa_nombre': CCAA_NOMBRES.get(ccaa, ccaa.title()),
-                'year': year,
-                'data': data,
-                'created_at': datetime.now().isoformat()
-            }, f, ensure_ascii=False, indent=2)
-
-        print(f"  Calendario generado: {session_id}")
-
-        try:
-            log_generation(ccaa, municipio, year, session_id, request)
-        except Exception:
-            pass
-
-        return redirect(url_for('calendario', session_id=session_id))
+        _write_session(session_file, session_id, municipio, ccaa, year,
+                       status='done', data=data)
+        print(f"  [bg] Calendario generado: {session_id}")
 
     except Exception as e:
-        print(f"  Error generando calendario: {e}")
+        print(f"  [bg] Error generando calendario: {e}")
         import traceback
         traceback.print_exc()
-        return f"Error: {str(e)}", 500
+        _write_session(session_file, session_id, municipio, ccaa, year,
+                       status='error', error=str(e))
+
+
+@app.route('/generar', methods=['POST'])
+def generar():
+    """Inicia la generación en segundo plano y redirige a la pantalla de espera."""
+    municipio = request.form.get('municipio', '').strip()
+    ccaa = request.form.get('ccaa', '').strip()
+    try:
+        year = int(request.form.get('year', datetime.now().year))
+    except (TypeError, ValueError):
+        year = datetime.now().year
+
+    if not municipio or not ccaa:
+        return "Error: Faltan datos del formulario", 400
+
+    if ccaa not in CCAA_SOPORTADAS:
+        return f"Error: CCAA '{ccaa}' no soportada", 400
+
+    session_id = str(uuid.uuid4())
+    session_file = SESSION_DIR / f"{session_id}.json"
+
+    # Estado inicial: procesando
+    _write_session(session_file, session_id, municipio, ccaa, year,
+                   status='processing')
+
+    # Registrar la generación (aquí sí hay contexto de request)
+    try:
+        log_generation(ccaa, municipio, year, session_id, request)
+    except Exception:
+        pass
+
+    # Lanzar el scraping en un hilo para que la petición responda al instante
+    # (evita timeouts del servidor/proxy en la primera generación de un municipio)
+    threading.Thread(
+        target=_run_generation,
+        args=(session_id, municipio, ccaa, year),
+        daemon=True,
+    ).start()
+
+    return redirect(url_for('procesando', session_id=session_id))
+
+
+@app.route('/procesando/<session_id>')
+def procesando(session_id):
+    """Pantalla de espera que consulta el estado hasta que el calendario esté listo."""
+    session_file = SESSION_DIR / f"{session_id}.json"
+
+    if not session_file.exists():
+        return "Error: Sesion no encontrada o expirada", 404
+
+    with open(session_file, 'r', encoding='utf-8') as f:
+        session_data = json.load(f)
+
+    if session_data.get('status') == 'done':
+        return redirect(url_for('calendario', session_id=session_id))
+
+    return render_template('procesando.html', **session_data)
+
+
+@app.route('/status/<session_id>')
+def status(session_id):
+    """Devuelve el estado de la generación en JSON (para el polling del cliente)."""
+    session_file = SESSION_DIR / f"{session_id}.json"
+
+    if not session_file.exists():
+        return jsonify({'status': 'not_found'}), 404
+
+    try:
+        with open(session_file, 'r', encoding='utf-8') as f:
+            session_data = json.load(f)
+    except (json.JSONDecodeError, ValueError):
+        # Fichero a medio escribir: tratar como "procesando"
+        return jsonify({'status': 'processing'})
+
+    return jsonify({
+        'status': session_data.get('status', 'processing'),
+        'error': session_data.get('error'),
+    })
 
 
 @app.route('/calendario/<session_id>')
@@ -141,6 +217,13 @@ def calendario(session_id):
 
     with open(session_file, 'r', encoding='utf-8') as f:
         session_data = json.load(f)
+
+    estado = session_data.get('status', 'done')
+    if estado == 'processing':
+        return redirect(url_for('procesando', session_id=session_id))
+    if estado == 'error':
+        mensaje = session_data.get('error', 'desconocido')
+        return f"Error generando el calendario: {mensaje}", 500
 
     return render_template('calendario.html', **session_data)
 
