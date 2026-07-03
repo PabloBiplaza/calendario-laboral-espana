@@ -107,7 +107,7 @@
                             Configura tu calendario
                         </h3>
                         
-                        <form action="/generar" method="POST" class="flex flex-col gap-6">
+                        <form id="calendar-form" action="/generar" method="POST" class="flex flex-col gap-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label class="flex flex-col gap-2">
                                     <span class="text-sm font-bold text-gray-700">Comunidad Autónoma</span>
@@ -201,6 +201,42 @@
             </div>
         </div>
     </footer>
+
+    <!-- Overlay de carga durante la generación -->
+    <div id="loading-overlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(17,24,39,0.85); backdrop-filter:blur(4px); align-items:center; justify-content:center;">
+        <div style="max-width:420px; width:90%; text-align:center; color:#fff; padding:2rem;">
+            <div style="width:64px; height:64px; margin:0 auto 1.5rem; border:5px solid rgba(255,255,255,0.25); border-top-color:#F1AB6C; border-radius:50%; animation:cle-spin 1s linear infinite;"></div>
+            <h3 style="font-size:1.25rem; font-weight:700; margin:0 0 0.75rem;">Generando tu calendario…</h3>
+            <p id="loading-message" style="font-size:0.95rem; line-height:1.5; color:#e5e7eb; margin:0;">Buscando festivos en los boletines oficiales.</p>
+            <p style="font-size:0.8rem; color:#9ca3af; margin:1rem 0 0;">La primera vez para un municipio puede tardar hasta un minuto. No cierres esta ventana.</p>
+        </div>
+    </div>
+    <style>
+        @keyframes cle-spin { to { transform:rotate(360deg); } }
+    </style>
+    <script>
+    (function () {
+        var form = document.getElementById('calendar-form');
+        if (!form) return;
+        var overlay = document.getElementById('loading-overlay');
+        var msgEl = document.getElementById('loading-message');
+        var mensajes = [
+            'Consultando el BOE (festivos nacionales).',
+            'Consultando el boletín autonómico.',
+            'Buscando los festivos locales del municipio.',
+            'Combinando y ordenando los festivos.',
+            'Casi listo, preparando tu calendario.'
+        ];
+        form.addEventListener('submit', function () {
+            overlay.style.display = 'flex';
+            var i = 0;
+            setInterval(function () {
+                i = (i + 1) % mensajes.length;
+                if (msgEl) msgEl.textContent = mensajes[i];
+            }, 4000);
+        });
+    })();
+    </script>
 
     <!-- Tom Select JS -->
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
