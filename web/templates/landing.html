@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if config.UMAMI_WEBSITE_ID %}<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ config.UMAMI_WEBSITE_ID }}"></script>{% endif %}
-    <title>BIPLAZA - Generador de Calendario Laboral 2026</title>
+    <title>BIPLAZA - Generador de Calendario Laboral {{ current_year }}</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -131,10 +131,15 @@
                             <div class="flex flex-col gap-2">
                                 <span class="text-sm font-bold text-gray-700">Año de vigencia</span>
                                 <div class="flex gap-3">
-                                    <button type="button" onclick="document.querySelector('[name=year]').value='2026'; this.parentElement.querySelectorAll('button').forEach(b => {b.classList.remove('bg-[#F1AB6C]', 'text-white', 'shadow-lg'); b.classList.add('bg-gray-100', 'text-gray-600');}); this.classList.remove('bg-gray-100', 'text-gray-600'); this.classList.add('bg-[#F1AB6C]', 'text-white', 'shadow-lg');" class="flex-1 h-14 rounded-lg bg-[#F1AB6C] text-white font-bold text-base shadow-lg transition-all">2026</button>
-                                    <button type="button" onclick="document.querySelector('[name=year]').value='2025'; this.parentElement.querySelectorAll('button').forEach(b => {b.classList.remove('bg-[#F1AB6C]', 'text-white', 'shadow-lg'); b.classList.add('bg-gray-100', 'text-gray-600');}); this.classList.remove('bg-gray-100', 'text-gray-600'); this.classList.add('bg-[#F1AB6C]', 'text-white', 'shadow-lg');" class="flex-1 h-14 rounded-lg bg-gray-100 text-gray-600 font-medium text-base hover:bg-gray-200 transition-all">2025</button>
+                                    {% for y in years %}
+                                    {% if y == current_year %}
+                                    <button type="button" onclick="document.querySelector('[name=year]').value='{{ y }}'; this.parentElement.querySelectorAll('button').forEach(b => {b.classList.remove('bg-[#F1AB6C]', 'text-white', 'shadow-lg'); b.classList.add('bg-gray-100', 'text-gray-600');}); this.classList.remove('bg-gray-100', 'text-gray-600'); this.classList.add('bg-[#F1AB6C]', 'text-white', 'shadow-lg');" class="flex-1 h-14 rounded-lg bg-[#F1AB6C] text-white font-bold text-base shadow-lg transition-all">{{ y }}</button>
+                                    {% else %}
+                                    <button type="button" onclick="document.querySelector('[name=year]').value='{{ y }}'; this.parentElement.querySelectorAll('button').forEach(b => {b.classList.remove('bg-[#F1AB6C]', 'text-white', 'shadow-lg'); b.classList.add('bg-gray-100', 'text-gray-600');}); this.classList.remove('bg-gray-100', 'text-gray-600'); this.classList.add('bg-[#F1AB6C]', 'text-white', 'shadow-lg');" class="flex-1 h-14 rounded-lg bg-gray-100 text-gray-600 font-medium text-base hover:bg-gray-200 transition-all">{{ y }}</button>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
-                                <input type="hidden" name="year" value="2026">
+                                <input type="hidden" name="year" value="{{ current_year }}">
                             </div>
 
                             <button type="submit" class="w-full flex items-center justify-center gap-3 rounded-lg h-16 bg-[#F1AB6C] text-white text-lg font-bold shadow-xl hover:brightness-110 hover:-translate-y-1 transition-all">
@@ -189,7 +194,7 @@
     <footer class="bg-gray-900 text-gray-400 px-10 py-8">
         <div class="max-w-[1200px] mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm">© 2026 - BIPLAZA - Marrero Asesores, S.L. - Todos los derechos reservados</p>
+                <p class="text-sm">© {{ current_year }} - BIPLAZA - Marrero Asesores, S.L. - Todos los derechos reservados</p>
                 <p class="text-xs">
                     Foto por <a href="https://unsplash.com/es/@hudsoncrafted" target="_blank" class="hover:text-[#F1AB6C]">Debby Hudson</a> en <a href="https://unsplash.com/es/fotos/flores-rosas-sobre-papel-blanco-n0-kZDs2EI4" target="_blank" class="hover:text-[#F1AB6C]">Unsplash</a>                    
                 </p>

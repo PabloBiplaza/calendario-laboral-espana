@@ -54,6 +54,15 @@ SESSION_DIR = Path(__file__).parent / 'temp_sessions'
 SESSION_DIR.mkdir(exist_ok=True)
 
 
+# ---------------------------------------------------------------------------
+# Contexto global de plantillas
+# ---------------------------------------------------------------------------
+@app.context_processor
+def inject_current_year():
+    """Expone el año en curso a todas las plantillas (título, footer, etc.)."""
+    return {'current_year': datetime.now().year}
+
+
 # ===================================================================
 # RUTAS
 # ===================================================================
@@ -66,7 +75,10 @@ def landing():
         for ccaa in CCAA_SOPORTADAS
     ]
     ccaas.sort(key=lambda x: x['nombre'])
-    return render_template('landing.html', ccaas=ccaas)
+    current_year = datetime.now().year
+    # Años seleccionables: posterior, en curso (por defecto) y anterior
+    years = [current_year + 1, current_year, current_year - 1]
+    return render_template('landing.html', ccaas=ccaas, years=years)
 
 
 @app.route('/generar', methods=['POST'])
@@ -75,7 +87,7 @@ def generar():
     try:
         municipio = request.form.get('municipio', '').strip()
         ccaa = request.form.get('ccaa', '').strip()
-        year = int(request.form.get('year', 2026))
+        year = int(request.form.get('year', datetime.now().year))
 
         if not municipio or not ccaa:
             return "Error: Faltan datos del formulario", 400
