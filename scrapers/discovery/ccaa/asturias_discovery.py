@@ -36,9 +36,13 @@ def auto_discover_asturias(year: int) -> Optional[str]:
         print(f"   {url_predecible}")
 
         try:
-            r = requests.head(url_predecible, timeout=10, verify=False)  # verify=False por problemas SSL
+            # GET (no HEAD): la URL es la misma todos los años, hay que comprobar
+            # que el fichero ya trae fechas del año pedido (formato dd/mm/aaaa)
+            r = requests.get(url_predecible, timeout=30, verify=False)  # verify=False por problemas SSL
 
-            if r.status_code == 200:
+            if r.status_code == 200 and f"/{year}".encode() not in r.content:
+                print(f"   ❌ El fichero aún no contiene festivos de {year}\n")
+            elif r.status_code == 200:
                 print(f"   ✅ URL válida\n")
                 print("=" * 80)
                 print(f"✅ URL ENCONTRADA (OpenData {formato})")

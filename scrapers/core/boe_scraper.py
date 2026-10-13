@@ -362,21 +362,25 @@ class BOEScraper(BaseScraper):
             ccaa_nombre = th.get_text(strip=True)
             headers.append(ccaa_nombre)
         
-        # Mapeo nombre BOE → código interno
+        # Mapeo nombre BOE → código interno.
+        # Las cabeceras cambian de un año a otro ("Canarias (1)" → "Canarias(1)",
+        # "Com. Madrid" → "Com. de Madrid"), así que se quitan las llamadas a
+        # nota "(n)" antes de buscar en el mapa.
         CCAA_MAP = {
             'Andalucía': 'andalucia',
             'Aragón': 'aragon',
             'Asturias': 'asturias',
             'Illes Balears': 'baleares',
-            'Canarias (1)': 'canarias',
+            'Canarias': 'canarias',
             'Cantabria': 'cantabria',
             'Castilla y León': 'castilla_leon',
             'Castilla-La Mancha': 'castilla_mancha',
-            'Cataluña (2)': 'cataluna',
+            'Cataluña': 'cataluna',
             'Comunitat Valenciana': 'valencia',
             'Extremadura': 'extremadura',
             'Galicia': 'galicia',
-            'Com. Madrid': 'madrid',  # ← CORREGIDO
+            'Com. Madrid': 'madrid',
+            'Com. de Madrid': 'madrid',
             'Región Murcia': 'murcia',  # ← CORREGIDO
             'C. Foral Navarra': 'navarra',  # ← CORREGIDO
             'País Vasco': 'pais_vasco',
@@ -385,7 +389,12 @@ class BOEScraper(BaseScraper):
             'Ciudad de Melilla': 'melilla'  # ← CORREGIDO
         }
         
-        headers_normalized = [CCAA_MAP.get(h, h.lower()) for h in headers]
+        headers_limpios = [re.sub(r'\s*\(\d+\)\s*$', '', h.replace('\xa0', ' ')).strip() for h in headers]
+        headers_normalized = [CCAA_MAP.get(h, h.lower()) for h in headers_limpios]
+
+        no_mapeadas = [h for h in headers_limpios if h not in CCAA_MAP]
+        if no_mapeadas:
+            print(f"   ⚠️  Cabeceras de CCAA no reconocidas en el BOE: {no_mapeadas}")
         
         print(f"   📊 Tabla con {len(headers)} CCAA detectadas")
         
