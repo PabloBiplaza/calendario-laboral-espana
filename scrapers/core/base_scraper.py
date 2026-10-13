@@ -326,12 +326,33 @@ class BaseScraper(ABC):
         
         return festivos
     
+    def _get_con_reintentos(self, url: str, intentos: int = 3, timeout: int = 45):
+        """
+        GET con reintentos ante timeouts y errores de conexión o 5xx: algunos
+        boletines (p. ej. el BOC de Canarias) fallan de forma intermitente y,
+        sin reintentar, el calendario sale incompleto sin avisar.
+        """
+        import time
+
+        for intento in range(1, intentos + 1):
+            try:
+                response = requests.get(url, timeout=timeout)
+                if response.status_code < 500:
+                    response.raise_for_status()
+                    return response
+                error = requests.HTTPError(f"{response.status_code} en {url}")
+            except (requests.Timeout, requests.ConnectionError) as e:
+                error = e
+            if intento < intentos:
+                print(f"   ⚠️  Intento {intento}/{intentos} fallido ({error}); reintentando...")
+                time.sleep(2 * intento)
+        raise error
+
     def fetch_content(self, url: str) -> str:
         """Descarga el contenido desde una URL (soporta PDFs)"""
         try:
             print(f"📥 Descargando: {url}")
-            response = requests.get(url, timeout=30)
-            response.raise_for_status()
+            response = self._get_con_reintentos(url)
             
             # Verificar si es un PDF
             content_type = response.headers.get('Content-Type', '').lower()
@@ -354,7 +375,13 @@ class BaseScraper(ABC):
                 content = '\n'.join(text_content)
                 print(f"✅ PDF extraído ({len(content)} caracteres)")
             else:
-                # Contenido HTML/texto normal
+                # Contenido HTML/texto normal. Si la cabecera no trae charset,
+                # requests asume ISO-8859-1 aunque la página declare UTF-8 en su
+                # <meta> (pasa con el BOC de Canarias) y salen textos como "SeÃ±ora".
+                if 'charset' not in content_type:
+                    meta = re.search(rb'<meta[^>]+charset=["\']?([\w-]+)', response.content[:4096], re.I)
+                    if meta:
+                        response.encoding = meta.group(1).decode('ascii')
                 content = response.text
                 print(f"✅ Descarga completada ({len(content)} caracteres)")
             
