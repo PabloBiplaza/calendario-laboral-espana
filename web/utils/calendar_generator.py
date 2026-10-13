@@ -3,6 +3,7 @@ Generador de calendarios HTML con festivos destacados
 """
 
 from datetime import datetime, timedelta
+from html import escape
 from typing import List, Dict
 import calendar
 
@@ -232,6 +233,13 @@ class CalendarGenerator:
             box-shadow: inset 0 0 0 1px white;
         }
         
+        /* Días propios de empresa (no son fiestas laborales oficiales) */
+        .day.festivo.empresa {
+            background: #6B8CAE !important;
+            border: none;
+            box-shadow: none;
+        }
+        
         .day.festivo:hover {
             opacity: 0.9;
         }
@@ -269,6 +277,15 @@ class CalendarGenerator:
         
         .festivo-item-list.local {
             color: #F1AB6C;
+            font-weight: bold;
+        }
+        
+        .festivos-list h3.empresa-titulo {
+            margin-top: 10px;
+        }
+        
+        .festivo-item-list.empresa {
+            color: #6B8CAE;
             font-weight: bold;
         }
         
@@ -440,10 +457,12 @@ class CalendarGenerator:
                     if fecha in self.festivos_set:
                         clases.append('festivo')
                         festivo = self.festivos_dict[fecha]
-                        descripcion = festivo.get('descripcion', 'Festivo')
+                        descripcion = escape(festivo.get('descripcion', 'Festivo'))
                         
                         # Añadir clase 'local' si es festivo local
-                        if festivo.get('ambito') == 'municipal' or festivo.get('tipo') == 'local':
+                        if festivo.get('tipo') == 'empresa':
+                            clases.append('empresa')
+                        elif festivo.get('ambito') == 'municipal' or festivo.get('tipo') == 'local':
                             clases.append('local')
                         
                         html += f'                <div class="{" ".join(clases)}" data-festivo="{descripcion}">{day}</div>\n'
@@ -461,19 +480,38 @@ class CalendarGenerator:
         festivos_ordenados = sorted(self.festivos, key=lambda x: x['fecha'])
         
         festivos_list_html = ""
+        empresa_list_html = ""
+        num_empresa = 0
         for fest in festivos_ordenados:
             fecha_obj = datetime.strptime(fest['fecha'], '%Y-%m-%d')
             dia = fecha_obj.day
             mes = self._get_month_name(fecha_obj.month)
             descripcion = fest.get('descripcion', '').replace('Ãrsula', 'Úrsula').replace('Ã', 'í')
+            if fest.get('etiqueta'):
+                descripcion = f"{descripcion} ({fest['etiqueta']})"
+            descripcion = escape(descripcion)
+            
+            # Días propios de empresa: en su propia sección, no son fiestas laborales
+            if fest.get('tipo') == 'empresa':
+                num_empresa += 1
+                empresa_list_html += f'<div class="festivo-item-list empresa">{dia} de {mes}: {descripcion}</div>\n'
+                continue
             
             # Marcar locales con clase especial
             clase_extra = ' local' if fest.get('ambito') == 'municipal' or fest.get('tipo') == 'local' else ''
             
             festivos_list_html += f'<div class="festivo-item-list{clase_extra}">{dia} de {mes}: {descripcion}</div>\n'
         
+        if empresa_list_html:
+            festivos_list_html += (
+                '<h3 class="empresa-titulo">DÍAS NO LABORABLES DE EMPRESA</h3>\n'
+                + empresa_list_html
+            )
+        num_laborales = len(self.festivos) - num_empresa
+        meta_empresa = f' | Días de empresa: {num_empresa}' if num_empresa else ''
+        
         # === INFORMACIÓN EMPRESA ===
-        empresa_html = f'<div class="empresa-nombre-footer">{self.empresa}</div>' if self.empresa else ''
+        empresa_html = f'<div class="empresa-nombre-footer">{escape(self.empresa)}</div>' if self.empresa else ''
         
         # Datos opcionales
         datos_html = ""
@@ -545,7 +583,7 @@ class CalendarGenerator:
         
         <div class="footer-meta">
             <p>Municipio: {self.municipio.upper()}, {self.ccaa.upper()} | 
-            Total festivos: {len(self.festivos)} | 
+            Total festivos: {num_laborales}{meta_empresa} | 
             Generado el {datetime.now().strftime('%d/%m/%Y')}</p>
         </div>
     </div>

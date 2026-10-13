@@ -45,23 +45,88 @@
             </p>
             <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-bold">
                 <span class="material-symbols-outlined text-lg">check_circle</span>
-                {{ data.total_festivos }} festivos laborales
+                {{ conteo.laborales }} festivos laborales{% if conteo.empresa %} + {{ conteo.empresa }} {{ 'día' if conteo.empresa == 1 else 'días' }} de empresa{% endif %}
             </div>
         </div>
+
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+        {% if mensajes %}
+        <div class="max-w-3xl mx-auto mb-8 space-y-2">
+            {% for categoria, mensaje in mensajes %}
+            <div class="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold {{ 'bg-red-50 text-red-700' if categoria == 'error' else 'bg-green-50 text-green-700' }}">
+                <span class="material-symbols-outlined text-lg">{{ 'error' if categoria == 'error' else 'check_circle' }}</span>
+                {{ mensaje }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
 
         <!-- Grid: Festivos + Personalización -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <!-- Columna izquierda: Lista de festivos (2/3) -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-2 space-y-8">
+                {% if faltan_locales %}
+                <div class="flex gap-3 p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900">
+                    <span class="material-symbols-outlined text-amber-600">info</span>
+                    <div class="text-sm">
+                        <p class="font-bold mb-1">No hemos encontrado los festivos locales de {{ data.municipio }} para {{ data.year }}</p>
+                        <p>Puede que aún no se hayan publicado en el boletín oficial. Si ya los conoces (por ejemplo, porque los ha aprobado el ayuntamiento), <a href="#anadir-festivo" onclick="document.getElementById('anadir-festivo').open = true" class="font-bold underline">añádelos manualmente</a>.</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Añadir festivo manual -->
+                <details id="anadir-festivo" class="bg-white rounded-2xl shadow-lg p-6 scroll-mt-28" {% if get_flashed_messages(category_filter=['error']) %}open{% endif %}>
+                    <summary class="flex items-center gap-2 font-bold text-lg cursor-pointer list-none">
+                        <span class="material-symbols-outlined text-[#F1AB6C]">add_circle</span>
+                        Añadir festivo
+                        <span class="text-sm font-normal text-gray-500 ml-1">(propios de la empresa o pendientes de publicar)</span>
+                    </summary>
+                    <form id="form-festivo" action="{{ url_for('anadir_festivo', session_id=session_id) }}" method="POST" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="block">
+                            <span class="text-sm font-bold text-gray-700 mb-2 block">Fecha *</span>
+                            <input type="date" name="fecha" required min="{{ data.year }}-01-01" max="{{ data.year }}-12-31" class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#F1AB6C]/20 focus:border-[#F1AB6C]">
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-bold text-gray-700 mb-2 block">Tipo *</span>
+                            <select name="tipo" id="tipo-festivo" required class="form-select w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#F1AB6C]/20 focus:border-[#F1AB6C]">
+                                <option value="empresa" selected>{{ tipos_festivo.empresa }}</option>
+                                <option value="local">{{ tipos_festivo.local }}</option>
+                                <option value="autonomico">{{ tipos_festivo.autonomico }}</option>
+                                <option value="nacional">{{ tipos_festivo.nacional }}</option>
+                            </select>
+                        </label>
+                        <label class="block sm:col-span-2">
+                            <span class="text-sm font-bold text-gray-700 mb-2 block">Descripción *</span>
+                            <input type="text" name="descripcion" required maxlength="80" placeholder="Ej: San Isidro, Aniversario de la empresa" class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#F1AB6C]/20 focus:border-[#F1AB6C]">
+                        </label>
+                        <label class="block sm:col-span-2" id="grupo-etiqueta">
+                            <span class="text-sm font-bold text-gray-700 mb-2 block">Etiqueta <span class="font-normal text-gray-500">(opcional)</span></span>
+                            <input type="text" name="etiqueta" maxlength="40" placeholder="Ej: Convenio, Cierre de verano, Puente" class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#F1AB6C]/20 focus:border-[#F1AB6C]">
+                        </label>
+                        <p class="sm:col-span-2 text-xs text-gray-500">
+                            Los días propios de empresa aparecen en el PDF en otro color y en una sección aparte; no cuentan como fiestas laborales oficiales.
+                            Si la fecha ya es festivo, el que añadas lo sustituirá.
+                        </p>
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="inline-flex items-center gap-2 h-11 px-5 bg-[#F1AB6C] text-white font-bold rounded-lg shadow hover:brightness-110 transition-all">
+                                <span class="material-symbols-outlined">add</span>
+                                Añadir
+                            </button>
+                        </div>
+                    </form>
+                </details>
+
                 <div class="bg-white rounded-2xl shadow-lg p-8">
                     <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#F1AB6C]">event</span>
-                        Festivos oficiales
+                        Festivos
                     </h2>
                     
                     <div class="space-y-3">
-                        {% for festivo in data.festivos %}
+                        {% for festivo in festivos %}
                         <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-100 hover:border-[#F1AB6C]/30 hover:bg-[#F1AB6C]/5 transition-all">
                             <!-- Fecha -->
                             {% set partes = festivo.fecha_texto.split(' de ') if festivo.fecha_texto else ['', ''] %}
@@ -80,9 +145,28 @@
                                     <span class="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full font-bold">Autonómico</span>
                                     {% elif festivo.tipo == 'local' %}
                                     <span class="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-bold">Local</span>
+                                    {% elif festivo.tipo == 'empresa' %}
+                                    <span class="text-xs px-2 py-1 bg-slate-200 text-slate-700 rounded-full font-bold">Empresa</span>
+                                    {% endif %}
+                                    {% if festivo.etiqueta %}
+                                    <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full font-bold">{{ festivo.etiqueta }}</span>
+                                    {% endif %}
+                                    {% if festivo.origen == 'manual' %}
+                                    <span class="text-xs px-2 py-1 border border-gray-300 text-gray-500 rounded-full">Añadido manualmente</span>
                                     {% endif %}
                                 </div>
+                                {% if festivo.sustituye %}
+                                <p class="text-xs text-gray-500 mt-1">Sustituye a: {{ festivo.sustituye }}</p>
+                                {% endif %}
                             </div>
+
+                            {% if festivo.origen == 'manual' %}
+                            <form action="{{ url_for('eliminar_festivo', session_id=session_id, festivo_id=festivo.id) }}" method="POST" class="flex-shrink-0">
+                                <button type="submit" title="Quitar festivo" aria-label="Quitar festivo" class="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </form>
+                            {% endif %}
                         </div>
                         {% endfor %}
                     </div>
@@ -97,7 +181,7 @@
                         Descargar PDF
                     </h3>
                     
-                    <form action="/download/{{ session_id }}" method="POST" class="space-y-4">
+                    <form id="form-pdf" action="/download/{{ session_id }}" method="POST" class="space-y-4">
                         <!-- OBLIGATORIOS -->
                         <label class="block">
                             <span class="text-sm font-bold text-gray-700 mb-2 block">Nombre de la empresa *</span>
@@ -177,7 +261,7 @@
                     </div>
 
                     <script>
-                    document.querySelector('form').addEventListener('submit', function() {
+                    document.getElementById('form-pdf').addEventListener('submit', function() {
                         const btn = document.getElementById('btnDownload');
                         const btnText = document.getElementById('btnText');
                         const btnIcon = document.getElementById('btnIcon');
@@ -198,13 +282,28 @@
 
                     <div class="mt-6 pt-6 border-t border-gray-100">
                         <p class="text-xs text-gray-500 text-center">
-                            El PDF incluirá todos los festivos oficiales con formato profesional listo para imprimir.
+                            El PDF incluirá los festivos oficiales y los que hayas añadido, con formato listo para imprimir.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+    (function () {
+        const festivosPorFecha = {{ festivos | map(attribute='fecha') | list | tojson }};
+        const descripciones = {{ festivos | map(attribute='descripcion') | list | tojson }};
+        const form = document.getElementById('form-festivo');
+        form.addEventListener('submit', function (e) {
+            const fecha = form.elements['fecha'].value;
+            const i = festivosPorFecha.indexOf(fecha);
+            if (i !== -1 && !confirm('Ese día ya es festivo (' + descripciones[i] + '). ¿Quieres sustituirlo?')) {
+                e.preventDefault();
+            }
+        });
+    })();
+    </script>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 px-10 py-8 mt-20">

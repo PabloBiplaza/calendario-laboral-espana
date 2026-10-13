@@ -10,7 +10,9 @@ import sys
 import uuid
 import json
 import tempfile
+import fcntl
 import threading
+from contextlib import contextmanager
 from pathlib import Path
 from datetime import datetime
 
@@ -20,11 +22,15 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from flask import (
     Flask, render_template, request, jsonify,
-    redirect, url_for, send_file
+    redirect, url_for, send_file, flash, abort
 )
 
 from web.utils.calendar_generator import CalendarGenerator
 from web.analytics import log_generation, log_download, get_stats
+from web.festivos_manuales import (
+    TIPOS, FestivoInvalido, crear_festivo_manual, eliminar_festivo_manual,
+    combinar_festivos, contar_festivos, tiene_locales,
+)
 from scrape_municipio import scrape_festivos_completos
 from config.config_manager import CCAaRegistry
 
@@ -53,6 +59,47 @@ for _code in CCAA_SOPORTADAS:
 # ---------------------------------------------------------------------------
 SESSION_DIR = Path(__file__).parent / 'temp_sessions'
 SESSION_DIR.mkdir(exist_ok=True)
+
+@contextmanager
+def _session_edit_lock(session_file):
+    """
+    Serializa las ediciones de una sesión (leer-modificar-escribir) entre
+    hilos y entre los workers de gunicorn.
+    """
+    with open(session_file.with_suffix('.lock'), 'w') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
+
+
+def _session_file_or_404(session_id):
+    """Ruta del fichero de sesión; 404 si el id no es un UUID o no existe."""
+    try:
+        uuid.UUID(session_id)
+    except ValueError:
+        abort(404)
+    session_file = SESSION_DIR / f"{session_id}.json"
+    if not session_file.exists():
+        abort(404)
+    return session_file
+
+
+def _save_session_data(session_file, session_data):
+    """Guarda la sesión completa de forma atómica."""
+    tmp_file = session_file.with_suffix('.json.tmp')
+    with open(tmp_file, 'w', encoding='utf-8') as f:
+        json.dump(session_data, f, ensure_ascii=False, indent=2)
+    tmp_file.replace(session_file)
+
+
+def _festivos_sesion(session_data):
+    """Festivos oficiales + añadidos manualmente, ordenados por fecha."""
+    return combinar_festivos(
+        session_data['data']['festivos'],
+        session_data.get('festivos_manuales', []),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -225,7 +272,67 @@ def calendario(session_id):
         mensaje = session_data.get('error', 'desconocido')
         return f"Error generando el calendario: {mensaje}", 500
 
-    return render_template('calendario.html', **session_data)
+    festivos = _festivos_sesion(session_data)
+    return render_template(
+        'calendario.html',
+        **session_data,
+        festivos=festivos,
+        conteo=contar_festivos(festivos),
+        faltan_locales=not tiene_locales(festivos),
+        tipos_festivo=TIPOS,
+    )
+
+
+@app.route('/calendario/<session_id>/festivos', methods=['POST'])
+def anadir_festivo(session_id):
+    """Añade un festivo manual a la sesión."""
+    session_file = _session_file_or_404(session_id)
+
+    with _session_edit_lock(session_file):
+        with open(session_file, 'r', encoding='utf-8') as f:
+            session_data = json.load(f)
+        if session_data.get('status') != 'done':
+            abort(404)
+
+        manuales = session_data.get('festivos_manuales', [])
+        try:
+            festivo = crear_festivo_manual(
+                fecha=request.form.get('fecha', ''),
+                descripcion=request.form.get('descripcion', ''),
+                tipo=request.form.get('tipo', ''),
+                etiqueta=request.form.get('etiqueta', ''),
+                year=session_data['year'],
+                existentes=manuales,
+            )
+        except FestivoInvalido as e:
+            flash(str(e), 'error')
+            return redirect(url_for('calendario', session_id=session_id) + '#anadir-festivo')
+
+        session_data['festivos_manuales'] = manuales + [festivo]
+        _save_session_data(session_file, session_data)
+
+    flash(f"Añadido: {festivo['fecha_texto']} - {festivo['descripcion']}", 'ok')
+    return redirect(url_for('calendario', session_id=session_id))
+
+
+@app.route('/calendario/<session_id>/festivos/<festivo_id>/eliminar', methods=['POST'])
+def eliminar_festivo(session_id, festivo_id):
+    """Quita un festivo manual de la sesión (los oficiales no se pueden quitar)."""
+    session_file = _session_file_or_404(session_id)
+
+    with _session_edit_lock(session_file):
+        with open(session_file, 'r', encoding='utf-8') as f:
+            session_data = json.load(f)
+
+        restantes, encontrado = eliminar_festivo_manual(
+            session_data.get('festivos_manuales', []), festivo_id)
+        if encontrado:
+            session_data['festivos_manuales'] = restantes
+            _save_session_data(session_file, session_data)
+
+    if encontrado:
+        flash('Festivo eliminado.', 'ok')
+    return redirect(url_for('calendario', session_id=session_id))
 
 
 @app.route('/download-csv/<session_id>')
@@ -241,13 +348,16 @@ def download_csv(session_id):
         session_data = json.load(f)
 
     try:
-        festivos = session_data['data']['festivos']
+        festivos = _festivos_sesion(session_data)
         df = pd.DataFrame(festivos)
 
         columnas = ['fecha', 'fecha_texto', 'descripcion', 'tipo']
-        if 'ambito' in df.columns:
-            columnas.append('ambito')
+        for opcional in ('ambito', 'etiqueta', 'origen'):
+            if opcional in df.columns:
+                columnas.append(opcional)
         df = df[columnas]
+        if 'origen' in df.columns:
+            df['origen'] = df['origen'].fillna('oficial')
 
         with tempfile.NamedTemporaryFile(
             delete=False, suffix='.csv', mode='w', encoding='utf-8'
@@ -324,7 +434,7 @@ def download(session_id):
     try:
         generator = CalendarGenerator(
             year=session_data['year'],
-            festivos=session_data['data']['festivos'],
+            festivos=_festivos_sesion(session_data),
             municipio=session_data['municipio'],
             ccaa=session_data['ccaa_nombre'],
             empresa=empresa,
