@@ -161,8 +161,8 @@ def log_generation(ccaa: str, municipio: str, year: int,
 def log_download(session_id: str, format: str,
                  has_empresa: bool = False) -> None:
     """
-    Registra una descarga (PDF o CSV).
-    Llamar desde las rutas /download y /download-csv.
+    Registra una descarga (PDF, CSV o XLSX).
+    Llamar desde las rutas /download, /download-csv y /download-xlsx.
     """
     try:
         with _db_lock:

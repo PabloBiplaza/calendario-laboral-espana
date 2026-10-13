@@ -335,11 +335,25 @@ def eliminar_festivo(session_id, festivo_id):
     return redirect(url_for('calendario', session_id=session_id))
 
 
+def _festivos_dataframe(session_data):
+    """Festivos de la sesión (oficiales + manuales) como tabla para exportar."""
+    import pandas as pd
+
+    df = pd.DataFrame(_festivos_sesion(session_data))
+
+    columnas = ['fecha', 'fecha_texto', 'descripcion', 'tipo']
+    for opcional in ('ambito', 'etiqueta', 'origen'):
+        if opcional in df.columns:
+            columnas.append(opcional)
+    df = df[columnas]
+    if 'origen' in df.columns:
+        df['origen'] = df['origen'].fillna('oficial')
+    return df
+
+
 @app.route('/download-csv/<session_id>')
 def download_csv(session_id):
     """Descarga festivos en formato CSV"""
-    import pandas as pd
-
     session_file = SESSION_DIR / f"{session_id}.json"
     if not session_file.exists():
         return "Error: Sesion no encontrada", 404
@@ -348,16 +362,7 @@ def download_csv(session_id):
         session_data = json.load(f)
 
     try:
-        festivos = _festivos_sesion(session_data)
-        df = pd.DataFrame(festivos)
-
-        columnas = ['fecha', 'fecha_texto', 'descripcion', 'tipo']
-        for opcional in ('ambito', 'etiqueta', 'origen'):
-            if opcional in df.columns:
-                columnas.append(opcional)
-        df = df[columnas]
-        if 'origen' in df.columns:
-            df['origen'] = df['origen'].fillna('oficial')
+        df = _festivos_dataframe(session_data)
 
         with tempfile.NamedTemporaryFile(
             delete=False, suffix='.csv', mode='w', encoding='utf-8'
@@ -385,6 +390,55 @@ def download_csv(session_id):
         import traceback
         traceback.print_exc()
         return f"Error generando CSV: {str(e)}", 500
+
+
+@app.route('/download-xlsx/<session_id>')
+def download_xlsx(session_id):
+    """Descarga festivos en formato Excel"""
+    session_file = SESSION_DIR / f"{session_id}.json"
+    if not session_file.exists():
+        return "Error: Sesion no encontrada", 404
+
+    with open(session_file, 'r', encoding='utf-8') as f:
+        session_data = json.load(f)
+
+    import pandas as pd
+
+    try:
+        df = _festivos_dataframe(session_data)
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as tmp:
+            xlsx_path = tmp.name
+
+        nombre_hoja = f"Festivos {session_data['year']}"
+        with pd.ExcelWriter(xlsx_path, engine='openpyxl') as writer:
+            df.to_excel(writer, index=False, sheet_name=nombre_hoja)
+            hoja = writer.sheets[nombre_hoja]
+            hoja.freeze_panes = 'A2'
+            for i, columna in enumerate(df.columns, start=1):
+                ancho = max([len(str(columna))] + [len(str(v)) for v in df[columna]])
+                hoja.column_dimensions[hoja.cell(row=1, column=i).column_letter].width = min(ancho + 2, 60)
+
+        municipio_safe = session_data['municipio'].lower().replace(' ', '_')
+        filename = f"festivos_{municipio_safe}_{session_data['year']}.xlsx"
+
+        try:
+            log_download(session_id, 'xlsx')
+        except Exception:
+            pass
+
+        return send_file(
+            xlsx_path,
+            as_attachment=True,
+            download_name=filename,
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+
+    except Exception as e:
+        print(f"  Error generando Excel: {e}")
+        import traceback
+        traceback.print_exc()
+        return "No se pudo generar el Excel. Inténtalo de nuevo.", 500
 
 
 @app.route('/download/<session_id>', methods=['POST'])

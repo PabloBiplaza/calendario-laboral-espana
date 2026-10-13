@@ -180,6 +180,32 @@ def test_csv_incluye_manuales(sesion):
     assert '2027-08-16' in csv and 'Verano' in csv and 'manual' in csv
 
 
+def test_xlsx_incluye_oficiales_y_manuales(sesion):
+    import io
+    from openpyxl import load_workbook
+
+    client, sid, _ = sesion
+    client.post(f'/calendario/{sid}/festivos', data={
+        'fecha': '2027-08-16', 'descripcion': 'Cierre', 'tipo': 'empresa', 'etiqueta': 'Verano'})
+    r = client.get(f'/download-xlsx/{sid}')
+
+    assert r.status_code == 200
+    assert 'festivos_madrid_2027.xlsx' in r.headers['Content-Disposition']
+    filas = list(load_workbook(io.BytesIO(r.data))['Festivos 2027'].values)
+    cabecera = filas[0]
+    assert cabecera[:4] == ('fecha', 'fecha_texto', 'descripcion', 'tipo')
+    datos = {f[0]: dict(zip(cabecera, f)) for f in filas[1:]}
+    assert set(datos) == {'2027-01-01', '2027-03-19', '2027-08-16'}
+    assert datos['2027-01-01']['origen'] == 'oficial'
+    assert datos['2027-08-16']['etiqueta'] == 'Verano'
+    assert datos['2027-08-16']['origen'] == 'manual'
+
+
+def test_xlsx_sesion_inexistente(sesion):
+    client, _, _ = sesion
+    assert client.get(f'/download-xlsx/{uuid.uuid4()}').status_code == 404
+
+
 def test_sesion_invalida_404(sesion):
     client, _, _ = sesion
     assert client.post('/calendario/no-es-uuid/festivos', data={}).status_code == 404
