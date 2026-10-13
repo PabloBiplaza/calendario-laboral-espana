@@ -36,7 +36,11 @@ class MadridLocalesScraper(BaseScraper):
             # Cargar todos los municipios de Madrid
             with open('config/madrid_municipios.json', 'r', encoding='utf-8') as f:
                 municipios_data = json.load(f)
-            
+
+            # El JSON agrupa por provincia: {"MADRID": [...]}
+            if isinstance(municipios_data, dict):
+                municipios_data = [m for lista in municipios_data.values() for m in lista]
+
             # Buscar el mejor match
             mejor_match = find_municipio(municipio, municipios_data, threshold=80)
             
@@ -92,7 +96,7 @@ class MadridLocalesScraper(BaseScraper):
 
     def get_source_url(self) -> str:
         """Devuelve URL del BOCM (con sistema de cache y auto-discovery)"""
-        from scrapers.discovery.ccaa.madrid_discovery import auto_discover_madrid
+        from scrapers.discovery.ccaa.madrid_discovery import buscar_orden_locales
         
         year_str = str(self.year)
         
@@ -105,8 +109,7 @@ class MadridLocalesScraper(BaseScraper):
         # 2. Auto-discovery
         print(f"🔍 Auto-discovery para {self.year} (no está en cache)...")
         
-        urls = auto_discover_madrid(self.year)
-        url_locales = urls.get('locales')
+        url_locales = buscar_orden_locales(self.year)
         
         if url_locales:
             print(f"✅ URL encontrada por auto-discovery: {url_locales}")

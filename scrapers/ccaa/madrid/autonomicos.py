@@ -83,7 +83,17 @@ class MadridAutonomicosScraper(BaseScraper):
             print(f"📦 URL en cache para {self.year}: {url}")
             return url
         
-        # 3. Si no existe, dar instrucciones
+        # 3. Auto-discovery en el buscador del BOCM
+        from scrapers.discovery.ccaa.madrid_discovery import buscar_orden_autonomicos
+
+        print(f"🔍 Auto-discovery para {self.year} (no está en cache)...")
+        url = buscar_orden_autonomicos(self.year)
+        if url:
+            print(f"✅ URL encontrada por auto-discovery: {url}")
+            self._save_to_cache(self.year, url)
+            return url
+
+        # 4. Si todo falla, dar instrucciones
         raise ValueError(
             f"\n❌ No se encontró URL para {self.year}.\n\n"
             f"Para añadirla:\n"
@@ -138,6 +148,11 @@ class MadridAutonomicosScraper(BaseScraper):
                     'trasladodeldíadelaConstituciónespañola': 'Lunes siguiente al Día de la Constitución Española',
                     'trasladodeldíadelaconstituciónespañola': 'Lunes siguiente al Día de la Constitución Española',
                     'díadelainmaculadaconcepción': 'Inmaculada Concepción',
+                    'inmaculadaconcepción': 'Inmaculada Concepción',
+                    'sanjosé': 'San José',
+                    'trasladodelaasuncióndelavirgen': 'Lunes siguiente a la Asunción de la Virgen',
+                    'díadetodoslossantos': 'Todos los Santos',
+                    'díadelaconstituciónespañola': 'Día de la Constitución Española',
                     'natividaddelseñor': 'Natividad del Señor'
                 }
 
